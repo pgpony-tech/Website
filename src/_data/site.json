@@ -18,48 +18,80 @@
     { "name": "Muni Ballpark", "note": "Lighted · Bronco and Pony" },
     { "name": "Arnett Park", "note": "Softball and tee ball" }
   ],
-  "divisions": [
+  "baseballAgeCutoff": "April 30",
+  "softballAgeCutoff": "September 1",
+  "baseballDivisions": [
     {
       "name": "Shetland",
       "ages": "Ages 4–6",
-      "sport": "Baseball · Softball",
-      "description": "Tee ball and soft toss. Every player bats each inning and rotates fielding positions.",
-      "detail": ["One practice a week", "No scores or standings", "Parent coaches"]
+      "sport": "Baseball",
+      "description": "Tee ball and instructional play for coed players just starting out.",
+      "detail": ["Coed", "Typical grade: Preschool, T-K & Kindergarten"]
     },
     {
       "name": "Pinto",
       "ages": "Ages 7–8",
-      "sport": "Baseball · Softball",
-      "description": "Coach pitch through midseason, then player pitch. Six innings.",
-      "detail": ["Two practices a week", "46/60 field", "No stealing"]
+      "sport": "Baseball",
+      "description": "Coach pitch moving toward player pitch as the season goes on.",
+      "detail": ["Coed — predominantly boys", "Typical grade: 1st & 2nd"]
     },
     {
       "name": "Mustang",
       "ages": "Ages 9–10",
-      "sport": "Baseball · Softball",
-      "description": "Player pitch with stealing. Standings kept; all-star teams selected in June.",
-      "detail": ["Two practices a week", "46/60 field", "All-star eligible"]
+      "sport": "Baseball",
+      "description": "Player-pitch baseball with standings kept.",
+      "detail": ["Coed — predominantly boys", "Typical grade: 3rd & 4th"]
     },
     {
       "name": "Bronco",
       "ages": "Ages 11–12",
-      "sport": "Baseball · Softball",
-      "description": "Full rules on a 50/70 field. Leading off and pickoffs introduced.",
-      "detail": ["Two practices a week", "50/70 field", "All-star eligible"]
+      "sport": "Baseball",
+      "description": "Full rules on a bigger field.",
+      "detail": ["Coed — predominantly boys", "Typical grade: 5th & 6th"]
     },
     {
       "name": "Pony",
       "ages": "Ages 13–14",
-      "sport": "Baseball · Softball",
-      "description": "Full-size 60/90 field. Competitive schedule with neighbouring leagues.",
-      "detail": ["Interleague play", "60/90 field", "All-star eligible"]
+      "sport": "Baseball",
+      "description": "Our oldest baseball division, playing a full-size field.",
+      "detail": ["Coed — predominantly boys", "Typical grade: 7th & 8th"]
+    }
+  ],
+  "softballDivisions": [
+    {
+      "name": "6U",
+      "ages": "Ages 5–6",
+      "sport": "Softball",
+      "description": "The softball equivalent of tee ball — our newest division for the youngest players.",
+      "detail": ["Girls", "Typical grade: Kindergarten & 1st"]
     },
     {
-      "name": "Fillies",
-      "ages": "Ages 9–14",
+      "name": "Pre-Rookie",
+      "ages": "Ages 6–8",
       "sport": "Softball",
-      "description": "Fastpitch softball, grouped by age within the division.",
-      "detail": ["Two practices a week", "Fastpitch", "All-star eligible"]
+      "description": "Entry-level softball with coach support as players learn the game.",
+      "detail": ["Girls", "Typical grade: 1st, 2nd & 3rd"]
+    },
+    {
+      "name": "Rookie",
+      "ages": "Ages 9–10",
+      "sport": "Softball",
+      "description": "Kid-pitch softball, following USA Softball guidelines with Central Coast Softball supplements.",
+      "detail": ["Girls", "Typical grade: 4th & 5th"]
+    },
+    {
+      "name": "Minor",
+      "ages": "Ages 11–12",
+      "sport": "Softball",
+      "description": "Full softball rules on a smaller field.",
+      "detail": ["Girls", "Typical grade: 6th & 7th"]
+    },
+    {
+      "name": "Major",
+      "ages": "Ages 13–14",
+      "sport": "Softball",
+      "description": "Our oldest softball division, playing full rules.",
+      "detail": ["Girls", "Typical grade: 8th & 9th"]
     }
   ]
 }

@@ -25,7 +25,7 @@ permalink: /
     <div class="hero__content">
       <span class="hero__eyebrow">Pacific Grove · Est. {{ site.founded }}</span>
       <h1>Youth baseball<br>and softball</h1>
-      <p class="hero__lede">Ages 4–14. All skill levels welcome. Spring season runs March through June at George Washington Park, Muni Ballpark and Arnett Park.</p>
+      <p class="hero__lede">Ages 4–14. All skill levels welcome. Spring is our main season, with fall and summer programs keeping the diamond busy year-round.</p>
       <div class="hero__actions">
         {{ button(label="Register for spring", href=site.sportsConnectUrl, variant="accent", size="lg", external=true) }}
         {{ button(label="Find your division", href="/divisions/", variant="inverse", size="lg") }}
@@ -72,7 +72,7 @@ permalink: /
       description="Players are placed by league age on April 30. If you're between divisions, the board will help you choose."
     ) }}
     <div class="grid-3">
-      {% for division in site.divisions %}
+      {% for division in site.baseballDivisions %}
         {% if loop.index <= 3 %}{{ divisionCard(division) }}{% endif %}
       {% endfor %}
     </div>

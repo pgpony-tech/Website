@@ -2,59 +2,40 @@
 layout: layout.njk
 title: Divisions
 permalink: /divisions/
-extraScripts:
-  - /js/tabs.js
 ---
 {% from "components/button.njk" import button %}
 {% from "components/breadcrumbs.njk" import breadcrumbs %}
-{% from "components/tabs.njk" import tabs %}
 {% from "components/section-heading.njk" import sectionHeading %}
+{% from "components/division-card.njk" import divisionCard %}
 {% from "components/standings-table.njk" import standingsTable %}
 {% from "components/card.njk" import card %}
-
-{% set allstarDivisions = ["Mustang", "Bronco", "Pony", "Fillies"] %}
 
 <div class="page-header">
   <div class="page-header__inner">
     {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Divisions" }]) }}
     <h1>Divisions</h1>
-    <p>League age is your player's age on April 30 of the current season. If you're unsure, register anyway and we'll sort it out.</p>
+    <p>We field separate baseball and softball programs, each broken into age divisions. Baseball uses {{ site.baseballAgeCutoff }} as the age cutoff; softball uses {{ site.softballAgeCutoff }}, which lines up with the school district's cutoff. If you're unsure, register anyway and we'll sort it out.</p>
   </div>
 </div>
 
-<div class="container" style="padding-top:var(--space-8);padding-bottom:var(--space-12);">
-  {{ tabs(
-    items=[
-      { label: "Baseball", value: "baseball" },
-      { label: "Softball", value: "softball" },
-      { label: "All-Stars", value: "allstar" }
-    ],
-    groupName="sport",
-    activeValue="baseball"
-  ) }}
-  <div class="mt-9"></div>
-
-  <div class="grid-3">
-    {% for division in site.divisions %}
-    <a
-      class="division-card"
-      href="/divisions/"
-      data-sport="{{ 'softball' if division.name == 'Fillies' else 'baseball softball' }}"
-      data-allstar="{{ 'true' if division.name in allstarDivisions else 'false' }}"
-    >
-      <div class="division-card__head">
-        <span class="division-card__name">{{ division.name }}</span>
-        <span class="division-card__ages">{{ division.ages }}</span>
-      </div>
-      <div class="division-card__body">
-        <span class="division-card__sport">{{ division.sport }}</span>
-        <p class="division-card__desc">{{ division.description }}</p>
-        <ul class="division-card__detail">
-          {% for d in division.detail %}<li>{{ d }}</li>{% endfor %}
-        </ul>
-      </div>
-    </a>
+<div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
+  {{ sectionHeading(eyebrow="Coed", title="Baseball divisions") }}
+  <div class="grid-3 mb-9">
+    {% for division in site.baseballDivisions %}
+      {{ divisionCard(division) }}
     {% endfor %}
+  </div>
+
+  <div class="mt-11">
+    {{ sectionHeading(eyebrow="Girls", title="Softball divisions") }}
+    <!-- 6U is a new division, added at the board's request as the softball equivalent of tee ball.
+         Its age range and typical grade are an estimate pending board confirmation — the other four
+         softball divisions (Pre-Rookie through Major) are pulled directly from pgpony.com. -->
+    <div class="grid-3">
+      {% for division in site.softballDivisions %}
+        {{ divisionCard(division) }}
+      {% endfor %}
+    </div>
   </div>
 
   <div class="mt-11">
