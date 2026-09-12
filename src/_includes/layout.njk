@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} · Pacific Grove Pony</title>
+  <meta name="description" content="{{ description or 'Pacific Grove Pony Baseball and Softball — youth baseball and softball in Pacific Grove, California. Ages 4–14, all skill levels welcome.' }}">
+  <link rel="icon" href="/assets/logos/symbol-color-light.png">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  {% include "header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script src="/js/nav.js" defer></script>
+  {% for src in extraScripts %}
+  <script src="{{ src }}" defer></script>
+  {% endfor %}
+</body>
+</html>

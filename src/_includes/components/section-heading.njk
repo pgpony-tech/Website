@@ -1,0 +1,10 @@
+{% macro sectionHeading(eyebrow, title, description="", actionHtml="", align="left", tone="light") %}
+<div class="section-heading{% if align == 'center' %} section-heading--center{% endif %}{% if tone == 'dark' %} section-heading--dark{% endif %}">
+  <div class="section-heading__text">
+    {% if eyebrow %}<span class="section-heading__eyebrow">{{ eyebrow }}</span>{% endif %}
+    <h2 class="section-heading__title">{{ title }}</h2>
+    {% if description %}<p class="section-heading__desc">{{ description }}</p>{% endif %}
+  </div>
+  {% if actionHtml %}{{ actionHtml | safe }}{% endif %}
+</div>
+{% endmacro %}

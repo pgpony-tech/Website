@@ -1,0 +1,7 @@
+{% macro button(label, href="", variant="primary", size="md", fullWidth=false, external=false, extraClass="") %}
+<a
+  class="btn btn--{{ variant }} btn--{{ size }}{% if fullWidth %} btn--full{% endif %}{% if extraClass %} {{ extraClass }}{% endif %}"
+  href="{{ href }}"
+  {% if external %}target="_blank" rel="noopener"{% endif %}
+>{{ label }}</a>
+{% endmacro %}

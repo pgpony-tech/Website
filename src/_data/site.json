@@ -1,0 +1,65 @@
+{
+  "orgName": "Pacific Grove PONY Baseball and Softball, Inc.",
+  "address": "P.O. Box 317, Pacific Grove, California 93950",
+  "email": "info@pgpony.com",
+  "founded": 1974,
+  "season": "Spring 2026",
+  "registrationCloses": "February 28",
+  "fee": "$145 per player",
+  "sportsConnectUrl": "https://login.stacksports.com/login?client_id=612b0399b1854a002e427f78&redirect_uri=https://core-api.bluesombrero.com/login/redirect/portal/7295&app_name=Pacific+Grove+Pony+Baseball&portalid=7295&instancekey=sports",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Divisions", "href": "/divisions/" },
+    { "label": "Schedule", "href": "/schedule/" },
+    { "label": "Volunteer", "href": "/volunteer/" }
+  ],
+  "fields": [
+    { "name": "George Washington Park", "note": "Fields 1 & 2 · Snack bar" },
+    { "name": "Muni Ballpark", "note": "Lighted · Bronco and Pony" },
+    { "name": "Arnett Park", "note": "Softball and tee ball" }
+  ],
+  "divisions": [
+    {
+      "name": "Shetland",
+      "ages": "Ages 4–6",
+      "sport": "Baseball · Softball",
+      "description": "Tee ball and soft toss. Every player bats each inning and rotates fielding positions.",
+      "detail": ["One practice a week", "No scores or standings", "Parent coaches"]
+    },
+    {
+      "name": "Pinto",
+      "ages": "Ages 7–8",
+      "sport": "Baseball · Softball",
+      "description": "Coach pitch through midseason, then player pitch. Six innings.",
+      "detail": ["Two practices a week", "46/60 field", "No stealing"]
+    },
+    {
+      "name": "Mustang",
+      "ages": "Ages 9–10",
+      "sport": "Baseball · Softball",
+      "description": "Player pitch with stealing. Standings kept; all-star teams selected in June.",
+      "detail": ["Two practices a week", "46/60 field", "All-star eligible"]
+    },
+    {
+      "name": "Bronco",
+      "ages": "Ages 11–12",
+      "sport": "Baseball · Softball",
+      "description": "Full rules on a 50/70 field. Leading off and pickoffs introduced.",
+      "detail": ["Two practices a week", "50/70 field", "All-star eligible"]
+    },
+    {
+      "name": "Pony",
+      "ages": "Ages 13–14",
+      "sport": "Baseball · Softball",
+      "description": "Full-size 60/90 field. Competitive schedule with neighbouring leagues.",
+      "detail": ["Interleague play", "60/90 field", "All-star eligible"]
+    },
+    {
+      "name": "Fillies",
+      "ages": "Ages 9–14",
+      "sport": "Softball",
+      "description": "Fastpitch softball, grouped by age within the division.",
+      "detail": ["Two practices a week", "Fastpitch", "All-star eligible"]
+    }
+  ]
+}

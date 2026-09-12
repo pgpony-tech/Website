@@ -1,0 +1,9 @@
+{% macro alert(title, message, tone="info", actionHtml="") %}
+<div class="alert alert--{{ tone }}">
+  <div class="alert__body">
+    <span class="alert__title">{{ title }}</span>
+    <p class="alert__message">{{ message }}</p>
+  </div>
+  {% if actionHtml %}{{ actionHtml | safe }}{% endif %}
+</div>
+{% endmacro %}

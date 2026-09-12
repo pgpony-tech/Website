@@ -1,0 +1,15 @@
+{% macro divisionCard(division, href="/divisions/", sport="") %}
+<a class="division-card" href="{{ href }}">
+  <div class="division-card__head">
+    <span class="division-card__name">{{ division.name }}</span>
+    <span class="division-card__ages">{{ division.ages }}</span>
+  </div>
+  <div class="division-card__body">
+    <span class="division-card__sport">{{ sport or division.sport }}</span>
+    <p class="division-card__desc">{{ division.description }}</p>
+    <ul class="division-card__detail">
+      {% for d in division.detail %}<li>{{ d }}</li>{% endfor %}
+    </ul>
+  </div>
+</a>
+{% endmacro %}

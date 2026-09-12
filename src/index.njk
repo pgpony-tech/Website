@@ -1,0 +1,158 @@
+---
+layout: layout.njk
+title: Home
+permalink: /
+---
+{% from "components/button.njk" import button %}
+{% from "components/badge.njk" import badge %}
+{% from "components/alert.njk" import alert %}
+{% from "components/section-heading.njk" import sectionHeading %}
+{% from "components/division-card.njk" import divisionCard %}
+{% from "components/game-card.njk" import gameCard %}
+{% from "components/sponsor-grid.njk" import sponsorGrid %}
+
+{% set games = [
+  { date: "SAT 3/14", time: "10:00 AM", division: "Pinto", away: "Cardinals", home: "Sea Otters", field: "George Washington Park · Field 2", status: "final", score: "7–4" },
+  { date: "SAT 3/14", time: "1:00 PM", division: "Mustang", away: "Monarchs", home: "Kelp", field: "Muni Ballpark", status: "live", score: "2–2" },
+  { date: "SUN 3/15", time: "9:00 AM", division: "Shetland", away: "Sandpipers", home: "Tide", field: "Arnett Park", status: "scheduled" },
+  { date: "SUN 3/15", time: "11:30 AM", division: "Bronco", away: "Lighthouse", home: "Anglers", field: "George Washington Park · Field 1", status: "scheduled" }
+] %}
+
+<section class="hero">
+  <img class="hero__photo" src="/assets/photos/hero-sunset-at-bat.jpg" alt="">
+  <div class="hero__scrim"></div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <span class="hero__eyebrow">Pacific Grove · Est. {{ site.founded }}</span>
+      <h1>Youth baseball<br>and softball</h1>
+      <p class="hero__lede">Ages 4–14. All skill levels welcome. Spring season runs March through June at George Washington Park, Muni Ballpark and Arnett Park.</p>
+      <div class="hero__actions">
+        {{ button(label="Register for spring", href=site.sportsConnectUrl, variant="accent", size="lg", external=true) }}
+        {{ button(label="Find your division", href="/divisions/", variant="inverse", size="lg") }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats__inner">
+    <div class="stat"><span class="stat__num">52</span><span class="stat__label">Years in the grove</span></div>
+    <div class="stat"><span class="stat__num">600+</span><span class="stat__label">Players each spring</span></div>
+    <div class="stat"><span class="stat__num">100%</span><span class="stat__label">Volunteer-run</span></div>
+    <div class="stat"><span class="stat__num">6</span><span class="stat__label">Home fields</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__inner">
+    {{ alert(
+      title="Rain delay",
+      message="Saturday's games at George Washington Park are pushed to 1:00 PM. Arnett Park is unaffected.",
+      tone="warning",
+      actionHtml=button(label="Field status", href="/schedule/", variant="ghost", size="sm")
+    ) }}
+    <div class="mb-9"></div>
+
+    {{ sectionHeading(
+      eyebrow="This week",
+      title="Upcoming games",
+      actionHtml=button(label="Full schedule", href="/schedule/", variant="secondary", size="sm")
+    ) }}
+    <div class="game-list">
+      {% for game in games %}{{ gameCard(game) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--sunken">
+  <div class="section__inner">
+    {{ sectionHeading(
+      eyebrow="Where to start",
+      title="Divisions by age",
+      description="Players are placed by league age on April 30. If you're between divisions, the board will help you choose."
+    ) }}
+    <div class="grid-3">
+      {% for division in site.divisions %}
+        {% if loop.index <= 3 %}{{ divisionCard(division) }}{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__inner">
+    {{ sectionHeading(
+      eyebrow="The season",
+      title="Around the grove",
+      description="Opening day at Muni, all-stars in the summer, and every Saturday in between."
+    ) }}
+    <div class="mosaic">
+      <figure class="mosaic__tile mosaic__tile--tall">
+        <img src="/assets/photos/team-baseball-medals.jpg" alt="">
+        <figcaption class="mosaic__caption">Mustang champions, 2025</figcaption>
+      </figure>
+      <figure class="mosaic__tile">
+        <img src="/assets/photos/opening-day-first-pitch.jpg" alt="">
+        <figcaption class="mosaic__caption">Opening day first pitch</figcaption>
+      </figure>
+      <figure class="mosaic__tile">
+        <img src="/assets/photos/softball-team-jump.jpg" alt="">
+        <figcaption class="mosaic__caption">Fillies, Arnett Park</figcaption>
+      </figure>
+      <figure class="mosaic__tile">
+        <img src="/assets/photos/practice-sandlot-infield.jpg" alt="">
+        <figcaption class="mosaic__caption">Summer sandlot</figcaption>
+      </figure>
+      <figure class="mosaic__tile">
+        <img src="/assets/photos/allstars-pinstripes.jpg" alt="">
+        <figcaption class="mosaic__caption">All-stars, district tournament</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="section__inner">
+    <div class="mission">
+      <div>
+        {{ sectionHeading(eyebrow="Our mission", title="Winning games is secondary", tone="dark") }}
+        <p>The mission of our organization is to instill, in the youth of the community, ideals of good sportsmanship, honesty, loyalty, courage and respect for themselves and others.</p>
+        <p class="tight">Board members, league officials, coaches, umpires and parents alike bear in mind that the winning of games is secondary to improved skill level and to the development of stronger and happier youth.</p>
+        <div class="mission__actions">
+          {{ button(label="Volunteer", href="/volunteer/", variant="accent") }}
+          {{ button(label="Meet the board", href="/volunteer/#board", variant="inverse") }}
+        </div>
+      </div>
+      <div class="mission__values">
+        <div class="value-card"><h4>Sportsmanship</h4><p>Play hard, shake hands.</p></div>
+        <div class="value-card"><h4>Honesty</h4><p>Call it as it happened.</p></div>
+        <div class="value-card"><h4>Courage</h4><p>Step into the box.</p></div>
+        <div class="value-card"><h4>Respect</h4><p>For teammates, umpires, parents.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sunken" id="sponsors">
+  <div class="section__inner">
+    {{ sectionHeading(
+      eyebrow="Thank you",
+      title="Our sponsors",
+      description="Local businesses cover uniforms, umpires and field maintenance so registration stays affordable.",
+      actionHtml=button(label="Become a sponsor", href="mailto:" + site.email, variant="secondary", size="sm")
+    ) }}
+    {{ sponsorGrid(sponsors) }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__inner">
+    <div class="cta-banner">
+      <div>
+        <h2>Registration now open</h2>
+        <p>{{ site.season }} · {{ site.fee }} · Scholarships available, just ask.</p>
+      </div>
+      {{ button(label="Start registration", href=site.sportsConnectUrl, variant="primary", size="lg", external=true) }}
+    </div>
+  </div>
+</section>

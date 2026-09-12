@@ -1,0 +1,21 @@
+{% macro gameCard(game) %}
+<div class="game-card" data-division="{{ game.division }}">
+  <div class="game-card__when">
+    <span class="game-card__date">{{ game.date }}</span>
+    <span class="game-card__time">{{ game.time }}</span>
+  </div>
+  <div class="game-card__main">
+    <span class="game-card__division">{{ game.division }}</span>
+    <div class="game-card__matchup">{{ game.away }}<span class="vs">at</span>{{ game.home }}</div>
+    {% if game.field %}<span class="game-card__field">{{ game.field }}</span>{% endif %}
+  </div>
+  {% if game.score %}<div class="game-card__score">{{ game.score }}</div>{% endif %}
+  <span class="game-card__status game-card__status--{{ game.status }}">
+    {%- if game.status == "live" -%}In progress
+    {%- elif game.status == "final" -%}Final
+    {%- elif game.status == "cancelled" -%}Cancelled
+    {%- else -%}Scheduled
+    {%- endif -%}
+  </span>
+</div>
+{% endmacro %}

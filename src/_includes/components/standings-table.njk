@@ -1,0 +1,23 @@
+{% macro standingsTable(columns, rows, caption="") %}
+<div class="standings">
+  {% if caption %}<span class="standings__caption">{{ caption }}</span>{% endif %}
+  <table>
+    <thead>
+      <tr>
+        {% for col in columns %}
+        <th class="{% if col.align == 'right' %}align-right{% endif %}">{{ col.label }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        {% for col in columns %}
+        <td class="{% if col.align == 'right' %}align-right{% endif %}">{{ row[col.key] }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endmacro %}

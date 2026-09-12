@@ -1,0 +1,3 @@
+{% macro tag(label, value, selected=false) %}
+<button type="button" class="tag{% if selected %} tag--selected{% endif %}" data-filter-value="{{ value }}" aria-pressed="{{ 'true' if selected else 'false' }}">{{ label }}</button>
+{% endmacro %}

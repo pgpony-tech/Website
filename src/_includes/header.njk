@@ -1,0 +1,24 @@
+{% from "components/button.njk" import button %}
+<header class="site-header" id="site-header">
+  <div class="site-header__bar">
+    <div class="site-header__bar-inner">
+      <span>{{ site.season }} registration closes {{ site.registrationCloses }}</span>
+      <span class="right gold">Ages 4–14 · All skill levels welcome</span>
+    </div>
+  </div>
+  <div class="site-header__main">
+    <a class="site-header__logo" href="/" aria-label="Pacific Grove Pony home">
+      <img src="/assets/logos/horizontal-color-light.png" alt="Pacific Grove Pony Baseball and Softball">
+    </a>
+    <button class="site-header__toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+      <span></span>
+    </button>
+    <nav class="site-header__nav" id="site-nav">
+      {% for item in site.nav %}
+        <a href="{{ item.href }}" {% if item.href == page.url %}aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+      <a href="{{ site.sportsConnectUrl }}" target="_blank" rel="noopener">Login</a>
+      {{ button(label="Register", href=site.sportsConnectUrl, variant="primary", size="md", external=true) }}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,64 @@
+---
+layout: layout.njk
+title: Register
+permalink: /register/
+---
+{% from "components/button.njk" import button %}
+{% from "components/badge.njk" import badge %}
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/card.njk" import card %}
+
+<div class="page-header">
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Register" }]) }}
+    <h1>{{ site.season }} registration</h1>
+    <div class="register-facts">
+      {{ badge(label="Closes " + site.registrationCloses, tone="gold") }}
+      {{ badge(label=site.fee, tone="inverse") }}
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-8);padding-bottom:var(--space-12);">
+  <div class="with-sidebar--wide" style="display:grid;grid-template-columns:1fr 320px;gap:var(--space-9);align-items:start;">
+    <div>
+      {% call card() %}
+      <h2 style="text-transform:uppercase;">Registration happens on SportsConnect</h2>
+      <p>PG PONY handles registration, payment and player accounts through SportsConnect, our league management platform. Click below to sign in (or create an account) and register your player for {{ site.season }}.</p>
+      <p class="text-muted" style="margin-bottom:0;">Already registered in a past season? Use the same SportsConnect login — your player's information carries over.</p>
+      <div class="register-cta">
+        {{ button(label="Register on SportsConnect", href=site.sportsConnectUrl, variant="primary", size="lg", external=true) }}
+      </div>
+      {% endcall %}
+
+      <div class="mt-9">
+        {% call card(variant="sunken") %}
+        <h3 style="text-transform:uppercase;">Fee and dates</h3>
+        <ul style="list-style:none;margin:0;padding:0;font-size:var(--text-sm);">
+          <li style="margin-bottom:var(--space-2);"><strong>Season:</strong> {{ site.season }}</li>
+          <li style="margin-bottom:var(--space-2);"><strong>Registration closes:</strong> {{ site.registrationCloses }}</li>
+          <li style="margin-bottom:0;"><strong>Fee:</strong> {{ site.fee }}</li>
+        </ul>
+        {% endcall %}
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      {% call card(accentBar=true) %}
+      <h3 style="text-transform:uppercase;">What's included</h3>
+      <ul class="included-list">
+        <li>Jersey and cap</li>
+        <li>Team photo</li>
+        <li>Season-end trophy</li>
+        <li>Insurance and umpire fees</li>
+      </ul>
+      {% endcall %}
+
+      {% call card(variant="sunken") %}
+      <h3 style="text-transform:uppercase;">Scholarships</h3>
+      <p style="margin:0;">Cost should never keep a kid off the field. Email the board and we'll handle it quietly.</p>
+      <p style="margin:var(--space-3) 0 0;"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      {% endcall %}
+    </aside>
+  </div>
+</div>

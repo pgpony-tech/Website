@@ -1,0 +1,13 @@
+{% macro sponsorGrid(sponsors) %}
+<div class="sponsor-grid">
+  {% for s in sponsors %}
+  <a class="sponsor-tile" href="{{ s.url }}" target="_blank" rel="noopener" title="{{ s.name }}">
+    {% if s.logo %}
+      <img src="/{{ s.logo }}" alt="{{ s.name }}" loading="lazy">
+    {% else %}
+      <span class="sponsor-tile__name">{{ s.name }}</span>
+    {% endif %}
+  </a>
+  {% endfor %}
+</div>
+{% endmacro %}

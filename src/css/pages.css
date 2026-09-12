@@ -1,0 +1,118 @@
+/* ---------------------------------------------------------------- */
+/* Home — Hero */
+/* ---------------------------------------------------------------- */
+.hero{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;background:var(--red-900)}
+.hero__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__scrim{position:absolute;inset:0;background:var(--scrim-hero)}
+.hero__inner{position:relative;max-width:var(--container-max);margin:0 auto;padding:var(--space-12) 24px;width:100%}
+.hero__content{max-width:640px}
+.hero__eyebrow{display:block;font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-sm);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--pg-gold);margin-bottom:var(--space-3)}
+.hero h1{font-family:var(--font-display);font-weight:var(--weight-regular);font-size:var(--text-6xl);text-transform:uppercase;color:#fff;line-height:var(--leading-tight);text-shadow:0 2px 24px rgba(23,16,13,.45);margin:0}
+.hero__lede{font-size:var(--text-lg);line-height:var(--leading-relaxed);color:rgba(255,255,255,.92);max-width:520px;margin:var(--space-4) 0 0}
+.hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-7)}
+
+@media (max-width:600px){
+  .hero{min-height:460px}
+  .hero h1{font-size:var(--text-5xl)}
+}
+
+/* ---------------------------------------------------------------- */
+/* Home — Stats strip */
+/* ---------------------------------------------------------------- */
+.stats{background:var(--pg-black)}
+.stats__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-7) 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6)}
+.stat__num{display:block;font-family:var(--font-display);font-size:var(--text-4xl);color:var(--pg-gold);line-height:1}
+.stat__label{display:block;margin-top:6px;font-family:var(--font-condensed);font-weight:var(--weight-semibold);font-size:var(--text-sm);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,.68)}
+@media (max-width:600px){
+  .stats__inner{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------------------------------------------------------------- */
+/* Home — Photo mosaic */
+/* ---------------------------------------------------------------- */
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:var(--space-4)}
+.mosaic__tile{position:relative;border-radius:var(--radius-media);overflow:hidden;background:var(--ink-200)}
+.mosaic__tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mosaic__tile--tall{grid-row:1 / span 2}
+.mosaic__tile::after{content:"";position:absolute;inset:0;background:var(--scrim-image)}
+.mosaic__caption{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-sm);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:#fff}
+@media (max-width:860px){
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,180px)}
+  .mosaic__tile--tall{grid-row:auto}
+}
+@media (max-width:600px){
+  .mosaic{grid-template-columns:1fr;grid-template-rows:repeat(5,200px)}
+}
+
+/* ---------------------------------------------------------------- */
+/* Home — Mission section */
+/* ---------------------------------------------------------------- */
+.mission{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-9);align-items:center}
+.mission p{font-size:var(--text-lg);color:rgba(255,255,255,.80);margin:0 0 var(--space-4)}
+.mission p.tight{font-size:var(--text-base);color:rgba(255,255,255,.62)}
+.mission__actions{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-6)}
+.mission__values{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)}
+.value-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-card);padding:var(--space-5)}
+.value-card h4{font-family:var(--font-condensed);font-weight:var(--weight-bold);text-transform:uppercase;color:var(--pg-gold);margin:0 0 var(--space-2)}
+.value-card p{margin:0;color:#fff;font-size:var(--text-sm)}
+@media (max-width:860px){
+  .mission{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .mission__values{grid-template-columns:1fr}
+}
+
+/* ---------------------------------------------------------------- */
+/* Home — Registration CTA banner */
+/* ---------------------------------------------------------------- */
+.cta-banner{
+  background:var(--pg-gold);border-radius:var(--radius-panel);padding:var(--space-9);
+  display:flex;justify-content:space-between;align-items:center;gap:var(--space-8);flex-wrap:wrap;
+}
+.cta-banner h2{font-family:var(--font-display);font-weight:var(--weight-regular);font-size:var(--text-4xl);text-transform:uppercase;color:var(--red-900);margin:0}
+.cta-banner p{font-size:var(--text-md);color:var(--red-900);opacity:.8;margin:var(--space-2) 0 0}
+
+/* ---------------------------------------------------------------- */
+/* Two-column body + sidebar (Schedule, Register) */
+/* ---------------------------------------------------------------- */
+.with-sidebar{display:grid;grid-template-columns:1fr 300px;gap:var(--space-9);align-items:start}
+.with-sidebar--wide{grid-template-columns:1fr 320px}
+.sidebar{display:flex;flex-direction:column;gap:var(--space-5)}
+@media (max-width:860px){
+  .with-sidebar,.with-sidebar--wide{grid-template-columns:1fr}
+}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:8px}
+.game-list{display:flex;flex-direction:column;gap:var(--space-3)}
+@media (max-width:600px){
+  .game-card{flex-wrap:wrap}
+  .game-card__when{border-right:none;width:auto;padding-right:0}
+}
+
+/* ---------------------------------------------------------------- */
+/* Register page */
+/* ---------------------------------------------------------------- */
+.register-facts{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-4)}
+.register-cta{margin-top:var(--space-7)}
+.included-list{list-style:none;margin:0;padding:0;font-size:var(--text-sm)}
+.included-list li{position:relative;padding-left:var(--space-4);margin-bottom:var(--space-2)}
+.included-list li::before{content:"●";position:absolute;left:0;color:var(--pg-gold);font-size:8px;top:.5em}
+
+/* ---------------------------------------------------------------- */
+/* Volunteer roles */
+/* ---------------------------------------------------------------- */
+.role-card__head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-3)}
+.role-card__title{font-family:var(--font-condensed);font-weight:var(--weight-bold);text-transform:uppercase;font-size:var(--text-xl);margin:0}
+.role-card__hours{display:block;font-family:var(--font-condensed);text-transform:uppercase;font-size:var(--text-sm);color:var(--pg-red);margin:var(--space-2) 0}
+.role-card__desc{font-size:var(--text-sm);color:var(--text-muted);margin:0 0 var(--space-4)}
+
+/* ---------------------------------------------------------------- */
+/* Utility */
+/* ---------------------------------------------------------------- */
+.eyebrow{display:block;font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-xs);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--text-faint);margin-bottom:var(--space-2)}
+.flex-between{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);flex-wrap:wrap}
+.mt-9{margin-top:var(--space-9)}
+.mt-11{margin-top:var(--space-11)}
+.mb-9{margin-bottom:var(--space-9)}
+.text-muted{color:var(--text-muted)}
+.text-faint{color:var(--text-faint);font-size:var(--text-xs)}
