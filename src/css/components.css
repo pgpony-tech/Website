@@ -46,17 +46,6 @@
 .badge--success{background:var(--status-success-soft);color:var(--status-success)}
 .badge--inverse{background:rgba(255,255,255,.16);color:#fff}
 
-.tag{
-  display:inline-flex;align-items:center;height:30px;padding:0 12px;
-  font-family:var(--font-body);font-size:var(--text-sm);font-weight:var(--weight-medium);
-  border-radius:var(--radius-pill);background:var(--surface-card);color:var(--ink-700);
-  border:1px solid var(--border-default);cursor:default;
-  transition:var(--transition-control);
-}
-a.tag,button.tag{cursor:pointer;text-decoration:none}
-button.tag:hover:not(.tag--selected),a.tag:hover:not(.tag--selected){background:var(--ink-100)}
-.tag--selected{background:var(--pg-red);color:#fff;border-color:var(--pg-red)}
-
 /* ---------------------------------------------------------------- */
 /* Card */
 /* ---------------------------------------------------------------- */
@@ -112,9 +101,9 @@ button.tag:hover:not(.tag--selected),a.tag:hover:not(.tag--selected){background:
   transition:box-shadow var(--duration-base) var(--ease-standard),transform var(--duration-base) var(--ease-standard);
 }
 a.division-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.division-card__head{display:flex;justify-content:space-between;align-items:baseline;background:var(--pg-red);color:#fff;padding:var(--space-4) var(--space-5)}
-.division-card__name{font-family:var(--font-display);font-weight:var(--weight-regular);font-size:var(--text-2xl);text-transform:uppercase}
-.division-card__ages{font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-sm);color:var(--pg-gold)}
+.division-card__head{background:var(--pg-red);color:#fff;padding:var(--space-4) var(--space-5)}
+.division-card__name{display:block;font-family:var(--font-display);font-weight:var(--weight-regular);font-size:var(--text-2xl);text-transform:uppercase;line-height:1.05}
+.division-card__ages{display:block;margin-top:4px;font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-sm);color:var(--pg-gold)}
 .division-card__body{padding:var(--space-5)}
 .division-card__sport{display:block;font-size:var(--text-xs);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--text-faint);margin-bottom:var(--space-2)}
 .division-card__desc{font-size:var(--text-sm);color:var(--text-muted);margin:0 0 var(--space-3)}
@@ -181,15 +170,34 @@ a.division-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .breadcrumbs__current{color:var(--pg-gold)}
 
 /* ---------------------------------------------------------------- */
-/* Tabs */
+/* Field / Input */
 /* ---------------------------------------------------------------- */
-.tabs{display:flex;gap:var(--space-6);border-bottom:1px solid var(--border-subtle)}
-.tabs__tab{
-  background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-1px;
-  padding:var(--space-3) 0;cursor:pointer;
-  font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-md);
-  text-transform:uppercase;color:var(--ink-600);
-  transition:var(--transition-control);
+.field__label{
+  display:block;margin-bottom:6px;font-family:var(--font-condensed);font-weight:var(--weight-semibold);
+  font-size:var(--text-sm);text-transform:uppercase;letter-spacing:var(--tracking-caps);color:var(--ink-700);
 }
-.tabs__tab[aria-selected="true"]{color:var(--pg-red);border-bottom-color:var(--pg-red)}
-.tabs__count{font-size:var(--text-sm);color:var(--text-faint);margin-left:var(--space-2);font-weight:var(--weight-regular);text-transform:none}
+.input{
+  display:block;width:100%;height:var(--control-h-md);padding:0 12px;font:inherit;font-size:var(--text-base);
+  color:var(--text-body);background:var(--surface-card);border-radius:var(--radius-control);
+  border:1.5px solid var(--border-default);transition:var(--transition-control);
+}
+.input:focus{outline:none;border-color:var(--pg-red);box-shadow:var(--ring-focus)}
+
+/* ---------------------------------------------------------------- */
+/* PersonCard (board / contact directory) */
+/* ---------------------------------------------------------------- */
+.person-card{display:flex;flex-direction:column}
+.person-card__role{
+  display:block;font-family:var(--font-condensed);font-weight:var(--weight-bold);
+  font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-caps);
+  color:var(--pg-red);margin-bottom:2px;
+}
+.person-card__name{display:block;font-size:var(--text-md);font-weight:var(--weight-semibold);color:var(--text-heading);margin-bottom:var(--space-3)}
+.person-card__name--vacant{color:var(--text-faint);font-style:italic;font-weight:var(--weight-regular)}
+.person-card__email{
+  align-self:flex-start;font-size:var(--text-xs);font-weight:var(--weight-semibold);
+  color:var(--pg-red);text-decoration:none;word-break:break-all;
+  background:var(--surface-sunken);padding:4px 10px;border-radius:var(--radius-sm);
+  border:1px solid var(--border-subtle);transition:var(--transition-control);
+}
+.person-card__email:hover{background:var(--pg-red);color:#fff;border-color:var(--pg-red)}

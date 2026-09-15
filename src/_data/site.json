@@ -13,85 +13,80 @@
     { "label": "Schedule", "href": "/schedule/" },
     { "label": "Volunteer", "href": "/volunteer/" }
   ],
-  "fields": [
-    { "name": "George Washington Park", "note": "Fields 1 & 2 · Snack bar" },
-    { "name": "Muni Ballpark", "note": "Lighted · Bronco and Pony" },
-    { "name": "Arnett Park", "note": "Softball and tee ball" }
-  ],
   "baseballAgeCutoff": "April 30",
   "softballAgeCutoff": "September 1",
   "baseballDivisions": [
     {
-      "name": "Shetland",
-      "ages": "Ages 4–6",
+      "name": "6U - Shetland",
+      "ages": "Ages 4–6 (Kindergarten and under)",
       "sport": "Baseball",
-      "description": "Tee ball and instructional play for coed players just starting out.",
-      "detail": ["Coed", "Typical grade: Preschool, T-K & Kindergarten"]
+      "description": "Tee ball, played on a 50-foot base distance.",
+      "detail": ["No score kept", "No interleague play", "Practices once a week · games on Saturdays"]
     },
     {
-      "name": "Pinto",
-      "ages": "Ages 7–8",
+      "name": "8U - Pinto",
+      "ages": "Ages 7–8 (1st & 2nd grade)",
       "sport": "Baseball",
-      "description": "Coach pitch moving toward player pitch as the season goes on.",
-      "detail": ["Coed — predominantly boys", "Typical grade: 1st & 2nd"]
+      "description": "Coach pitch moving toward player pitch as the season goes on, played on a 50-foot base distance.",
+      "detail": ["No score kept — everybody bats", "No interleague play", "Practices 2–3 days a week · games mostly Saturdays, some weekdays"]
     },
     {
-      "name": "Mustang",
-      "ages": "Ages 9–10",
+      "name": "10U - Mustang",
+      "ages": "Ages 9–10 (3rd & 4th grade)",
       "sport": "Baseball",
-      "description": "Player-pitch baseball with standings kept.",
-      "detail": ["Coed — predominantly boys", "Typical grade: 3rd & 4th"]
+      "description": "Player-pitch baseball, played on a 60-foot base distance.",
+      "detail": ["Standings kept", "Some interleague play", "Practices 2–3 days a week · games mostly Saturdays, some weekdays"]
     },
     {
-      "name": "Bronco",
-      "ages": "Ages 11–12",
+      "name": "12U - Bronco",
+      "ages": "Ages 11–12 (5th & 6th grade)",
       "sport": "Baseball",
-      "description": "Full rules on a bigger field.",
-      "detail": ["Coed — predominantly boys", "Typical grade: 5th & 6th"]
+      "description": "Full rules on a bigger field — a 70-foot base distance.",
+      "detail": ["Standings kept", "Mostly interleague play, some intraleague", "Practices 2–3 days a week · games mostly Saturdays, some weekdays"]
     },
     {
-      "name": "Pony",
-      "ages": "Ages 13–14",
+      "name": "14U - Pony",
+      "ages": "Ages 13–14 (7th & 8th grade)",
       "sport": "Baseball",
-      "description": "Our oldest baseball division, playing a full-size field.",
-      "detail": ["Coed — predominantly boys", "Typical grade: 7th & 8th"]
+      "description": "Our oldest baseball division, playing a full-size field — an 80-foot base distance.",
+      "detail": ["Standings kept", "Mostly interleague play, some intraleague", "Practices 2–3 days a week · games mostly Saturdays, some weekdays"]
     }
   ],
   "softballDivisions": [
     {
-      "name": "6U",
-      "ages": "Ages 5–6",
+      "name": "6U - Girls T-ball",
+      "ages": "Ages 4–6 (Kindergarten and under)",
       "sport": "Softball",
-      "description": "The softball equivalent of tee ball — our newest division for the youngest players.",
-      "detail": ["Girls", "Typical grade: Kindergarten & 1st"]
+      "description": "The softball equivalent of tee ball — players hit off a tee with a 10\" safety ball. Everybody bats and plays different positions.",
+      "detail": ["No score kept", "Some interleague play", "Practices one weekday a week · games on Saturdays"]
     },
     {
-      "name": "Pre-Rookie",
-      "ages": "Ages 6–8",
+      "name": "8U - Pre-Rookies",
+      "ages": "Ages 6–8 (1st–3rd grade)",
       "sport": "Softball",
-      "description": "Entry-level softball with coach support as players learn the game.",
-      "detail": ["Girls", "Typical grade: 1st, 2nd & 3rd"]
+      "description": "Coach-pitch softball as players learn the game, using an 11\" safety ball. Everybody bats and plays different positions.",
+      "detail": ["No score kept", "Interleague play is common", "Practices 2–3 times a week · games mostly Saturdays, some weeknights"]
     },
     {
-      "name": "Rookie",
-      "ages": "Ages 9–10",
+      "name": "10U - Rookies",
+      "ages": "Ages 9–10 (4th–5th grade)",
       "sport": "Softball",
-      "description": "Kid-pitch softball, following USA Softball guidelines with Central Coast Softball supplements.",
-      "detail": ["Girls", "Typical grade: 4th & 5th"]
+      "description": "Kid-pitch softball with balls, strikes and outs, using an 11\" medium-hardness ball (RIP-10). Positions start to become assigned.",
+      "detail": ["Score is kept", "Interleague play is prevalent", "Practices 2–3 times a week · games throughout the week · playoffs at season's end"]
     },
     {
-      "name": "Minor",
-      "ages": "Ages 11–12",
+      "name": "12U - Minors",
+      "ages": "Ages 11–12 (6th–7th grade)",
       "sport": "Softball",
-      "description": "Full softball rules on a smaller field.",
-      "detail": ["Girls", "Typical grade: 6th & 7th"]
+      "description": "The next step from Rookies, following full USA Softball rules with a 12\" hard ball. Positions become specialized.",
+      "detail": ["Score is kept", "Interleague play is prevalent", "Practices 2–3 times a week · games throughout the week · playoffs at season's end"]
     },
     {
-      "name": "Major",
-      "ages": "Ages 13–14",
+      "name": "14U - Majors",
+      "ages": "Ages 13–14 (8th–9th grade)",
       "sport": "Softball",
-      "description": "Our oldest softball division, playing full rules.",
-      "detail": ["Girls", "Typical grade: 8th & 9th"]
+      "description": "Our oldest softball division, playing full USA Softball rules with a 12\" hard ball. Positions become specialized.",
+      "detail": ["Score is kept", "Interleague play is prevalent", "Practices 2–3 times a week · games throughout the week · playoffs at season's end"]
     }
   ]
 }

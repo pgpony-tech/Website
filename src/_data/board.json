@@ -1,0 +1,48 @@
+{
+  "termLabel": "2026-2027 PG PONY Board",
+  "votedIn": "Voted in August 2026",
+  "lastUpdated": "09/08/2026",
+  "vacancyContact": { "name": "John Parker, PG PONY President", "email": "president@pgpony.org" },
+  "executive": [
+    { "role": "President", "name": "John Parker", "email": "president@pgpony.org" },
+    { "role": "Vice President", "name": "Lee Bradley", "email": "vicepresident@pgpony.org" },
+    { "role": "Secretary", "name": "Anand Menon", "email": "secretary@pgpony.org" },
+    { "role": "Treasurer", "name": "Steve Thomas", "email": "treasurer@pgpony.org" },
+    { "role": "Baseball Director", "name": "Sean McDonald", "email": "baseballdirector@pgpony.org" },
+    { "role": "Softball Director", "name": "Sean McDonald", "email": "softballdirector@pgpony.org" },
+    { "role": "Shetland Commissioner", "name": "Matt Velasquez", "email": "shetland@pgpony.org" },
+    { "role": "Concessions Director", "name": "Cheyenne Vandenbrook", "email": "concessions@pgpony.org" },
+    { "role": "Communications Director", "name": "Jessica Foley", "email": "communications@pgpony.org" },
+    { "role": "Field Director", "name": "John Easton", "email": "fielddirector@pgpony.org" },
+    { "role": "Sponsorship Director", "name": "Shelley Pratt", "email": "sponsorshipdirector@pgpony.org" },
+    { "role": "Technology Director", "name": "Grant Gaudette", "email": "technology@pgpony.org" }
+  ],
+  "general": [
+    { "role": "Coach & Player Development", "name": "Matt Rosa", "email": "development@pgpony.org" },
+    { "role": "Concessions Assistant Director", "name": "Jeremy Stevens", "email": "concessions2@pgpony.org" },
+    { "role": "Concessions Inventory Manager", "name": "", "email": "" },
+    { "role": "Equipment Manager - Baseball", "name": "Ryan Bitter", "email": "baseballequipment@pgpony.org" },
+    { "role": "Equipment Manager - Softball", "name": "Wiley Griffin", "email": "softballequipment@pgpony.org" },
+    { "role": "Baseball Operations Manager", "name": "Jordan Lampos", "email": "baseballoperations@pgpony.org" },
+    { "role": "Fall Baseball Manager", "name": "John Parker", "email": "fallbaseballdirector@pgpony.org" },
+    { "role": "Field Assistant 1", "name": "Tyler Sullivan", "email": "fieldassistant1@pgpony.org" },
+    { "role": "Field Assistant 2", "name": "Abe Ammar", "email": "fieldassistant2@pgpony.org" },
+    { "role": "Social Media Manager", "name": "Jessica Foley", "email": "socialmedia@pgpony.org" },
+    { "role": "Umpire Liaison", "name": "Matt Rosa", "email": "" },
+    { "role": "Uniform Manager", "name": "Lee Bradley", "email": "" },
+    { "role": "Utility Player", "name": "", "email": "" },
+    { "role": "Webmaster", "name": "", "email": "webmaster@pgpony.org" }
+  ],
+  "baseballReps": [
+    { "role": "Pinto", "name": "Levi Breck", "email": "pintorep@pgpony.org" },
+    { "role": "Mustang", "name": "", "email": "mustangrep@pgpony.org" },
+    { "role": "Bronco", "name": "Lee Bradley", "email": "broncorep@pgpony.org" },
+    { "role": "Pony", "name": "", "email": "ponyrep@pgpony.org" }
+  ],
+  "softballReps": [
+    { "role": "Pre-Rookie", "name": "", "email": "prerookiesrep@pgpony.org" },
+    { "role": "Rookie", "name": "", "email": "rookiesrep@pgpony.org" },
+    { "role": "Minors", "name": "", "email": "minorsrep@pgpony.org" },
+    { "role": "Majors", "name": "", "email": "majorsrep@pgpony.org" }
+  ]
+}

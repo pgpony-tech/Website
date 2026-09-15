@@ -1,0 +1,8 @@
+{% from "components/card.njk" import card %}
+{% macro personCard(role, name="", email="") %}
+{% call card(accentBar=true, extraClass="person-card") %}
+<span class="person-card__role">{{ role }}</span>
+<span class="person-card__name{% if not name %} person-card__name--vacant{% endif %}">{{ name or "Vacant" }}</span>
+{% if email %}<a class="person-card__email" href="mailto:{{ email }}">{{ email }}</a>{% endif %}
+{% endcall %}
+{% endmacro %}

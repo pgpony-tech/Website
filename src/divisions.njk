@@ -2,12 +2,12 @@
 layout: layout.njk
 title: Divisions
 permalink: /divisions/
+extraScripts:
+  - /js/age-calculator.js
 ---
-{% from "components/button.njk" import button %}
 {% from "components/breadcrumbs.njk" import breadcrumbs %}
 {% from "components/section-heading.njk" import sectionHeading %}
 {% from "components/division-card.njk" import divisionCard %}
-{% from "components/standings-table.njk" import standingsTable %}
 {% from "components/card.njk" import card %}
 
 <div class="page-header">
@@ -19,7 +19,7 @@ permalink: /divisions/
 </div>
 
 <div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
-  {{ sectionHeading(eyebrow="Coed", title="Baseball divisions") }}
+  {{ sectionHeading(eyebrow="Coed", title="Baseball divisions", description="Baseball is predominantly boys, but open to girls as well.") }}
   <div class="grid-3 mb-9">
     {% for division in site.baseballDivisions %}
       {{ divisionCard(division) }}
@@ -28,9 +28,6 @@ permalink: /divisions/
 
   <div class="mt-11">
     {{ sectionHeading(eyebrow="Girls", title="Softball divisions") }}
-    <!-- 6U is a new division, added at the board's request as the softball equivalent of tee ball.
-         Its age range and typical grade are an estimate pending board confirmation — the other four
-         softball divisions (Pre-Rookie through Major) are pulled directly from pgpony.com. -->
     <div class="grid-3">
       {% for division in site.softballDivisions %}
         {{ divisionCard(division) }}
@@ -40,37 +37,30 @@ permalink: /divisions/
 
   <div class="mt-11">
     {{ sectionHeading(
-      eyebrow="Season so far",
-      title="Mustang standings",
-      actionHtml=button(label="All divisions", href="/schedule/", variant="ghost", size="sm")
+      eyebrow="Find your division",
+      title="Age calculator",
+      description="Enter your player's date of birth to see which division they fall into for the upcoming season."
     ) }}
-    {{ standingsTable(
-      columns=[
-        { key: "team", label: "Team" },
-        { key: "w", label: "W", align: "right" },
-        { key: "l", label: "L", align: "right" },
-        { key: "pct", label: "Pct", align: "right" },
-        { key: "rs", label: "RS", align: "right" },
-        { key: "ra", label: "RA", align: "right" }
-      ],
-      rows=[
-        { team: "Sea Otters", w: 8, l: 2, pct: ".800", rs: 64, ra: 38 },
-        { team: "Cardinals", w: 6, l: 4, pct: ".600", rs: 52, ra: 47 },
-        { team: "Kelp", w: 5, l: 5, pct: ".500", rs: 49, ra: 51 },
-        { team: "Monarchs", w: 3, l: 7, pct: ".300", rs: 41, ra: 58 },
-        { team: "Lighthouse", w: 3, l: 7, pct: ".300", rs: 36, ra: 60 }
-      ]
-    ) }}
-  </div>
-
-  <div class="mt-9">
-    {% call card(variant="sunken") %}
-    <div class="flex-between">
-      <div>
-        <h3 style="text-transform:uppercase;">Not sure where your player fits?</h3>
-        <p class="text-muted" style="margin:0;">Email {{ site.email }} and a division rep will call you back.</p>
+    {% call card() %}
+    <div class="age-calc" data-age-calc>
+      <div class="age-calc__toggle" role="tablist">
+        <button type="button" class="age-calc__sport-btn is-active" data-sport="baseball" role="tab" aria-pressed="true">Baseball</button>
+        <button type="button" class="age-calc__sport-btn" data-sport="softball" role="tab" aria-pressed="false">Softball</button>
       </div>
-      {{ button(label="Contact the board", href="/volunteer/", variant="secondary") }}
+      <p class="age-calc__note" data-sport-note>Coed — predominantly boys, but open to girls as well.</p>
+
+      <div class="age-calc__field">
+        <label class="field__label" for="age-calc-mm">Player's date of birth</label>
+        <div class="age-calc__dob-group">
+          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" class="input age-calc__dob-part" id="age-calc-mm" data-dob-part="mm" placeholder="MM" aria-label="Birth month">
+          <span class="age-calc__dob-sep">/</span>
+          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" class="input age-calc__dob-part" data-dob-part="dd" placeholder="DD" aria-label="Birth day">
+          <span class="age-calc__dob-sep">/</span>
+          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" class="input age-calc__dob-part age-calc__dob-part--year" data-dob-part="yyyy" placeholder="YYYY" aria-label="Birth year">
+        </div>
+      </div>
+
+      <div class="age-calc__result" data-result hidden></div>
     </div>
     {% endcall %}
   </div>

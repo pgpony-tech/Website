@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Muni Ballpark",
+    "slug": "muni-ballpark",
+    "description": "Flagship baseball and softball ballpark with lights on 17 Mile Dr.",
+    "gamesPlayed": { "active": true, "divisions": ["10U - Rookies", "12U - Minors", "14U - Majors", "10U - Mustang", "12U - Bronco"] },
+    "practices": { "active": true, "divisions": ["10U - Rookies", "12U - Minors", "14U - Majors", "10U - Mustang", "12U - Bronco"] },
+    "concessionStand": true,
+    "mapUrl": "https://maps.app.goo.gl/X1Hv543thePbnHMn6"
+  },
+  {
+    "name": "George Washington Park",
+    "slug": "george-washington-park",
+    "description": "Softball and baseball field at Sinex Ave and Alder St.",
+    "gamesPlayed": { "active": true, "divisions": ["8U - Pre-Rookies", "10U - Rookies", "12U - Minors", "8U - Pinto", "10U - Mustang"] },
+    "practices": { "active": true, "divisions": ["8U - Pre-Rookies", "10U - Rookies", "12U - Minors", "8U - Pinto", "10U - Mustang"] },
+    "concessionStand": true,
+    "mapUrl": "https://maps.app.goo.gl/i2XEXZ98YtyFTwum6"
+  },
+  {
+    "name": "Arnett Park",
+    "slug": "arnett-park",
+    "description": "Softball and baseball field on Piedmont Ave, used primarily for games.",
+    "gamesPlayed": { "active": true, "divisions": ["8U - Pre-Rookies", "10U - Rookies", "12U - Minors", "8U - Pinto", "10U - Mustang"] },
+    "practices": { "active": true, "divisions": ["8U - Pre-Rookies", "10U - Rookies", "12U - Minors", "8U - Pinto", "10U - Mustang"] },
+    "concessionStand": true,
+    "mapUrl": "https://maps.app.goo.gl/N4wVBFhZrYxNsFhA6"
+  },
+  {
+    "name": "PGHS JV Baseball Field",
+    "slug": "pghs-jv-baseball-field",
+    "description": "Baseball field used for games and practices for the 14U Pony division.",
+    "gamesPlayed": { "active": true, "divisions": ["14U - Pony"] },
+    "practices": { "active": true, "divisions": ["14U - Pony"] },
+    "concessionStand": false,
+    "mapUrl": "https://maps.app.goo.gl/YkvwtRjNAXZXYTgTA"
+  },
+  {
+    "name": "Forest Grove - Big Field",
+    "slug": "forest-grove-big-field",
+    "description": "The south side field at Forest Grove Elementary School.",
+    "gamesPlayed": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball"] },
+    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball", "8U - Pre-Rookies", "10U - Rookies", "12U - Minors"] },
+    "concessionStand": false,
+    "mapUrl": "https://maps.app.goo.gl/MLLkrTH7bXkL4wPo6"
+  },
+  {
+    "name": "Forest Grove - Small Field",
+    "slug": "forest-grove-small-field",
+    "description": "The north side field at Forest Grove Elementary School.",
+    "gamesPlayed": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball"] },
+    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball", "8U - Pre-Rookies", "10U - Rookies"] },
+    "concessionStand": false,
+    "mapUrl": "https://maps.app.goo.gl/e7MEBSHW899W7yiG6"
+  },
+  {
+    "name": "David Ave Baseball Fields - Big Field",
+    "slug": "david-ave-baseball-fields-big-field",
+    "description": "Practice-only field at Congress Ave and Forest Lodge Rd — park in the dirt lot off Forest Lodge Rd.",
+    "gamesPlayed": { "active": false, "divisions": [] },
+    "practices": { "active": true, "divisions": ["8U - Pinto", "10U - Mustang", "10U - Rookies"] },
+    "concessionStand": false,
+    "mapUrl": "https://maps.app.goo.gl/dRmb1axeqspA7tUL8"
+  },
+  {
+    "name": "David Ave Baseball Fields - Small Field",
+    "slug": "david-ave-baseball-fields-small-field",
+    "description": "Practice-only field west of the Big Field — park at Monterey Bay Charter School and walk across.",
+    "gamesPlayed": { "active": false, "divisions": [] },
+    "practices": { "active": true, "divisions": ["8U - Pinto", "10U - Mustang", "10U - Rookies"] },
+    "concessionStand": false,
+    "mapUrl": "https://maps.app.goo.gl/uRzuk6UhKiaUrcq6A"
+  },
+  {
+    "name": "Pacific Oaks Baseball Field",
+    "slug": "pacific-oaks-baseball-field",
+    "description": "Baseball and softball field used for practices only.",
+    "gamesPlayed": { "active": false, "divisions": [] },
+    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball", "8U - Pinto", "8U - Pre-Rookies"] },
+    "concessionStand": false,
+    "mapUrl": "https://maps.app.goo.gl/oQSRQ9vYEasWDwq56"
+  },
+  {
+    "name": "Robert Down Elementary School",
+    "slug": "robert-down-elementary-school",
+    "description": "Baseball field used for games and practices in the back of the school.",
+    "gamesPlayed": { "active": true, "divisions": ["8U - Pinto"] },
+    "practices": { "active": true, "divisions": ["8U - Pinto", "10U - Mustang"] },
+    "concessionStand": false,
+    "mapUrl": "https://maps.app.goo.gl/zEvCd3ExttRzgmQt7"
+  }
+]

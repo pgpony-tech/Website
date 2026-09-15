@@ -1,5 +1,5 @@
-{% macro card(variant="elevated", interactive=false, accentBar=false, extraClass="") %}
-<div class="card card--{{ variant }}{% if interactive %} card--interactive{% endif %}{% if accentBar %} card--accent-bar{% endif %}{% if extraClass %} {{ extraClass }}{% endif %}">
+{% macro card(variant="elevated", interactive=false, accentBar=false, extraClass="", id="") %}
+<div{% if id %} id="{{ id }}"{% endif %} class="card card--{{ variant }}{% if interactive %} card--interactive{% endif %}{% if accentBar %} card--accent-bar{% endif %}{% if extraClass %} {{ extraClass }}{% endif %}">
   {{ caller() }}
 </div>
 {% endmacro %}

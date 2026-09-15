@@ -82,8 +82,21 @@
   .with-sidebar,.with-sidebar--wide{grid-template-columns:1fr}
 }
 
-.tag-row{display:flex;flex-wrap:wrap;gap:8px}
 .game-list{display:flex;flex-direction:column;gap:var(--space-3)}
+.gc-widgets{display:flex;flex-direction:column;gap:var(--space-6);margin-top:var(--space-6)}
+.gc-widgets iframe{display:block}
+
+/* Field cards — scroll-margin clears the sticky header when jumped to via
+   anchor; the highlight animation confirms which one was just navigated to. */
+.field-card{scroll-margin-top:132px}
+.field-card.is-highlighted{animation:field-card-highlight 2200ms ease-out}
+@keyframes field-card-highlight{
+  /* Both stops keep the same two-shadow shape (ring + card shadow) so the
+     browser interpolates smoothly instead of snapping between shadow lists
+     of different lengths. */
+  0%{box-shadow:0 0 0 4px rgba(248,170,0,1), var(--shadow-lg)}
+  100%{box-shadow:0 0 0 4px rgba(248,170,0,0), var(--shadow-sm)}
+}
 @media (max-width:600px){
   .game-card{flex-wrap:wrap}
   .game-card__when{border-right:none;width:auto;padding-right:0}
@@ -97,6 +110,28 @@
 .included-list{list-style:none;margin:0;padding:0;font-size:var(--text-sm)}
 .included-list li{position:relative;padding-left:var(--space-4);margin-bottom:var(--space-2)}
 .included-list li::before{content:"●";position:absolute;left:0;color:var(--pg-gold);font-size:8px;top:.5em}
+
+/* ---------------------------------------------------------------- */
+/* Age calculator (Divisions page) */
+/* ---------------------------------------------------------------- */
+.age-calc{max-width:480px}
+.age-calc__toggle{display:inline-flex;background:var(--surface-sunken);border-radius:var(--radius-md);padding:4px;gap:4px;margin-bottom:var(--space-4)}
+.age-calc__sport-btn{
+  border:none;background:none;cursor:pointer;padding:8px 22px;border-radius:var(--radius-sm);
+  font-family:var(--font-condensed);font-weight:var(--weight-bold);text-transform:uppercase;
+  font-size:var(--text-sm);letter-spacing:var(--tracking-caps);color:var(--ink-600);
+  transition:var(--transition-control);
+}
+.age-calc__sport-btn.is-active{background:var(--surface-card);color:var(--pg-red);box-shadow:var(--shadow-xs)}
+.age-calc__note{font-size:var(--text-sm);color:var(--text-muted);margin:0 0 var(--space-6)}
+.age-calc__field{margin-bottom:var(--space-6)}
+.age-calc__dob-group{display:flex;align-items:center;gap:6px}
+.age-calc__dob-part{width:52px;text-align:center;padding:0 4px}
+.age-calc__dob-part--year{width:76px}
+.age-calc__dob-sep{color:var(--text-faint);font-weight:var(--weight-bold)}
+.age-calc__result{border-radius:var(--radius-card);padding:var(--space-5);background:var(--surface-sunken)}
+.age-calc__result-division{font-family:var(--font-display);font-weight:var(--weight-regular);font-size:var(--text-3xl);text-transform:uppercase;color:var(--pg-red);line-height:1;margin-bottom:6px}
+.age-calc__result-meta{font-size:var(--text-sm);color:var(--text-muted);margin:0}
 
 /* ---------------------------------------------------------------- */
 /* Volunteer roles */
