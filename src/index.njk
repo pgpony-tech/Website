@@ -18,24 +18,28 @@ permalink: /
   { date: "SUN 3/15", time: "11:30 AM", division: "Bronco", away: "Lighthouse", home: "Anglers", field: "George Washington Park · Field 1", status: "scheduled" }
 ] %}
 
-<section class="hero" id="hero">
-  <div class="hero__slide hero__slide--active" data-index="0">
-    <img class="hero__photo" src="/assets/photos/hero-sunset-at-bat.jpg" alt="">
-    <div class="hero__scrim"></div>
-    <div class="hero__inner">
-      <div class="hero__content">
-        <span class="hero__eyebrow">Pacific Grove · Est. {{ site.founded }}</span>
-        <h1>Youth baseball<br>and softball</h1>
-        <p class="hero__lede">Ages 4–14. All skill levels welcome. Spring is our main season, with fall and summer programs keeping the diamond busy year-round.</p>
-        <div class="hero__actions">
-          {{ button(label="Register for spring", href=site.sportsConnectUrl, variant="accent", size="lg", external=true) }}
-          {{ button(label="Find your division", href="/divisions/", variant="inverse", size="lg") }}
+<div class="hero-wrap">
+  <section class="hero" id="hero">
+    <div class="hero__slide hero__slide--active" data-index="0">
+      <img class="hero__photo" src="/assets/photos/hero-sunset-at-bat.jpg" alt="">
+      <div class="hero__scrim"></div>
+      <div class="hero__inner">
+        <div class="hero__content">
+          <span class="hero__eyebrow">Pacific Grove · Est. {{ site.founded }}</span>
+          <h1>Youth baseball<br>and softball</h1>
+          <p class="hero__lede">Ages 4–14. All skill levels welcome. Spring is our main season, with fall and summer programs keeping the diamond busy year-round.</p>
+          <div class="hero__actions">
+            {{ button(label="Register for spring", href=site.sportsConnectUrl, variant="accent", size="lg", external=true) }}
+            {{ button(label="Find your division", href="/divisions/", variant="inverse", size="lg") }}
+          </div>
         </div>
       </div>
     </div>
+  </section>
+  <div class="hero-controller" id="hero-controller" hidden>
+    <div class="hero-controller__inner" id="hero-controller-inner"></div>
   </div>
-  <div class="hero__dots" id="hero-dots" hidden></div>
-</section>
+</div>
 
 <section class="stats">
   <div class="stats__inner">
@@ -48,12 +52,26 @@ permalink: /
 
 <section class="section">
   <div class="section__inner">
-    {{ alert(
-      title="Rain delay",
-      message="Saturday's games at George Washington Park are pushed to 1:00 PM. Arnett Park is unaffected.",
-      tone="warning",
-      actionHtml=button(label="Field status", href="/schedule/", variant="ghost", size="sm")
+    <div id="field-status" data-action-label="Full schedule" data-action-href="/schedule/"{% if not fieldStatus.message %} hidden{% endif %}>
+      {% if fieldStatus.message %}
+      {{ alert(
+        title=fieldStatus.title,
+        message=fieldStatus.message,
+        tone=fieldStatus.tone,
+        actionHtml=button(label="Full schedule", href="/schedule/", variant="ghost", size="sm")
+      ) }}
+      {% endif %}
+    </div>
+    <div class="mb-9"></div>
+
+    {{ sectionHeading(
+      eyebrow="Mark your calendar",
+      title="Key dates",
+      actionHtml=button(label="Full schedule", href="/schedule/", variant="secondary", size="sm")
     ) }}
+    <div id="key-dates-list" class="key-dates-list" data-limit="3">
+      <p class="text-muted">Loading key dates…</p>
+    </div>
     <div class="mb-9"></div>
 
     {{ sectionHeading(
@@ -145,17 +163,5 @@ permalink: /
       actionHtml=button(label="Become a sponsor", href="mailto:" + site.email, variant="secondary", size="sm")
     ) }}
     {{ sponsorGrid(sponsors) }}
-  </div>
-</section>
-
-<section class="section">
-  <div class="section__inner">
-    <div class="cta-banner">
-      <div>
-        <h2>Registration now open</h2>
-        <p>{{ site.season }} · {{ site.fee }} · Scholarships available, just ask.</p>
-      </div>
-      {{ button(label="Start registration", href=site.sportsConnectUrl, variant="primary", size="lg", external=true) }}
-    </div>
   </div>
 </section>

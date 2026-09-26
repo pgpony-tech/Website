@@ -79,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function softballDivision(age) {
     if (age < 4) {
-      return { label: "Not yet eligible", meta: "PG PONY's youngest softball division (6U - Girls T-ball) starts at age 4." };
+      return { label: "Not yet eligible", meta: "PG PONY's youngest softball division (6U - Sof-T-Ball) starts at age 4." };
     }
-    if (age <= 6) return { label: "6U - Girls T-ball" };
+    if (age <= 6) return { label: "6U - Sof-T-Ball" };
     if (age <= 8) return { label: "8U - Pre-Rookies" };
     if (age <= 10) return { label: "10U - Rookies" };
     if (age <= 12) return { label: "12U - Minors" };

@@ -39,8 +39,8 @@
     "name": "Forest Grove - Big Field",
     "slug": "forest-grove-big-field",
     "description": "The south side field at Forest Grove Elementary School.",
-    "gamesPlayed": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball"] },
-    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball", "8U - Pre-Rookies", "10U - Rookies", "12U - Minors"] },
+    "gamesPlayed": { "active": true, "divisions": ["6U - Shetland", "6U - Sof-T-Ball"] },
+    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Sof-T-Ball", "8U - Pre-Rookies", "10U - Rookies", "12U - Minors"] },
     "concessionStand": false,
     "mapUrl": "https://maps.app.goo.gl/MLLkrTH7bXkL4wPo6"
   },
@@ -48,8 +48,8 @@
     "name": "Forest Grove - Small Field",
     "slug": "forest-grove-small-field",
     "description": "The north side field at Forest Grove Elementary School.",
-    "gamesPlayed": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball"] },
-    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball", "8U - Pre-Rookies", "10U - Rookies"] },
+    "gamesPlayed": { "active": true, "divisions": ["6U - Shetland", "6U - Sof-T-Ball"] },
+    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Sof-T-Ball", "8U - Pre-Rookies", "10U - Rookies"] },
     "concessionStand": false,
     "mapUrl": "https://maps.app.goo.gl/e7MEBSHW899W7yiG6"
   },
@@ -76,7 +76,7 @@
     "slug": "pacific-oaks-baseball-field",
     "description": "Baseball and softball field used for practices only.",
     "gamesPlayed": { "active": false, "divisions": [] },
-    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Girls T-ball", "8U - Pinto", "8U - Pre-Rookies"] },
+    "practices": { "active": true, "divisions": ["6U - Shetland", "6U - Sof-T-Ball", "8U - Pinto", "8U - Pre-Rookies"] },
     "concessionStand": false,
     "mapUrl": "https://maps.app.goo.gl/oQSRQ9vYEasWDwq56"
   },

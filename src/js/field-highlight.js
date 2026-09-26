@@ -1,6 +1,5 @@
-// Jumping to a field via an anchor link (sidebar quick-nav, or a direct URL
-// like /schedule/#arnett-park) briefly highlights that field's card so it's
-// obvious which one you landed on.
+// Jumping to a field via a direct URL (e.g. /fields/#arnett-park) briefly
+// highlights that field's card so it's obvious which one you landed on.
 document.addEventListener("DOMContentLoaded", () => {
   const fieldCards = document.querySelectorAll(".field-card");
   if (!fieldCards.length) return;

@@ -31,13 +31,25 @@
 
   function hydrateFieldStatus(data) {
     const el = document.getElementById("field-status");
-    if (!el || !data) return;
+    if (!el) return;
+    if (!data || !data.message) {
+      el.hidden = true;
+      return;
+    }
+    el.hidden = false;
+    const actionLabel = el.dataset.actionLabel;
+    const actionHref = el.dataset.actionHref;
+    const action =
+      actionLabel && actionHref
+        ? `<a class="btn btn--ghost btn--sm" href="${escapeHtml(actionHref)}">${escapeHtml(actionLabel)}</a>`
+        : "";
     el.innerHTML = `
       <div class="alert alert--${escapeHtml(data.tone || "info")}">
         <div class="alert__body">
           <span class="alert__title">${escapeHtml(data.title)}</span>
           <p class="alert__message">${escapeHtml(data.message)}</p>
         </div>
+        ${action}
       </div>`;
   }
 
@@ -47,36 +59,131 @@
     el.textContent = data.message;
   }
 
+  var KEY_DATE_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  function formatKeyDate(ev) {
+    if (ev.allDay) {
+      const [sy, sm, sd] = ev.start.split("-").map(Number);
+      let meta = `${KEY_DATE_MONTHS[sm - 1]} ${sd}`;
+      if (ev.end) {
+        const [ey, em, ed] = ev.end.split("-").map(Number);
+        const lastDayMs = Date.UTC(ey, em - 1, ed) - 86400000;
+        if (lastDayMs > Date.UTC(sy, sm - 1, sd)) {
+          const lastDate = new Date(lastDayMs);
+          const sameMonth = lastDate.getUTCMonth() === sm - 1;
+          meta += sameMonth
+            ? `–${lastDate.getUTCDate()}`
+            : `–${KEY_DATE_MONTHS[lastDate.getUTCMonth()]} ${lastDate.getUTCDate()}`;
+        }
+      }
+      return { month: KEY_DATE_MONTHS[sm - 1].toUpperCase(), day: String(sd), meta };
+    }
+    const d = new Date(ev.start);
+    const month = d.toLocaleString("en-US", { month: "short", timeZone: "America/Los_Angeles" });
+    const day = d.toLocaleString("en-US", { day: "numeric", timeZone: "America/Los_Angeles" });
+    const time = d.toLocaleString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Los_Angeles" });
+    return { month: month.toUpperCase(), day, meta: `${month} ${day} · ${time}` };
+  }
+
+  function keyDateCardHtml(ev) {
+    const { month, day, meta } = formatKeyDate(ev);
+    const metaParts = [meta];
+    if (ev.location) metaParts.push(ev.location);
+    const desc = ev.description ? `<p class="key-date-card__desc">${escapeHtml(ev.description)}</p>` : "";
+    const icsHref = buildIcsDataUri(ev);
+    const filename = `${slugifyForFile(ev.title)}.ics`;
+    return `
+      <div class="key-date-card">
+        <div class="key-date-card__when">
+          <span class="key-date-card__month">${escapeHtml(month)}</span>
+          <span class="key-date-card__day">${escapeHtml(day)}</span>
+        </div>
+        <div class="key-date-card__main">
+          <span class="key-date-card__title">${escapeHtml(ev.title)}</span>
+          <span class="key-date-card__meta">${escapeHtml(metaParts.join(" · "))}</span>
+          ${desc}
+          <div class="key-date-card__cta">
+            <a class="btn btn--secondary btn--sm" href="${icsHref}" download="${escapeHtml(filename)}">+ Add to calendar</a>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function slugifyForFile(text) {
+    const slug = String(text)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+    return slug || "event";
+  }
+
+  function escapeIcsText(value) {
+    return String(value)
+      .replace(/\\/g, "\\\\")
+      .replace(/\n/g, "\\n")
+      .replace(/,/g, "\\,")
+      .replace(/;/g, "\\;");
+  }
+
+  function toIcsDate(iso) {
+    return iso.replace(/[-:]/g, "");
+  }
+
+  function buildIcsDataUri(ev) {
+    const uid = `${Date.now()}-${Math.random().toString(36).slice(2)}@pgpony.org`;
+    const dtstamp = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    const endValue = ev.end || ev.start;
+    const lines = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//PG PONY//Key Dates//EN",
+      "BEGIN:VEVENT",
+      `UID:${uid}`,
+      `DTSTAMP:${dtstamp}`,
+      ev.allDay ? `DTSTART;VALUE=DATE:${toIcsDate(ev.start)}` : `DTSTART:${toIcsDate(ev.start)}`,
+      ev.allDay ? `DTEND;VALUE=DATE:${toIcsDate(endValue)}` : `DTEND:${toIcsDate(endValue)}`,
+      `SUMMARY:${escapeIcsText(ev.title)}`,
+    ];
+    if (ev.location) lines.push(`LOCATION:${escapeIcsText(ev.location)}`);
+    if (ev.description) lines.push(`DESCRIPTION:${escapeIcsText(ev.description)}`);
+    lines.push("END:VEVENT", "END:VCALENDAR");
+    return `data:text/calendar;charset=utf-8,${encodeURIComponent(lines.join("\r\n"))}`;
+  }
+
+  function hydrateKeyDates(data) {
+    const el = document.getElementById("key-dates-list");
+    if (!el) return;
+    if (!Array.isArray(data) || data.length === 0) {
+      el.innerHTML = '<p class="text-muted">No upcoming key dates right now — check back soon.</p>';
+      return;
+    }
+    const limit = el.dataset.limit ? Number(el.dataset.limit) : null;
+    const items = limit ? data.slice(0, limit) : data;
+    el.innerHTML = items.map(keyDateCardHtml).join("");
+  }
+
   function hydrateFields(data) {
     if (!data || !Array.isArray(data)) return;
-
-    const nav = document.getElementById("fields-nav-list");
-    if (nav) {
-      nav.innerHTML = data
-        .map(
-          (f) =>
-            `<li style="margin-bottom:var(--space-2);"><a href="#${escapeHtml(f.slug)}">${escapeHtml(f.name)}</a></li>`
-        )
-        .join("");
-    }
 
     const grid = document.getElementById("fields-grid");
     if (grid) {
       grid.innerHTML = data
         .map((f) => {
+          const gamesDivisions = (f.gamesPlayed && f.gamesPlayed.divisions) || [];
+          const practicesDivisions = (f.practices && f.practices.divisions) || [];
           const games =
             f.gamesPlayed && f.gamesPlayed.active
-              ? escapeHtml((f.gamesPlayed.divisions || []).join(", "))
+              ? escapeHtml(gamesDivisions.join(", "))
               : '<span class="text-muted">Not held here</span>';
           const practices =
             f.practices && f.practices.active
-              ? escapeHtml((f.practices.divisions || []).join(", "))
+              ? escapeHtml(practicesDivisions.join(", "))
               : '<span class="text-muted">Not held here</span>';
           const concessions = f.concessionStand
             ? '<span style="color:var(--status-success);">✓ Yes</span>'
             : '<span class="text-muted">✕ No</span>';
           return `
-            <div id="${escapeHtml(f.slug)}" class="card card--elevated field-card">
+            <div id="${escapeHtml(f.slug)}" class="card card--elevated field-card" data-games="${escapeHtml(gamesDivisions.join("|"))}" data-practices="${escapeHtml(practicesDivisions.join("|"))}">
               <h3 style="text-transform:uppercase;margin-bottom:var(--space-2);">${escapeHtml(f.name)}</h3>
               <p class="text-muted" style="margin-bottom:var(--space-4);">${escapeHtml(f.description)}</p>
               <p style="font-size:var(--text-sm);margin-bottom:var(--space-2);"><strong>Games played:</strong> ${games}</p>
@@ -86,6 +193,7 @@
             </div>`;
         })
         .join("");
+      if (window.applyFieldFilter) window.applyFieldFilter();
     }
   }
 
@@ -175,64 +283,61 @@
 
   function hydrateHero(slides) {
     const hero = document.getElementById("hero");
-    const dotsEl = document.getElementById("hero-dots");
-    if (!hero || !dotsEl || !Array.isArray(slides) || slides.length === 0) return;
+    const controller = document.getElementById("hero-controller");
+    const controllerInner = document.getElementById("hero-controller-inner");
+    if (!hero || !controller || !controllerInner || !Array.isArray(slides) || slides.length === 0) return;
 
     slides.forEach((slide, i) => {
       const div = document.createElement("div");
       div.className = "hero__slide";
       div.dataset.index = String(i + 1);
       div.innerHTML = heroSlideInnerHtml(slide);
-      dotsEl.before(div);
+      hero.appendChild(div);
     });
 
     const slideEls = Array.from(hero.querySelectorAll(".hero__slide"));
     const total = slideEls.length;
-
-    slideEls.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "hero__dot" + (i === 0 ? " hero__dot--active" : "");
-      dot.setAttribute("aria-label", `Show slide ${i + 1}`);
-      dot.addEventListener("click", () => goTo(i, true));
-      dotsEl.appendChild(dot);
-    });
-    dotsEl.hidden = false;
-
-    const dotEls = Array.from(dotsEl.children);
-    let current = 0;
-    let timer = null;
-
-    function goTo(index, userInitiated) {
-      slideEls[current].classList.remove("hero__slide--active");
-      dotEls[current].classList.remove("hero__dot--active");
-      current = index;
-      slideEls[current].classList.add("hero__slide--active");
-      dotEls[current].classList.add("hero__dot--active");
-      if (userInitiated) restart();
-    }
-
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function start() {
-      if (reduceMotion) return;
-      timer = setInterval(() => goTo((current + 1) % total, false), 6000);
-    }
-    function stop() {
-      if (timer) clearInterval(timer);
-      timer = null;
-    }
-    function restart() {
-      stop();
-      start();
+    const fillEls = slideEls.map((_, i) => {
+      const seg = document.createElement("button");
+      seg.type = "button";
+      seg.className = "hero-controller__seg";
+      seg.setAttribute("aria-label", `Show slide ${i + 1}`);
+      const fill = document.createElement("span");
+      fill.className = "hero-controller__seg-fill";
+      seg.appendChild(fill);
+      seg.addEventListener("click", () => goTo(i));
+      controllerInner.appendChild(seg);
+      return fill;
+    });
+    controller.hidden = false;
+
+    let current = 0;
+
+    // Re-triggering a CSS animation requires clearing it, forcing a reflow, then
+    // re-adding it — the timing (and the next-slide advance, via animationend) is
+    // driven entirely by the animation itself, not a JS timer, so there's no
+    // interval to accidentally stack from repeated focus/hover events.
+    function activateFill(index) {
+      fillEls.forEach((fill) => fill.classList.remove("is-animating", "is-static"));
+      const active = fillEls[index];
+      void active.offsetWidth;
+      active.classList.add(reduceMotion ? "is-static" : "is-animating");
     }
 
-    hero.addEventListener("mouseenter", stop);
-    hero.addEventListener("mouseleave", start);
-    hero.addEventListener("focusin", stop);
-    hero.addEventListener("focusout", start);
+    function goTo(index) {
+      slideEls[current].classList.remove("hero__slide--active");
+      current = index;
+      slideEls[current].classList.add("hero__slide--active");
+      activateFill(current);
+    }
 
-    start();
+    controllerInner.addEventListener("animationend", (e) => {
+      if (e.animationName === "heroProgress") goTo((current + 1) % total);
+    });
+
+    goTo(0);
   }
 
   async function run() {
@@ -243,8 +348,11 @@
     if (document.getElementById("registration-status")) {
       tasks.push(fetchJson("/api/registration-status").then(hydrateRegistrationStatus));
     }
-    if (document.getElementById("fields-nav-list") || document.getElementById("fields-grid")) {
+    if (document.getElementById("fields-grid")) {
       tasks.push(fetchJson("/api/fields").then(hydrateFields));
+    }
+    if (document.getElementById("key-dates-list")) {
+      tasks.push(fetchJson("/api/key-dates").then(hydrateKeyDates));
     }
     if (document.getElementById("board-content")) {
       tasks.push(fetchJson("/api/board").then(hydrateBoard));

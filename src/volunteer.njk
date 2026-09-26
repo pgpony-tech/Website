@@ -7,13 +7,14 @@ permalink: /volunteer/
 {% from "components/section-heading.njk" import sectionHeading %}
 {% from "components/card.njk" import card %}
 {% from "components/person-card.njk" import personCard %}
+{% from "components/button.njk" import button %}
 
 {% set roles = [
-  { title: "Head coach", hours: "Practices and games, weekly", description: "Run practices, set the lineup, and lead your team all season. Background check and PONY certification required." },
-  { title: "Assistant coach", hours: "Practices and games, weekly", description: "Support the head coach at practices and games. Background check and PONY certification required." },
+  { title: "Head coach", hours: "Practices and games, weekly", description: "Run practices, set the lineup, and lead your team all season. Background check and PG PONY training completion required." },
+  { title: "Assistant coach", hours: "Practices and games, weekly", description: "Support the head coach at practices and games. Background check and PG PONY training completion required." },
   { title: "Team parent", hours: "~2 hrs / week", description: "Coordinate snack schedule, photo day, and end-of-season party for one team." },
-  { title: "Scorekeeper", hours: "1 game / week", description: "Keep score from the stands using GameChanger. We'll train you in fifteen minutes." },
-  { title: "Snack bar", hours: "2 shifts / season", description: "Every family takes two. Shifts run the length of one game." },
+  { title: "Scorekeeper", hours: "1-2 games / week", description: "Keep score from the stands using GameChanger. New to it? Check out <a href=\"https://www.youtube.com/watch?v=zIMtvL_4sdQ&amp;list=PLwYgAwI9eXuaQZh0-oPqxYQOcwqdv8I7g\" target=\"_blank\" rel=\"noopener\">GameChanger University</a> on YouTube." },
+  { title: "Concessions", hours: "2 shifts / season", description: "3-4 families run Concessions together for each home game — 30 minutes before first pitch to 30 minutes after the last out. The PG PONY Concessions Team will train you." },
   { title: "Field prep", hours: "Before and after each game", description: "Drag and line the infield before first pitch and break it down after the last out. We'll train you — it takes about 45 minutes." },
   { title: "Board member", hours: "Monthly", description: "The board meets monthly." }
 ] %}
@@ -40,10 +41,17 @@ permalink: /volunteer/
     {% call card() %}
     <h3 class="role-card__title">{{ role.title }}</h3>
     <span class="role-card__hours">{{ role.hours }}</span>
-    <p class="role-card__desc" style="margin:0;">{{ role.description }}</p>
+    <p class="role-card__desc" style="margin:0;">{{ role.description | safe }}</p>
     {% endcall %}
     {% endfor %}
   </div>
+
+  <div class="mt-9"></div>
+  {% call card(variant="brand") %}
+  <h3 style="text-transform:uppercase;color:var(--pg-gold);">Thinking about coaching?</h3>
+  <p style="margin:0 0 var(--space-4);">Read our coaching philosophy — what we ask of coaches, and what your players and their families can expect from you.</p>
+  {{ button(label="View our coaching philosophy", href="/coaching-philosophy/", variant="inverse", size="sm") }}
+  {% endcall %}
 
   <div class="mt-11" id="board">
     <div id="board-content">

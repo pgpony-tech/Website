@@ -14,9 +14,17 @@
 .hero h1,.hero__slide-title{font-family:var(--font-display);font-weight:var(--weight-regular);font-size:var(--text-6xl);text-transform:uppercase;color:#fff;line-height:var(--leading-tight);text-shadow:0 2px 24px rgba(23,16,13,.45);margin:0}
 .hero__lede{font-size:var(--text-lg);line-height:var(--leading-relaxed);color:rgba(255,255,255,.92);max-width:520px;margin:var(--space-4) 0 0}
 .hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-7)}
-.hero__dots{position:absolute;left:50%;bottom:var(--space-6);transform:translateX(-50%);display:flex;gap:var(--space-3);z-index:2}
-.hero__dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);border:none;padding:0;cursor:pointer}
-.hero__dot--active{background:#fff}
+
+.hero-controller{background:var(--surface-page);border-bottom:1px solid var(--border-subtle)}
+.hero-controller__inner{max-width:var(--container-max);margin:0 auto;padding:var(--space-4) 24px;display:flex;gap:var(--space-2)}
+.hero-controller__seg{flex:1;height:4px;padding:0;border:none;border-radius:var(--radius-xs);background:var(--ink-200);cursor:pointer;position:relative;overflow:hidden}
+.hero-controller__seg-fill{position:absolute;inset:0;width:0;border-radius:inherit;background:var(--pg-red)}
+.hero-controller__seg-fill.is-static{width:100%}
+.hero-controller__seg-fill.is-animating{animation:heroProgress 6000ms linear forwards}
+.hero-wrap:hover .hero-controller__seg-fill.is-animating,
+.hero-wrap:focus-within .hero-controller__seg-fill.is-animating{animation-play-state:paused}
+
+@keyframes heroProgress{from{width:0}to{width:100%}}
 
 @media (max-width:600px){
   .hero{min-height:460px}
@@ -68,16 +76,6 @@
 @media (max-width:600px){
   .mission__values{grid-template-columns:1fr}
 }
-
-/* ---------------------------------------------------------------- */
-/* Home — Registration CTA banner */
-/* ---------------------------------------------------------------- */
-.cta-banner{
-  background:var(--pg-gold);border-radius:var(--radius-panel);padding:var(--space-9);
-  display:flex;justify-content:space-between;align-items:center;gap:var(--space-8);flex-wrap:wrap;
-}
-.cta-banner h2{font-family:var(--font-display);font-weight:var(--weight-regular);font-size:var(--text-4xl);text-transform:uppercase;color:var(--red-900);margin:0}
-.cta-banner p{font-size:var(--text-md);color:var(--red-900);opacity:.8;margin:var(--space-2) 0 0}
 
 /* ---------------------------------------------------------------- */
 /* Two-column body + sidebar (Schedule, Register) */

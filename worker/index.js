@@ -1,3 +1,5 @@
+import { getKeyDates } from "./calendar.js";
+
 const ROUTES = {
   "/api/board": "board",
   "/api/fields": "fields",
@@ -60,6 +62,20 @@ export default {
 
     if (url.pathname === "/api/hero-slides" && request.method === "GET") {
       return handleHeroSlides(env);
+    }
+
+    if (url.pathname === "/api/key-dates" && request.method === "GET") {
+      try {
+        const events = await getKeyDates(env);
+        return new Response(JSON.stringify(events), {
+          headers: { "content-type": "application/json", "cache-control": "public, max-age=300" },
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ error: err.message }), {
+          status: 502,
+          headers: { "content-type": "application/json" },
+        });
+      }
     }
 
     if (url.pathname.startsWith("/media/") && request.method === "GET") {

@@ -1,0 +1,71 @@
+---
+layout: layout.njk
+title: Fields
+permalink: /fields/
+extraScripts:
+  - /js/field-highlight.js
+  - /js/field-filter.js
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/section-heading.njk" import sectionHeading %}
+{% from "components/button.njk" import button %}
+
+<div class="page-header">
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Fields" }]) }}
+    <h1>Fields</h1>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-8);padding-bottom:var(--space-12);">
+  {{ sectionHeading(
+    eyebrow="Where we play",
+    title="Ten sites around Pacific Grove",
+    description="Filter by division to see which fields host that division's games and practices, and which have a concession stand."
+  ) }}
+
+  <div style="max-width:320px;margin-bottom:var(--space-8);">
+    <label class="field__label" for="division-filter">Filter by division</label>
+    <select id="division-filter" class="input">
+      <option value="all">All divisions</option>
+      <optgroup label="Baseball">
+        {% for division in site.baseballDivisions %}
+        <option value="{{ division.name }}">{{ division.name }}</option>
+        {% endfor %}
+      </optgroup>
+      <optgroup label="Softball">
+        {% for division in site.softballDivisions %}
+        <option value="{{ division.name }}">{{ division.name }}</option>
+        {% endfor %}
+      </optgroup>
+    </select>
+  </div>
+
+  <div id="fields-grid" class="grid-2">
+    {% for field in fields %}
+    <div
+      id="{{ field.slug }}"
+      class="card card--elevated field-card"
+      data-games="{{ field.gamesPlayed.divisions | join('|') }}"
+      data-practices="{{ field.practices.divisions | join('|') }}"
+    >
+      <h3 style="text-transform:uppercase;margin-bottom:var(--space-2);">{{ field.name }}</h3>
+      <p class="text-muted" style="margin-bottom:var(--space-4);">{{ field.description }}</p>
+      <p style="font-size:var(--text-sm);margin-bottom:var(--space-2);">
+        <strong>Games played:</strong>
+        {% if field.gamesPlayed.active %}{{ field.gamesPlayed.divisions | join(", ") }}{% else %}<span class="text-muted">Not held here</span>{% endif %}
+      </p>
+      <p style="font-size:var(--text-sm);margin-bottom:var(--space-2);">
+        <strong>Practices:</strong>
+        {% if field.practices.active %}{{ field.practices.divisions | join(", ") }}{% else %}<span class="text-muted">Not held here</span>{% endif %}
+      </p>
+      <p style="font-size:var(--text-sm);margin-bottom:var(--space-4);">
+        <strong>Concession stand:</strong>
+        {% if field.concessionStand %}<span style="color:var(--status-success);">✓ Yes</span>{% else %}<span class="text-muted">✕ No</span>{% endif %}
+      </p>
+      {{ button(label="View on Google Maps", href=field.mapUrl, variant="secondary", size="sm", external=true) }}
+    </div>
+    {% endfor %}
+  </div>
+  <p id="fields-empty" class="text-muted" hidden>No fields host that division's games or practices yet.</p>
+</div>

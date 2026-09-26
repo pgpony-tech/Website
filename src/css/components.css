@@ -134,6 +134,27 @@ a.division-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .game-card__status--cancelled{background:var(--ink-200);color:var(--ink-600)}
 
 /* ---------------------------------------------------------------- */
+/* KeyDateCard */
+/* ---------------------------------------------------------------- */
+.key-dates-list{display:flex;flex-direction:column;gap:var(--space-3)}
+.key-date-card{
+  display:flex;align-items:center;background:var(--surface-card);border:1px solid var(--border-subtle);
+  border-radius:var(--radius-card);padding:var(--space-4) var(--space-5);box-shadow:var(--shadow-xs);gap:var(--space-5);
+}
+.key-date-card__when{width:64px;flex:none;text-align:center;border-right:1px solid var(--border-subtle);padding-right:var(--space-4)}
+.key-date-card__month{display:block;font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-xs);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--pg-red)}
+.key-date-card__day{display:block;font-family:var(--font-display);font-size:var(--text-2xl);line-height:1;color:var(--ink-800)}
+.key-date-card__main{flex:1;min-width:0}
+.key-date-card__title{display:block;font-family:var(--font-condensed);font-weight:var(--weight-bold);font-size:var(--text-lg);text-transform:uppercase}
+.key-date-card__meta{display:block;font-size:var(--text-sm);color:var(--text-muted);margin-top:2px}
+.key-date-card__desc{font-size:var(--text-sm);color:var(--text-muted);margin:var(--space-2) 0 0}
+.key-date-card__cta{margin-top:var(--space-3)}
+
+@media (max-width:600px){
+  .key-date-card{flex-wrap:wrap}
+}
+
+/* ---------------------------------------------------------------- */
 /* StandingsTable */
 /* ---------------------------------------------------------------- */
 .standings{border:1px solid var(--border-subtle);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow-sm)}

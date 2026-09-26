@@ -2,8 +2,6 @@
 layout: layout.njk
 title: Schedule & scores
 permalink: /schedule/
-extraScripts:
-  - /js/field-highlight.js
 ---
 {% from "components/button.njk" import button %}
 {% from "components/breadcrumbs.njk" import breadcrumbs %}
@@ -19,76 +17,50 @@ extraScripts:
 </div>
 
 <div class="container" style="padding-top:var(--space-8);padding-bottom:var(--space-12);">
-  <div class="with-sidebar">
-    <div>
-      <div id="field-status">
-        {{ alert(title=fieldStatus.title, message=fieldStatus.message, tone=fieldStatus.tone) }}
-      </div>
-      <div style="height:var(--space-7);"></div>
+  <div id="field-status"{% if not fieldStatus.message %} hidden{% endif %}>
+    {% if fieldStatus.message %}
+    {{ alert(title=fieldStatus.title, message=fieldStatus.message, tone=fieldStatus.tone) }}
+    {% endif %}
+  </div>
+  <p style="margin-top:var(--space-4);">
+    Want to know which fields host your division, and which have a concession stand?
+    {{ button(label="View all fields", href="/fields/", variant="secondary", size="sm") }}
+  </p>
 
-      <p class="text-muted">Live schedules and scores are moving to GameChanger — full integration is coming soon. In the meantime, here are two scoreboards from last spring as a preview of what's ahead.</p>
-
-      <div class="gc-widgets">
-        <div>
-          <span class="eyebrow">Example — spring 2026</span>
-          {% call card() %}
-          <iframe src="https://widgets.gc.com/scoreboard/dc212b3a-150a-44ff-82c0-1e88eff4aedc/embed/v1?source=cx" width="100%" height="250px" style="border: none; outline: none;" title="GameChanger Scoreboard" loading="lazy"></iframe>
-          {% endcall %}
-        </div>
-        <div>
-          <span class="eyebrow">Example — spring 2026</span>
-          {% call card() %}
-          <iframe src="https://widgets.gc.com/scoreboard/ec9572de-2a47-4c39-82c5-a1caa40b706d/embed/v1?source=cx" width="100%" height="250px" style="border: none; outline: none;" title="GameChanger Scoreboard" loading="lazy"></iframe>
-          {% endcall %}
-        </div>
-      </div>
+  <div class="mt-11">
+    {{ sectionHeading(
+      eyebrow="Mark your calendar",
+      title="Key dates",
+      description="Registration deadlines, opening day, board meetings, and other need-to-know dates."
+    ) }}
+    <div id="key-dates-list" class="key-dates-list">
+      <p class="text-muted">Loading key dates…</p>
     </div>
-
-    <aside class="sidebar">
-      {% call card(accentBar=true) %}
-      <h3 style="text-transform:uppercase;">Fields</h3>
-      <ul id="fields-nav-list" style="list-style:none;margin:0 0 var(--space-4);padding:0;font-size:var(--text-sm);">
-        {% for field in fields %}
-        <li style="margin-bottom:var(--space-2);"><a href="#{{ field.slug }}">{{ field.name }}</a></li>
-        {% endfor %}
-      </ul>
-      {{ button(label="Field status", href="/schedule/", variant="secondary", size="sm", fullWidth=true) }}
-      {% endcall %}
-
-      {% call card(variant="brand") %}
-      <h3 style="text-transform:uppercase;color:var(--pg-gold);">Snack bar duty</h3>
-      <p style="margin:0 0 var(--space-4);">Every family takes two shifts a season. Pick yours before they're gone.</p>
-      {{ button(label="Sign up", href="/volunteer/", variant="inverse", size="sm", fullWidth=true) }}
-      {% endcall %}
-    </aside>
+    <p style="font-size:var(--text-sm);margin-top:var(--space-4);">
+      <a href="https://calendar.google.com/calendar/u/0?cid=Y19jYWNiMmZiMjY0ZTc2ZmI3ZDcxYmQ3ZWQwNDc0MzE3YmRhMDU2YzU2YmZjNTkxNzM2ODdlZjI2MTYxZWQ3NWM4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20" target="_blank" rel="noopener">View our full public calendar →</a>
+    </p>
   </div>
 
   <div class="mt-11">
     {{ sectionHeading(
-      eyebrow="Where we play",
-      title="Fields",
-      description="Ten sites around Pacific Grove host PG PONY games and practices."
+      eyebrow="Live scores",
+      title="GameChanger"
     ) }}
-    <div id="fields-grid" class="grid-2">
-      {% for field in fields %}
-      {% call card(id=field.slug, extraClass="field-card") %}
-      <h3 style="text-transform:uppercase;margin-bottom:var(--space-2);">{{ field.name }}</h3>
-      <p class="text-muted" style="margin-bottom:var(--space-4);">{{ field.description }}</p>
-      <p style="font-size:var(--text-sm);margin-bottom:var(--space-2);">
-        <strong>Games played:</strong>
-        {% if field.gamesPlayed.active %}{{ field.gamesPlayed.divisions | join(", ") }}{% else %}<span class="text-muted">Not held here</span>{% endif %}
-      </p>
-      <p style="font-size:var(--text-sm);margin-bottom:var(--space-2);">
-        <strong>Practices:</strong>
-        {% if field.practices.active %}{{ field.practices.divisions | join(", ") }}{% else %}<span class="text-muted">Not held here</span>{% endif %}
-      </p>
-      <p style="font-size:var(--text-sm);margin-bottom:var(--space-4);">
-        <strong>Concession stand:</strong>
-        {% if field.concessionStand %}<span style="color:var(--status-success);">✓ Yes</span>{% else %}<span class="text-muted">✕ No</span>{% endif %}
-      </p>
-      {{ button(label="View on Google Maps", href=field.mapUrl, variant="secondary", size="sm", external=true) }}
-      {% endcall %}
-      {% endfor %}
+    <p class="text-muted">Live schedules and scores are moving to GameChanger — full integration is coming soon. In the meantime, here are two scoreboards from last spring as a preview of what's ahead.</p>
+
+    <div class="gc-widgets">
+      <div>
+        <span class="eyebrow">Example — spring 2026</span>
+        {% call card() %}
+        <iframe src="https://widgets.gc.com/scoreboard/dc212b3a-150a-44ff-82c0-1e88eff4aedc/embed/v1?source=cx" width="100%" height="250px" style="border: none; outline: none;" title="GameChanger Scoreboard" loading="lazy"></iframe>
+        {% endcall %}
+      </div>
+      <div>
+        <span class="eyebrow">Example — spring 2026</span>
+        {% call card() %}
+        <iframe src="https://widgets.gc.com/scoreboard/ec9572de-2a47-4c39-82c5-a1caa40b706d/embed/v1?source=cx" width="100%" height="250px" style="border: none; outline: none;" title="GameChanger Scoreboard" loading="lazy"></iframe>
+        {% endcall %}
+      </div>
     </div>
   </div>
 </div>

@@ -25,7 +25,7 @@ npm run build     # one-shot build to _site/
 
 ## Project structure
 
-- `src/*.njk` — the five pages (Home, Divisions, Schedule, Register, Volunteer)
+- `src/*.njk` — the six pages (Home, Divisions, Schedule, Fields, Register, Volunteer)
 - `src/_includes/` — shared header/footer/layout and Nunjucks component macros
   (button, card, badge, division card, game card, standings table, sponsor grid, etc.)
 - `src/_data/site.json` — nav links, contact info, fee/dates, and the SportsConnect URL
@@ -108,6 +108,7 @@ deploy involved.
 | `sponsors` | Homepage | Same shape as `src/_data/sponsors.json` (array of `{name, url, logo?}`) |
 | `registration-status` | Every page (top bar) | `{ "message": "..." }` — plain text, rendered as-is. **Emoji work fine** (🔥, 🌧️, ⚾️, etc.) since it's just Unicode text — no icon library needed. Keep it to one line; there's no line-wrapping in the bar. |
 | `hero-slides` | Homepage hero | Array of up to 4 slide objects — see **Hero rotator** below |
+| `calendar-config` | Schedule page "Key dates" | `{ "icsUrl": "...", "maxEvents": 8 }` — see **Key dates** below |
 
 If a key is ever missing/empty, the corresponding section just falls back to whatever's baked
 into the build from `src/_data/` (or, for the hero rotator, to no rotator at all).
@@ -178,6 +179,26 @@ losing its data for later.
 > before it reaches R2. That's not needed for any of this to work — the Worker serves images
 > straight from the bucket via its R2 binding at `/media/<filename>` — but it's worth fixing in
 > Rules → Redirect Rules/Page Rules if you want the bucket's public URL to work too.
+
+### Key dates
+
+The Schedule page's "Key dates" section reads directly from the league's public Google Calendar
+— no iframe, no manual duplication. `worker/calendar.js` fetches the calendar's public **ICS feed**
+(the plain-text `.ics` export every public Google Calendar has, no API key needed), parses out
+each event's title/date/location/description, filters to upcoming-only, sorts them, and serves the
+result at `/api/key-dates` (cached both at Cloudflare's edge and in the browser). The client then
+renders them as cards styled like the homepage's game cards.
+
+To point it at a different calendar or change how many events show, edit `calendar-config` in the
+`SITE_CONFIG` KV namespace: `{ "icsUrl": "https://calendar.google.com/calendar/ical/<calendar-id>/public/basic.ics", "maxEvents": 8 }`.
+Find a calendar's ICS URL under its Google Calendar **Settings → Integrate calendar → Public URL to
+this calendar** (the calendar must be set to public first). This key is deliberately **not** wired
+into the Telegram bot's `/set` escape hatch — it holds a URL the Worker fetches server-side, so it's
+kept dashboard-only rather than editable by an LLM.
+
+One current limitation: recurring events (an `RRULE` in the ICS feed) aren't expanded — only
+one-off events parse correctly. Fine for a "key dates" calendar of one-off deadlines/meetings/
+tournaments; if the calendar ever gains a genuinely recurring event, it may not show as expected.
 
 ## Telegram bot
 
