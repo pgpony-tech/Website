@@ -43,6 +43,8 @@ npm run build     # one-shot build to _site/
   routes, and `/media/*` (proxies images out of the `hero-images` R2 bucket)
 - `wrangler.jsonc` — Worker config: name, static assets directory, KV namespace binding
   (`SITE_CONFIG`), R2 bucket binding (`HERO_MEDIA`)
+- `telegram-bot/` — a separate Telegram bot Worker (deployed independently, see its own README)
+  for updating the same KV/R2 data by messaging Claude in plain English
 
 ## Known placeholders — replace before launch
 
@@ -81,6 +83,13 @@ To work on the Worker locally against the *real* KV/R2 data (not a local emulati
 
 ```
 npx wrangler dev --remote
+```
+
+For local testing of the Telegram bot, put its two secrets in a `.dev.vars` file at the repo
+root (gitignored, never committed) — `wrangler dev` loads it automatically:
+```
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_WEBHOOK_SECRET=...
 ```
 
 ## Live-editable content (Cloudflare KV + R2)
@@ -169,3 +178,18 @@ losing its data for later.
 > before it reaches R2. That's not needed for any of this to work — the Worker serves images
 > straight from the bucket via its R2 binding at `/media/<filename>` — but it's worth fixing in
 > Rules → Redirect Rules/Page Rules if you want the bucket's public URL to work too.
+
+## Telegram bot
+
+Everything in [Live-editable content](#live-editable-content-cloudflare-kv--r2) can also be
+updated by messaging a Telegram bot in plain English, instead of using the Cloudflare dashboard —
+handy from a phone. It's a **separate, standalone Worker** (not part of this repo's Git-integrated
+deploy) — see `telegram-bot/README.md` for what it is and the full setup checklist. Deployed by
+pasting `telegram-bot/index.js` into a Worker created directly in the Cloudflare dashboard.
+
+It reads/writes the same `SITE_CONFIG` KV namespace and `HERO_MEDIA` R2 bucket as the main site
+Worker, so changes are still live within ~30 seconds, no rebuild. A message like "set the
+registration message to 🔥 Softball 6U is open" or "remove Jane Doe as Umpire Liaison" is sent to
+Claude along with the current value of all six config keys; Claude decides which key applies and
+returns the complete new value, which gets validated and written to KV. Sending a **photo** with a
+caption adds a hero rotator slide directly (no Claude involved — that part's just file handling).
