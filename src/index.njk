@@ -18,20 +18,23 @@ permalink: /
   { date: "SUN 3/15", time: "11:30 AM", division: "Bronco", away: "Lighthouse", home: "Anglers", field: "George Washington Park · Field 1", status: "scheduled" }
 ] %}
 
-<section class="hero">
-  <img class="hero__photo" src="/assets/photos/hero-sunset-at-bat.jpg" alt="">
-  <div class="hero__scrim"></div>
-  <div class="hero__inner">
-    <div class="hero__content">
-      <span class="hero__eyebrow">Pacific Grove · Est. {{ site.founded }}</span>
-      <h1>Youth baseball<br>and softball</h1>
-      <p class="hero__lede">Ages 4–14. All skill levels welcome. Spring is our main season, with fall and summer programs keeping the diamond busy year-round.</p>
-      <div class="hero__actions">
-        {{ button(label="Register for spring", href=site.sportsConnectUrl, variant="accent", size="lg", external=true) }}
-        {{ button(label="Find your division", href="/divisions/", variant="inverse", size="lg") }}
+<section class="hero" id="hero">
+  <div class="hero__slide hero__slide--active" data-index="0">
+    <img class="hero__photo" src="/assets/photos/hero-sunset-at-bat.jpg" alt="">
+    <div class="hero__scrim"></div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="hero__eyebrow">Pacific Grove · Est. {{ site.founded }}</span>
+        <h1>Youth baseball<br>and softball</h1>
+        <p class="hero__lede">Ages 4–14. All skill levels welcome. Spring is our main season, with fall and summer programs keeping the diamond busy year-round.</p>
+        <div class="hero__actions">
+          {{ button(label="Register for spring", href=site.sportsConnectUrl, variant="accent", size="lg", external=true) }}
+          {{ button(label="Find your division", href="/divisions/", variant="inverse", size="lg") }}
+        </div>
       </div>
     </div>
   </div>
+  <div class="hero__dots" id="hero-dots" hidden></div>
 </section>
 
 <section class="stats">

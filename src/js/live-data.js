@@ -41,6 +41,12 @@
       </div>`;
   }
 
+  function hydrateRegistrationStatus(data) {
+    const el = document.getElementById("registration-status");
+    if (!el || !data || !data.message) return;
+    el.textContent = data.message;
+  }
+
   function hydrateFields(data) {
     if (!data || !Array.isArray(data)) return;
 
@@ -132,10 +138,110 @@
       .join("");
   }
 
+  function heroSlideInnerHtml(slide) {
+    const hasText = slide.title || slide.lede || (slide.ctaLabel && slide.ctaHref);
+    const imgClass = hasText ? "hero__photo" : "hero__photo hero__photo--contain";
+    const img = `<img class="${imgClass}" src="/media/${encodeURIComponent(slide.image)}" alt="${escapeHtml(slide.alt || "")}">`;
+
+    let body;
+    if (hasText) {
+      const eyebrow = slide.eyebrow ? `<span class="hero__eyebrow">${escapeHtml(slide.eyebrow)}</span>` : "";
+      const title = slide.title ? `<p class="hero__slide-title">${escapeHtml(slide.title)}</p>` : "";
+      const lede = slide.lede ? `<p class="hero__lede">${escapeHtml(slide.lede)}</p>` : "";
+      const cta =
+        slide.ctaLabel && slide.ctaHref
+          ? `<div class="hero__actions"><a class="btn btn--accent btn--lg" href="${escapeHtml(slide.ctaHref)}">${escapeHtml(slide.ctaLabel)}</a></div>`
+          : "";
+      body = `
+        ${img}
+        <div class="hero__scrim"></div>
+        <div class="hero__inner">
+          <div class="hero__content">
+            ${eyebrow}
+            ${title}
+            ${lede}
+            ${cta}
+          </div>
+        </div>`;
+    } else {
+      // Slide is a pre-designed graphic (text baked into the image) — show it as-is, no scrim/overlay.
+      body = img;
+    }
+
+    return slide.href
+      ? `<a class="hero__slide-link" href="${escapeHtml(slide.href)}">${body}</a>`
+      : body;
+  }
+
+  function hydrateHero(slides) {
+    const hero = document.getElementById("hero");
+    const dotsEl = document.getElementById("hero-dots");
+    if (!hero || !dotsEl || !Array.isArray(slides) || slides.length === 0) return;
+
+    slides.forEach((slide, i) => {
+      const div = document.createElement("div");
+      div.className = "hero__slide";
+      div.dataset.index = String(i + 1);
+      div.innerHTML = heroSlideInnerHtml(slide);
+      dotsEl.before(div);
+    });
+
+    const slideEls = Array.from(hero.querySelectorAll(".hero__slide"));
+    const total = slideEls.length;
+
+    slideEls.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "hero__dot" + (i === 0 ? " hero__dot--active" : "");
+      dot.setAttribute("aria-label", `Show slide ${i + 1}`);
+      dot.addEventListener("click", () => goTo(i, true));
+      dotsEl.appendChild(dot);
+    });
+    dotsEl.hidden = false;
+
+    const dotEls = Array.from(dotsEl.children);
+    let current = 0;
+    let timer = null;
+
+    function goTo(index, userInitiated) {
+      slideEls[current].classList.remove("hero__slide--active");
+      dotEls[current].classList.remove("hero__dot--active");
+      current = index;
+      slideEls[current].classList.add("hero__slide--active");
+      dotEls[current].classList.add("hero__dot--active");
+      if (userInitiated) restart();
+    }
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function start() {
+      if (reduceMotion) return;
+      timer = setInterval(() => goTo((current + 1) % total, false), 6000);
+    }
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+    function restart() {
+      stop();
+      start();
+    }
+
+    hero.addEventListener("mouseenter", stop);
+    hero.addEventListener("mouseleave", start);
+    hero.addEventListener("focusin", stop);
+    hero.addEventListener("focusout", start);
+
+    start();
+  }
+
   async function run() {
     const tasks = [];
     if (document.getElementById("field-status")) {
       tasks.push(fetchJson("/api/field-status").then(hydrateFieldStatus));
+    }
+    if (document.getElementById("registration-status")) {
+      tasks.push(fetchJson("/api/registration-status").then(hydrateRegistrationStatus));
     }
     if (document.getElementById("fields-nav-list") || document.getElementById("fields-grid")) {
       tasks.push(fetchJson("/api/fields").then(hydrateFields));
@@ -145,6 +251,9 @@
     }
     if (document.getElementById("sponsor-grid")) {
       tasks.push(fetchJson("/api/sponsors").then(hydrateSponsors));
+    }
+    if (document.getElementById("hero")) {
+      tasks.push(fetchJson("/api/hero-slides").then(hydrateHero));
     }
     await Promise.all(tasks);
   }
