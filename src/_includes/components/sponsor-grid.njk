@@ -1,5 +1,5 @@
 {% macro sponsorGrid(sponsors) %}
-<div class="sponsor-grid">
+<div id="sponsor-grid" class="sponsor-grid">
   {% for s in sponsors %}
   <a class="sponsor-tile" href="{{ s.url }}" target="_blank" rel="noopener" title="{{ s.name }}">
     {% if s.logo %}

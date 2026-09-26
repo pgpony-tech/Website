@@ -46,6 +46,7 @@ permalink: /volunteer/
   </div>
 
   <div class="mt-11" id="board">
+    <div id="board-content">
     {{ sectionHeading(eyebrow=board.termLabel, title="Who to contact", description=board.votedIn + " · Last updated " + board.lastUpdated) }}
 
     <div class="alert alert--info mb-9">
@@ -73,6 +74,7 @@ permalink: /volunteer/
     <span class="eyebrow">Softball reps</span>
     <div class="grid-4">
       {% for person in board.softballReps %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
+    </div>
     </div>
   </div>
 </div>

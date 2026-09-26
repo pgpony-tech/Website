@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "website",
+  "compatibility_date": "2026-09-25",
+  "main": "worker/index.js",
+  "assets": {
+    "directory": "_site",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    { "binding": "SITE_CONFIG", "id": "9b3d1bce2ca64bca80fffc40dac560d2" }
+  ]
+}
