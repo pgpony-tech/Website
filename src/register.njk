@@ -14,7 +14,7 @@ permalink: /register/
     <h1>{{ site.season }} registration</h1>
     <div class="register-facts">
       {{ badge(label="Closes " + site.registrationCloses, tone="gold") }}
-      {{ badge(label=site.fee, tone="inverse") }}
+      {{ badge(label="Early bird through " + pricing.seasons[0].earlyBirdLabel, tone="inverse") }}
     </div>
   </div>
 </div>
@@ -37,7 +37,7 @@ permalink: /register/
         <ul style="list-style:none;margin:0;padding:0;font-size:var(--text-sm);">
           <li style="margin-bottom:var(--space-2);"><strong>Season:</strong> {{ site.season }}</li>
           <li style="margin-bottom:var(--space-2);"><strong>Registration closes:</strong> {{ site.registrationCloses }}</li>
-          <li style="margin-bottom:0;"><strong>Fee:</strong> {{ site.fee }}</li>
+          <li style="margin-bottom:0;"><strong>Fees:</strong> <a href="/divisions/#divisions">See pricing by division</a></li>
         </ul>
         {% endcall %}
       </div>
@@ -61,4 +61,5 @@ permalink: /register/
       {% endcall %}
     </aside>
   </div>
+
 </div>

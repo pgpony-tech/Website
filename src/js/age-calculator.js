@@ -132,7 +132,13 @@ document.addEventListener("DOMContentLoaded", () => {
     resultEl.innerHTML = `
       <div class="age-calc__result-division">${division.label}</div>
       <p class="age-calc__result-meta">League age ${age} as of the ${cutoffLabel} cutoff.${division.meta ? " " + division.meta : ""}</p>
+      ${division.meta ? "" : '<a class="age-calc__result-link" href="#divisions">See details and pricing ↓</a>'}
     `;
+
+    // Only real divisions (no meta note) open a detail card below.
+    if (!division.meta) {
+      document.dispatchEvent(new CustomEvent("pgpony:division", { detail: { name: division.label } }));
+    }
   }
 
   sportButtons.forEach((btn) => {

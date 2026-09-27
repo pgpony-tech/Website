@@ -1,12 +1,11 @@
 ---
 layout: layout.njk
-title: Volunteer
+title: Help
 permalink: /volunteer/
 ---
 {% from "components/breadcrumbs.njk" import breadcrumbs %}
 {% from "components/section-heading.njk" import sectionHeading %}
 {% from "components/card.njk" import card %}
-{% from "components/person-card.njk" import personCard %}
 {% from "components/button.njk" import button %}
 
 {% set roles = [
@@ -24,7 +23,7 @@ permalink: /volunteer/
     <img src="/assets/logos/symbol-color-light.png" alt="">
   </div>
   <div class="page-header__inner">
-    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Volunteer" }]) }}
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Help" }]) }}
     <h1>The league is the parents</h1>
     <p>Nobody here is paid. Every practice, every lined field, every hot dog is a parent who showed up. Pick a job that fits your season.</p>
   </div>
@@ -53,36 +52,16 @@ permalink: /volunteer/
   {{ button(label="View our coaching philosophy", href="/coaching-philosophy/", variant="inverse", size="sm") }}
   {% endcall %}
 
-  <div class="mt-11" id="board">
-    <div id="board-content">
-    {{ sectionHeading(eyebrow=board.termLabel, title="Who to contact", description=board.votedIn + " · Last updated " + board.lastUpdated) }}
-
-    <div class="alert alert--info mb-9">
-      <div class="alert__body">
-        <span class="alert__title">Vacant position?</span>
-        <p class="alert__message">Email <a href="mailto:{{ board.vacancyContact.email }}">{{ board.vacancyContact.name }}</a>.</p>
-      </div>
-    </div>
-
-    <h3 style="text-transform:uppercase;">Executive board</h3>
-    <div class="grid-3 mb-9">
-      {% for person in board.executive %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
-    </div>
-
-    <h3 style="text-transform:uppercase;">General board</h3>
-    <div class="grid-3 mb-9">
-      {% for person in board.general %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
-    </div>
-
-    <h3 style="text-transform:uppercase;">Division representatives</h3>
-    <span class="eyebrow">Baseball reps</span>
-    <div class="grid-4 mb-6">
-      {% for person in board.baseballReps %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
-    </div>
-    <span class="eyebrow">Softball reps</span>
-    <div class="grid-4">
-      {% for person in board.softballReps %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
-    </div>
-    </div>
+  <div class="grid-2 mt-11">
+    {% call card(accentBar=true) %}
+    <h3 style="text-transform:uppercase;">Board of Directors</h3>
+    <p style="margin:0 0 var(--space-4);">PG PONY is run by an all-volunteer board. See who's who and how to reach each of them.</p>
+    {{ button(label="Meet the board", href="/board/", variant="secondary", size="sm") }}
+    {% endcall %}
+    {% call card(accentBar=true) %}
+    <h3 style="text-transform:uppercase;">Need help?</h3>
+    <p style="margin:0 0 var(--space-4);">Have a specific question? Tell us what you need and we'll help you find the right person.</p>
+    {{ button(label="Get help", href="/contact/", variant="secondary", size="sm") }}
+    {% endcall %}
   </div>
 </div>

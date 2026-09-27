@@ -4,64 +4,148 @@ title: Divisions
 permalink: /divisions/
 extraScripts:
   - /js/age-calculator.js
+  - /js/division-picker.js
+  - /js/pricing.js
 ---
 {% from "components/breadcrumbs.njk" import breadcrumbs %}
 {% from "components/section-heading.njk" import sectionHeading %}
-{% from "components/division-card.njk" import divisionCard %}
 {% from "components/card.njk" import card %}
+
+{# Divisions that field All-Star teams, from allStars.json. #}
+{% set allStarDivisions = [] %}
+{% for sport in allStars.sports %}{% for n in sport.divisions %}{% if allStarDivisions.push(n) %}{% endif %}{% endfor %}{% endfor %}
+
+{% set sportGroups = [
+  { name: "Baseball", audience: "Coed · predominantly boys", divisions: site.baseballDivisions },
+  { name: "Softball", audience: "Girls", divisions: site.softballDivisions }
+] %}
 
 <div class="page-header">
   <div class="page-header__inner">
-    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Divisions" }]) }}
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Play", href: "/play/" }, { label: "Divisions" }]) }}
     <h1>Divisions</h1>
     <p>We field separate baseball and softball programs, each broken into age divisions. Baseball uses {{ site.baseballAgeCutoff }} as the age cutoff; softball uses {{ site.softballAgeCutoff }}, which lines up with the school district's cutoff. If you're unsure, register anyway and we'll sort it out.</p>
   </div>
 </div>
 
 <div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
-  {{ sectionHeading(eyebrow="Coed", title="Baseball divisions", description="Baseball is predominantly boys, but open to girls as well.") }}
-  <div class="grid-3 mb-9">
-    {% for division in site.baseballDivisions %}
-      {{ divisionCard(division) }}
-    {% endfor %}
-  </div>
-
-  <div class="mt-11">
-    {{ sectionHeading(eyebrow="Girls", title="Softball divisions") }}
-    <div class="grid-3">
-      {% for division in site.softballDivisions %}
-        {{ divisionCard(division) }}
-      {% endfor %}
+  {{ sectionHeading(
+    eyebrow="Find your division",
+    title="Age calculator",
+    description="Enter your player's date of birth to see which division they fall into for the upcoming season. Their division's details and pricing will open below."
+  ) }}
+  {% call card() %}
+  <div class="age-calc" data-age-calc>
+    <div class="age-calc__toggle" role="tablist">
+      <button type="button" class="age-calc__sport-btn is-active" data-sport="baseball" role="tab" aria-pressed="true">Baseball</button>
+      <button type="button" class="age-calc__sport-btn" data-sport="softball" role="tab" aria-pressed="false">Softball</button>
     </div>
-  </div>
+    <p class="age-calc__note" data-sport-note>Coed — predominantly boys, but open to girls as well.</p>
 
-  <div class="mt-11">
-    {{ sectionHeading(
-      eyebrow="Find your division",
-      title="Age calculator",
-      description="Enter your player's date of birth to see which division they fall into for the upcoming season."
-    ) }}
-    {% call card() %}
-    <div class="age-calc" data-age-calc>
-      <div class="age-calc__toggle" role="tablist">
-        <button type="button" class="age-calc__sport-btn is-active" data-sport="baseball" role="tab" aria-pressed="true">Baseball</button>
-        <button type="button" class="age-calc__sport-btn" data-sport="softball" role="tab" aria-pressed="false">Softball</button>
+    <div class="age-calc__field">
+      <label class="field__label" for="age-calc-mm">Player's date of birth</label>
+      <div class="age-calc__dob-group">
+        <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" class="input age-calc__dob-part" id="age-calc-mm" data-dob-part="mm" placeholder="MM" aria-label="Birth month">
+        <span class="age-calc__dob-sep">/</span>
+        <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" class="input age-calc__dob-part" data-dob-part="dd" placeholder="DD" aria-label="Birth day">
+        <span class="age-calc__dob-sep">/</span>
+        <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" class="input age-calc__dob-part age-calc__dob-part--year" data-dob-part="yyyy" placeholder="YYYY" aria-label="Birth year">
       </div>
-      <p class="age-calc__note" data-sport-note>Coed — predominantly boys, but open to girls as well.</p>
+    </div>
 
-      <div class="age-calc__field">
-        <label class="field__label" for="age-calc-mm">Player's date of birth</label>
-        <div class="age-calc__dob-group">
-          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" class="input age-calc__dob-part" id="age-calc-mm" data-dob-part="mm" placeholder="MM" aria-label="Birth month">
-          <span class="age-calc__dob-sep">/</span>
-          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" class="input age-calc__dob-part" data-dob-part="dd" placeholder="DD" aria-label="Birth day">
-          <span class="age-calc__dob-sep">/</span>
-          <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" class="input age-calc__dob-part age-calc__dob-part--year" data-dob-part="yyyy" placeholder="YYYY" aria-label="Birth year">
+    <div class="age-calc__result" data-result hidden></div>
+  </div>
+  {% endcall %}
+
+  <div class="mt-11" id="divisions">
+    {{ sectionHeading(
+      eyebrow="Divisions and pricing",
+      title="All divisions",
+      description="Each division plays a spring season. Many also offer fall ball and summer sandlot. Tap one or more divisions to show only those."
+    ) }}
+
+    <div class="division-picker" data-division-picker hidden>
+      {% for group in sportGroups %}
+      <div class="division-picker__group">
+        <span class="division-picker__sport">{{ group.name | sportEmoji }} {{ group.name }} <span class="division-picker__audience">· {{ group.audience }}</span></span>
+        <div class="division-picker__options">
+          {% for d in group.divisions %}
+          {% set parts = d.name.split(" - ") %}
+          <button type="button" class="division-picker__btn division-picker__btn--{{ group.name | lower }}" data-division-pick="{{ d.name }}" aria-pressed="false">
+            <span aria-hidden="true">{{ group.name | sportEmoji }}</span> <span class="division-picker__age">{{ parts[0] }}</span> {{ parts[1] }}
+          </button>
+          {% endfor %}
         </div>
       </div>
-
-      <div class="age-calc__result" data-result hidden></div>
+      {% endfor %}
+      <div class="division-picker__status">
+        <span data-division-status>Showing all divisions</span>
+        <button type="button" class="division-picker__clear" data-division-clear hidden>Show all</button>
+      </div>
     </div>
-    {% endcall %}
+
+    {% for group in sportGroups %}
+    {% for d in group.divisions %}
+    {% set parts = d.name.split(" - ") %}
+    <article class="division-detail" id="{{ d.name | slugify }}" data-division-panel="{{ d.name }}">
+      <header class="division-detail__head">
+        <span class="division-detail__sport">{{ d.sport }} · {{ group.audience }}</span>
+        <h3 class="division-detail__name"><span class="division-detail__emoji" aria-hidden="true">{{ d.sport | sportEmoji }}</span> {{ d.name }}</h3>
+        <span class="division-detail__ages">{{ d.ages }}</span>
+      </header>
+      <div class="division-detail__body">
+        <p class="division-detail__desc">{{ d.description }}</p>
+        <div class="division-detail__seasons">
+          {% for item in d | seasonsFor(pricing) %}
+          {% set season = item.season %}
+          {% set offering = item.offering %}
+          <section class="season-block"{% if offering.earlyBird %} data-early-bird-ends="{{ season.earlyBirdEnds }}"{% endif %}>
+            <h4 class="season-block__name">{{ season.name }}{% if season.months %} <span class="season-block__months">· {{ season.months }}</span>{% endif %}</h4>
+            {% if offering.earlyBird %}
+            <div data-early-bird>
+              <span class="season-block__price">{{ offering.earlyBird | money }}</span>
+              <span class="season-block__sub">Early bird through {{ season.earlyBirdLabel }} · {{ offering.regular | money }} after</span>
+            </div>
+            <div data-regular hidden>
+              <span class="season-block__price">{{ offering.regular | money }}</span>
+              <span class="season-block__sub">per player</span>
+            </div>
+            {% else %}
+            <span class="season-block__price">{{ offering.regular | money }}</span>
+            <span class="season-block__sub">per player</span>
+            {% endif %}
+            {% if season.summary %}<p class="season-block__summary">{{ season.summary }}</p>{% endif %}
+            {% set features = (d.detail if season.key == "spring" else []).concat(season.features or [], offering.features or []) %}
+            {% if features.length %}
+            <ul class="included-list season-block__features">
+              {% for f in features %}<li>{{ f }}</li>{% endfor %}
+              {% if season.key == "spring" and d.name in allStarDivisions %}<li><a href="/all-stars/">All-Stars</a> can extend the season into June and July{% if d.sport == "Baseball" %}, and sometimes August{% endif %}, based on team results</li>{% endif %}
+            </ul>
+            {% endif %}
+          </section>
+          {% endfor %}
+        </div>
+        {% if rules.divisions[d.name] %}<a class="division-detail__rules" href="/rules/#{{ d.name | slugify }}">{{ parts[1] }} rules →</a>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+    {% endfor %}
+
+    <div class="grid-3 mt-9">
+      {% call card(variant="sunken") %}
+      <h3 style="text-transform:uppercase;">What registration covers</h3>
+      <ul class="included-list">
+        {% for item in pricing.covers %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+      {% endcall %}
+      {% call card(variant="sunken") %}
+      <h3 style="text-transform:uppercase;">Sibling discount</h3>
+      <p style="margin:0;">{{ pricing.siblingDiscount | money }} off for each additional sibling you register.</p>
+      {% endcall %}
+      {% call card(variant="sunken") %}
+      <h3 style="text-transform:uppercase;">Not for profit</h3>
+      <p style="margin:0;">{{ pricing.nonProfitNote }} Need help with the cost? <a href="mailto:{{ site.email }}">Ask about scholarships</a>.</p>
+      {% endcall %}
+    </div>
   </div>
 </div>

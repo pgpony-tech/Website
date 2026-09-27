@@ -1,0 +1,60 @@
+---
+layout: layout.njk
+title: Privacy Policy
+permalink: /privacy/
+description: "How the Pacific Grove PONY website handles your information."
+# Shows a "draft" notice at the top of the page. Set to false once the board approves it.
+draft: true
+lastUpdated: "September 27, 2026"
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+
+<div class="page-header">
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Help", href: "/volunteer/" }, { label: "League Policies", href: "/policies/" }, { label: "Privacy Policy" }]) }}
+    <h1>Privacy Policy</h1>
+    <p>Last updated {{ lastUpdated }}</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-8);padding-bottom:var(--space-12);">
+  {% if draft %}
+  <div class="alert alert--warning mb-9">
+    <div class="alert__body">
+      <span class="alert__title">Draft</span>
+      <p class="alert__message">This policy is a draft pending review by the PG PONY Board of Directors.</p>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="prose">
+    <p>{{ site.orgName }} ("PG PONY", "we") is a volunteer-run youth baseball and softball league. This policy explains what information this website (pgpony.com) handles and why. We keep it simple: the website doesn't have user accounts, doesn't use advertising or tracking cookies, and doesn't sell anyone's information.</p>
+
+    <h2>Registration happens on SportsConnect</h2>
+    <p>Player registration, payments and family accounts are handled by SportsConnect, the league management platform run by Stack Sports. When you register, SportsConnect collects the information on its forms (such as your contact details, your player's date of birth, school, uniform preferences and medical insurance details) and processes payments. That information is covered by <a href="https://stacksports.com/legal-privacy" target="_blank" rel="noopener">Stack Sports' privacy policy</a>. PG PONY uses registration information only to run the league: placing players in divisions and on teams, contacting families about the season, and meeting league and insurance requirements.</p>
+
+    <h2>What this website collects</h2>
+    <ul>
+      <li><strong>Questions on the Get help page.</strong> When you type a question, it's sent to Anthropic, our AI provider, to suggest which board member can help. We don't store your question, and Anthropic doesn't use it to train its models. Don't include sensitive personal information in your question.</li>
+      <li><strong>Standard web server data.</strong> The website is hosted by Cloudflare. Like any website, it receives technical information such as your IP address and browser type when you visit. This is used to deliver the site, protect it from abuse (for example, limiting how many questions one visitor can ask per minute) and keep it running.</li>
+      <li><strong>No cookies or tracking.</strong> The website itself doesn't set cookies, doesn't store anything in your browser, and doesn't use analytics or advertising trackers.</li>
+    </ul>
+
+    <h2>Third-party content</h2>
+    <p>Some parts of the site load content from other services, which receive your IP address and may set their own cookies under their own privacy policies:</p>
+    <ul>
+      <li><strong>Google Fonts</strong>, for the typefaces used on every page.</li>
+      <li><strong>GameChanger</strong>, for the scoreboards on the Schedule page.</li>
+    </ul>
+    <p>Links to Google Drive (rules documents), Google Maps, Facebook, Instagram and SportsConnect take you to those services, and their privacy policies apply once you're there.</p>
+
+    <h2>Children's privacy</h2>
+    <p>This website doesn't ask children for personal information. Registration is completed by a parent or guardian through SportsConnect.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we change how the website handles information, we'll update this page and the date at the top.</p>
+
+    <h2>Questions</h2>
+    <p>Email the Vice President at <a href="mailto:vicepresident@pgpony.org">vicepresident@pgpony.org</a>, or use the <a href="/contact/">Get help</a> page to find the right person.</p>
+  </div>
+</div>

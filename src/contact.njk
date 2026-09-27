@@ -1,0 +1,61 @@
+---
+layout: layout.njk
+title: Get help
+permalink: /contact/
+description: "Need help or have a question for Pacific Grove PONY? Tell us what you need and we'll point you to the right person."
+extraScripts:
+  - /js/help-router.js
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/card.njk" import card %}
+{% from "components/button.njk" import button %}
+
+{% set examples = [
+  "Is Muni Ballpark open today?",
+  "I'd like to sponsor a team",
+  "Which division is my 9-year-old in?",
+  "I want to help with concessions"
+] %}
+
+<div class="page-header">
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Help", href: "/volunteer/" }, { label: "Get help" }]) }}
+    <h1>Need help?</h1>
+    <p>Have a specific question? Tell us what you need and we'll help you find the right person.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-8);padding-bottom:var(--space-12);">
+  <div class="with-sidebar with-sidebar--wide">
+    <div>
+      {% call card() %}
+      <form class="help-router" data-help-router novalidate>
+        <label class="field__label" for="help-question">What do you need help with?</label>
+        <textarea class="input help-router__input" id="help-question" name="question" rows="4" maxlength="600" placeholder="e.g. My daughter wants to try softball this spring. Who should I talk to?" required></textarea>
+        <div class="help-router__examples" data-help-examples hidden>
+          <span class="help-router__examples-label">Try:</span>
+          {% for ex in examples %}<button type="button" class="help-router__example" data-help-example>{{ ex }}</button>{% endfor %}
+        </div>
+        <button type="submit" class="btn btn--primary btn--md" data-help-submit>Find the right person</button>
+      </form>
+      {% endcall %}
+
+      <div class="help-router__result" data-help-result aria-live="polite" hidden></div>
+      <noscript>
+        <p class="mt-9">This helper needs JavaScript. You can find everyone's email on the <a href="/board/">Board of Directors</a> page, or email <a href="mailto:vicepresident@pgpony.org">vicepresident@pgpony.org</a>.</p>
+      </noscript>
+    </div>
+
+    <aside class="sidebar">
+      {% call card(variant="sunken") %}
+      <h3 style="text-transform:uppercase;">Rather look yourself?</h3>
+      <p style="margin:0 0 var(--space-4);">Every board member has their own email address, from division reps to the field director.</p>
+      {{ button(label="See the board", href="/board/", variant="secondary", size="sm") }}
+      {% endcall %}
+      {% call card(variant="sunken") %}
+      <h3 style="text-transform:uppercase;">Registration</h3>
+      <p style="margin:0;">Registration and payments happen on SportsConnect, using the Login / Register button at the top of every page.</p>
+      {% endcall %}
+    </aside>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "title": "Governance",
+      "items": [
+        { "id": "bylaws", "title": "League Bylaws", "description": "The rules that govern how PG PONY is organized and run.", "url": null },
+        { "id": "board-duties", "title": "Board Duties", "description": "What each board position is responsible for.", "url": null }
+      ]
+    },
+    {
+      "title": "Safety and conduct",
+      "items": [
+        { "id": "child-safety", "title": "Child Safety Policy", "description": "How the league protects the players in its care.", "url": null },
+        { "id": "zero-tolerance", "title": "Zero Tolerance Policy", "description": "The standard of conduct expected of everyone at PG PONY games and practices.", "url": null }
+      ]
+    },
+    {
+      "title": "Privacy",
+      "items": [
+        { "id": "privacy", "title": "Privacy Policy", "description": "How this website handles your information.", "url": "/privacy/" }
+      ]
+    }
+  ]
+}

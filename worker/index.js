@@ -1,4 +1,5 @@
 import { getKeyDates } from "./calendar.js";
+import { handleHelp } from "./help-router.js";
 
 const ROUTES = {
   "/api/board": "board",
@@ -76,6 +77,10 @@ export default {
           headers: { "content-type": "application/json" },
         });
       }
+    }
+
+    if (url.pathname === "/api/help" && request.method === "POST") {
+      return handleHelp(request, env);
     }
 
     if (url.pathname.startsWith("/media/") && request.method === "GET") {

@@ -1,0 +1,45 @@
+---
+layout: layout.njk
+title: League Policies
+permalink: /policies/
+description: "Pacific Grove PONY's bylaws, board duties, child safety, zero tolerance and privacy policies."
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/badge.njk" import badge %}
+
+<div class="page-header page-header--black">
+  <div class="page-header__watermark">
+    <img src="/assets/logos/symbol-color-light.png" alt="">
+  </div>
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Help", href: "/volunteer/" }, { label: "League Policies" }]) }}
+    <h1>League Policies</h1>
+    <p>How PG PONY is governed, and the standards we hold ourselves to on and off the field.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
+  {% for group in policies.groups %}
+  <section class="{% if not loop.first %}mt-11{% endif %}">
+    <h2 class="policy-group__title">{{ group.title }}</h2>
+    <div class="grid-2">
+      {% for item in group.items %}
+      {% set external = item.url and not item.url.startsWith("/") %}
+      <article class="policy-card" id="{{ item.id }}">
+        <div>
+          <h3 class="policy-card__title">{{ item.title }}</h3>
+          <p class="policy-card__desc">{{ item.description }}</p>
+        </div>
+        {% if item.url %}
+        <a class="btn btn--secondary btn--sm" href="{{ item.url }}"{% if external %} target="_blank" rel="noopener"{% endif %}>Read the {{ item.title | lower }}{% if external %} ↗{% endif %}</a>
+        {% else %}
+        {{ badge(label="Coming soon", tone="neutral", size="sm") }}
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <p class="text-muted mt-9">Looking for a document that isn't here? <a href="/contact/">Get help</a> and we'll point you to it.</p>
+</div>

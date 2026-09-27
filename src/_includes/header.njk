@@ -15,10 +15,10 @@
     </button>
     <nav class="site-header__nav" id="site-nav">
       {% for item in site.nav %}
-        <a href="{{ item.href }}" {% if item.href == page.url %}aria-current="page"{% endif %}>{{ item.label }}</a>
+        {#- "page" on the item's own page, "true" on its subpages (e.g. Play on /divisions/) #}
+        <a href="{{ item.href }}" {% if item.href == page.url %}aria-current="page"{% elif item.section and page.url in item.section %}aria-current="true"{% endif %}>{{ item.label }}</a>
       {% endfor %}
-      <a href="{{ site.sportsConnectUrl }}" target="_blank" rel="noopener">Login</a>
-      {{ button(label="Register", href=site.sportsConnectUrl, variant="primary", size="md", external=true) }}
+      {{ button(label="Login / Register", href=site.sportsConnectUrl, variant="primary", size="md", external=true) }}
     </nav>
   </div>
 </header>

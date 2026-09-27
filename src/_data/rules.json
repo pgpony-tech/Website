@@ -1,0 +1,41 @@
+{
+  "softballRulebook": { "title": "USA Softball Official Rulebook", "url": "https://www.usasoftball.com/official-rulebook/" },
+  "divisions": {
+    "8U - Pinto": {
+      "docs": [
+        { "title": "PG PONY Division Rules", "url": "https://drive.google.com/file/d/1EfHoE9ivVXPQ5MMT527LwzvnMwRhrzJL/view" },
+        { "title": "Intercity Rules", "url": "https://drive.google.com/file/d/1vBknoaS0fnNvAwNGam7TJza0GzcWqKib/view" }
+      ]
+    },
+    "10U - Mustang": {
+      "docs": [
+        { "title": "PG PONY Division Rules", "url": "https://drive.google.com/file/d/1DcTH-WF6sQ49qKHb72PJ6_sieefarCr2/view" },
+        { "title": "Intercity Rules", "url": "https://drive.google.com/file/d/1q8bnceZaBj6eSpcJMa-zKYhGhHdMQs0K/view" }
+      ]
+    },
+    "12U - Bronco": {
+      "docs": [
+        { "title": "PG PONY Division Rules", "url": "https://drive.google.com/file/d/1-V4K4kL627RbPN_gW0_lTx3WND-zbppe/view" },
+        { "title": "Intercity Rules", "url": "https://drive.google.com/file/d/1Z5ggAC9A8U9_E8gLvHYFonlFnJZfq3zU/view" }
+      ]
+    },
+    "14U - Pony": {
+      "note": "All Pony play is governed by the Intercity Rules; there are no separate PG PONY division rules.",
+      "docs": [
+        { "title": "Intercity Rules", "url": "https://drive.google.com/file/d/1KBYUuxQSxIf-YiYpKUIwp6GlxidLFrEd/view" }
+      ]
+    },
+    "8U - Pre-Rookies": {
+      "docs": [{ "title": "CCS Pre-Rookies Supplemental Rules", "url": "https://drive.google.com/file/d/14IybOQScH0pdXOPcLALxoRiWv1SP2B4h/view" }]
+    },
+    "10U - Rookies": {
+      "docs": [{ "title": "CCS Rookies Supplemental Rules", "url": "https://drive.google.com/file/d/1t5KxDfqP8pzN8i_gch8jqdwT68vDX106/view" }]
+    },
+    "12U - Minors": {
+      "docs": [{ "title": "CCS Minors Supplemental Rules", "url": "https://drive.google.com/file/d/1HjZeFtiy7sAgn2QLnT4wZDMarfOMdVh0/view" }]
+    },
+    "14U - Majors": {
+      "docs": [{ "title": "CCS Majors Supplemental Rules", "url": "https://drive.google.com/file/d/1VW23o8L0dn7DL4yyxfxLrVQcxBTN8dDK/view" }]
+    }
+  }
+}

@@ -1,0 +1,70 @@
+---
+layout: layout.njk
+title: Play
+permalink: /play/
+description: "Play at Pacific Grove PONY — divisions and pricing, schedules, fields and All-Stars for youth baseball and softball, ages 4–14."
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/button.njk" import button %}
+
+{% set sections = [
+  { title: "Divisions", href: "/divisions/", photo: "team-softball-red-trophy.jpg", description: "Baseball and softball for ages 4–14. Find your player's division with the age calculator, and see spring, summer and fall pricing." },
+  { title: "Schedule", href: "/schedule/", photo: "opening-day-first-pitch.jpg", description: "Field status, key dates for the season, and game schedules and scores on GameChanger." },
+  { title: "Fields", href: "/fields/", photo: "muni-ballpark.jpg", description: "Where each division plays and practices, which fields have a concession stand, and directions on Google Maps." },
+  { title: "All-Stars", href: "/all-stars/", photo: "allstars-pinstripes.jpg", description: "After the spring season, hand-picked teams represent Pacific Grove in tournaments around the Monterey Peninsula and beyond." }
+] %}
+
+<div class="page-header page-header--black">
+  <div class="page-header__watermark">
+    <img src="/assets/logos/symbol-color-light.png" alt="">
+  </div>
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Play" }]) }}
+    <h1>Every kid gets a base to stand on</h1>
+    <p>Pacific Grove PONY has been putting kids on the field since {{ site.founded }}. From a first swing off the tee to a summer All-Star run, there's a spot for every player ages 4–14, at every skill level.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
+  <div class="grid-2">
+    {% for s in sections %}
+    <a class="play-card" href="{{ s.href }}">
+      <img class="play-card__photo" src="/assets/photos/{{ s.photo }}" alt="" loading="lazy">
+      <div class="play-card__body">
+        <h2 class="play-card__title">{{ s.title }}</h2>
+        <p class="play-card__desc">{{ s.description }}</p>
+        <span class="play-card__cta">Go to {{ s.title }} →</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="play-more">Also in Play: <a href="/rules/">Division rules</a> · <a href="/divisions/#divisions">Pricing</a> · <a href="/policies/">League policies</a></p>
+
+  {% set steps = [
+    { title: "Create a parent account", text: "Click <strong>Login / Register</strong> at the top right to open SportsConnect, our registration platform. Accounts belong to a parent or guardian, and you'll add your players next." },
+    { title: "Add your player", text: "Click <strong>Add Player</strong>. Double-check their date of birth, since it decides which division they're eligible for." },
+    { title: "Choose a program", text: "Click the blue <strong>Program Available</strong> button next to your player. If there's more than one, pick the one that fits: most girls choose softball, but baseball is open to everyone. Not sure? See <a href=\"/divisions/\">Divisions</a> or <a href=\"/contact/\">get help</a>." },
+    { title: "Volunteer", text: "The league relies on adult volunteers: coaches, team parents, scorekeepers, concessions and more. You can sign up to volunteer at the same time you register your child. <a href=\"/volunteer/\">See volunteer roles</a>." },
+    { title: "Complete registration", text: "Answer the questions for each player (school, uniform preferences, medical insurance and more), then pay the registration fee by credit card." },
+    { title: "Watch your email", text: "Once registration closes, the board and coaches form teams, hold evaluations and set practice schedules. Keep an eye on your email and this website for next steps." },
+    { title: "Follow PG PONY", text: "Get league news and photos on <a href=\"https://www.facebook.com/pgpony\" target=\"_blank\" rel=\"noopener\">Facebook</a> and <a href=\"https://www.instagram.com/pgpony/\" target=\"_blank\" rel=\"noopener\">Instagram</a>." }
+  ] %}
+  <section class="play-register">
+    <div class="play-register__head">
+      <div>
+        <h2 class="play-register__title">Ready to play?</h2>
+        <p style="margin:0;">Signing up a ballplayer takes just a few minutes. Here's how it works.</p>
+      </div>
+      {{ button(label="Login / Register", href=site.sportsConnectUrl, variant="primary", size="lg", external=true) }}
+    </div>
+    <ol class="register-steps">
+      {% for step in steps %}
+      <li class="register-steps__step">
+        <span class="register-steps__num" aria-hidden="true">{{ loop.index }}</span>
+        <h3 class="register-steps__title">{{ step.title }}</h3>
+        <p class="register-steps__text">{{ step.text | safe }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+</div>

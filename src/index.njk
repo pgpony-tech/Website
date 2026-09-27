@@ -44,9 +44,9 @@ permalink: /
 <section class="stats">
   <div class="stats__inner">
     <div class="stat"><span class="stat__num">52</span><span class="stat__label">Years in the grove</span></div>
-    <div class="stat"><span class="stat__num">600+</span><span class="stat__label">Players each spring</span></div>
+    <div class="stat"><span class="stat__num">350+</span><span class="stat__label">Players each spring</span></div>
     <div class="stat"><span class="stat__num">100%</span><span class="stat__label">Volunteer-run</span></div>
-    <div class="stat"><span class="stat__num">6</span><span class="stat__label">Home fields</span></div>
+    <div class="stat"><span class="stat__num">6</span><span class="stat__label">Game-ready fields</span></div>
   </div>
 </section>
 
@@ -94,7 +94,7 @@ permalink: /
     ) }}
     <div class="grid-3">
       {% for division in site.baseballDivisions %}
-        {% if loop.index <= 3 %}{{ divisionCard(division) }}{% endif %}
+        {% if loop.index <= 3 %}{{ divisionCard(division, href="/divisions/#" + (division.name | slugify)) }}{% endif %}
       {% endfor %}
     </div>
   </div>
@@ -141,7 +141,7 @@ permalink: /
         <p class="tight">Board members, league officials, coaches, umpires and parents alike bear in mind that the winning of games is secondary to improved skill level and to the development of stronger and happier youth.</p>
         <div class="mission__actions">
           {{ button(label="Volunteer", href="/volunteer/", variant="accent") }}
-          {{ button(label="Meet the board", href="/volunteer/#board", variant="inverse") }}
+          {{ button(label="Meet the board", href="/board/", variant="inverse") }}
         </div>
       </div>
       <div class="mission__values">

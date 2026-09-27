@@ -1,0 +1,64 @@
+{
+  "season": "2026",
+  "status": "complete",
+  "statusNote": "The 2026 All-Star season is complete. Dates and sign-ups for next season will be posted here in the spring.",
+  "fee": "$250",
+  "coachInterestUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd5d0dqgxPrLZ2EE-sbI0E4GrFiInucDM_b6ndqNECtX31rHg/viewform",
+  "highlight": "Our Mustang and Bronco baseball teams made deep runs in the 2025 PONY tournaments. The Bronco team reached the Bronco Zone tournament, the PONY World Series qualifier, facing teams from several states.",
+  "sports": [
+    {
+      "key": "baseball",
+      "name": "Baseball",
+      "divisions": [
+        "8U - Pinto",
+        "10U - Mustang",
+        "12U - Bronco"
+      ],
+      "tournamentWindow": "Late May – August",
+      "summary": "Local invitational tournaments in late May and June, then the PONY tournaments in July. Teams that keep winning advance to Super-Regional, Zone and the PONY World Series, which can run into August.",
+      "availability": "Available for most of the summer, and all of the July PONY tournaments",
+      "teamTargets": "1 Pinto team, 1–2 Mustang teams and 1–2 Bronco teams"
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "divisions": [
+        "8U - Pre-Rookies",
+        "10U - Rookies",
+        "12U - Minors"
+      ],
+      "tournamentWindow": "Late May – June",
+      "summary": "Invitational tournaments from late May into June, including tournaments PG PONY hosts. The season ends with the invitationals; softball doesn't play the July–August PONY tournaments.",
+      "availability": "Available from late May through June",
+      "teamTargets": ""
+    }
+  ],
+  "timeline": [
+    {
+      "when": "April 12",
+      "title": "Player and coach interest due",
+      "desc": "Register your player's interest on SportsConnect and list any conflicts in May, June and July. Coaches submit the coaching interest form."
+    },
+    {
+      "when": "April 21",
+      "title": "Teams selected",
+      "desc": "Current division head coaches and the division's All-Star head coach pick the rosters."
+    },
+    {
+      "when": "Late April",
+      "title": "Practices start",
+      "desc": "2–3 practices a week, overlapping with the end of the spring season."
+    },
+    {
+      "when": "Late May – June",
+      "title": "Invitational tournaments",
+      "desc": "Local invitationals around the Monterey Peninsula, some hosted by PG PONY — typically Memorial Day weekend, the first weekend in June and Father's Day weekend. Softball's All-Star season ends here."
+    },
+    {
+      "when": "July – August",
+      "title": "PONY tournaments",
+      "sport": "Baseball only",
+      "desc": "Regional, then Super-Regional, Zone and the PONY World Series for teams that keep advancing."
+    }
+  ]
+}

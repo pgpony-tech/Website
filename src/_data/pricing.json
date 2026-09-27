@@ -1,0 +1,143 @@
+{
+  "seasons": [
+    {
+      "key": "spring",
+      "name": "Spring",
+      "months": "Feb – May",
+      "earlyBirdEnds": "2026-11-30",
+      "earlyBirdLabel": "Nov 30",
+      "offerings": [
+        {
+          "sports": [
+            "Baseball",
+            "Softball"
+          ],
+          "ages": [
+            "6U"
+          ],
+          "regular": 195,
+          "earlyBird": 175
+        },
+        {
+          "sports": [
+            "Baseball",
+            "Softball"
+          ],
+          "ages": [
+            "8U"
+          ],
+          "regular": 275,
+          "earlyBird": 250
+        },
+        {
+          "sports": [
+            "Baseball",
+            "Softball"
+          ],
+          "ages": [
+            "10U",
+            "12U",
+            "14U"
+          ],
+          "regular": 325,
+          "earlyBird": 295,
+          "features": [
+            "Includes umpires"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "summer",
+      "name": "Summer Sandlot",
+      "months": "June – July",
+      "summary": "Fun and skill development in a supportive environment where kids can practice their skills and have a blast on the field.",
+      "features": [
+        "Weekly 1.5-hour sessions",
+        "Skill development, warm-up drills and scrimmages",
+        "Come as often as your schedule allows. Vacation plans? Just come when you're available",
+        "Everything is played in PG",
+        "T-shirt provided"
+      ],
+      "offerings": [
+        {
+          "sports": [
+            "Baseball",
+            "Softball"
+          ],
+          "ages": [
+            "8U",
+            "10U",
+            "12U"
+          ],
+          "regular": 50
+        }
+      ]
+    },
+    {
+      "key": "fall",
+      "name": "Fall",
+      "months": "Aug – Nov",
+      "offerings": [
+        {
+          "sports": [
+            "Baseball"
+          ],
+          "ages": [
+            "8U"
+          ],
+          "regular": 175,
+          "features": [
+            "No standings kept",
+            "Mostly intraleague, with some inter-city play",
+            "1 practice and 1 game per week",
+            "Uniform provided"
+          ]
+        },
+        {
+          "sports": [
+            "Baseball"
+          ],
+          "ages": [
+            "10U",
+            "12U",
+            "14U"
+          ],
+          "regular": 225,
+          "features": [
+            "No standings kept",
+            "Mostly intraleague, with some inter-city play",
+            "1 practice and 1 game per week",
+            "Uniform provided",
+            "Includes umpires"
+          ]
+        },
+        {
+          "sports": [
+            "Softball"
+          ],
+          "ages": [
+            "8U",
+            "10U",
+            "12U",
+            "14U"
+          ],
+          "regular": 225,
+          "features": [
+            "One select team per division",
+            "Includes a tournament, uniform and clinics"
+          ]
+        }
+      ]
+    }
+  ],
+  "covers": [
+    "Uniforms",
+    "League equipment",
+    "Field maintenance",
+    "Licensing, insurance and administration",
+    "Umpires (10U–14U)"
+  ],
+  "siblingDiscount": 10,
+  "nonProfitNote": "The league doesn't make a profit on registration. Fees cover the cost of running the season."
+}

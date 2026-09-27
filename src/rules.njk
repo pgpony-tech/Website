@@ -1,0 +1,53 @@
+---
+layout: layout.njk
+title: Division Rules
+permalink: /rules/
+description: "Playing rules for every PG PONY baseball and softball division, including Intercity and Central Coast Softball supplemental rules."
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/section-heading.njk" import sectionHeading %}
+
+{% set sportGroups = [
+  { name: "Baseball", divisions: site.baseballDivisions, intro: "Each division plays by PG PONY's own division rules for games within the league, and by the Intercity Rules for games against other cities." },
+  { name: "Softball", divisions: site.softballDivisions, intro: "All softball is played under the USA Softball rulebook. Central Coast Softball (CCS) adds supplemental rules for each division." }
+] %}
+
+<div class="page-header">
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Play", href: "/play/" }, { label: "Division Rules" }]) }}
+    <h1>Division Rules</h1>
+    <p>The playing rules for each division. Rules documents open as PDFs in Google Drive.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
+  {% for group in sportGroups %}
+  <section class="{% if not loop.first %}mt-11{% endif %}">
+    {{ sectionHeading(eyebrow=(group.name | sportEmoji) + " " + group.name, title=group.name + " rules", description=group.intro) }}
+    {% if group.name == "Softball" %}
+    <p class="mb-9"><a class="btn btn--secondary btn--sm" href="{{ rules.softballRulebook.url }}" target="_blank" rel="noopener">{{ rules.softballRulebook.title }} ↗</a></p>
+    {% endif %}
+    <div class="grid-2">
+      {% for d in group.divisions %}
+      {% set r = rules.divisions[d.name] %}
+      {% if r %}
+      <article class="rules-card" id="{{ d.name | slugify }}">
+        <div class="rules-card__head">
+          <h3 class="rules-card__name"><span aria-hidden="true">{{ d.sport | sportEmoji }}</span> {{ d.name }}</h3>
+          <span class="rules-card__ages">{{ d.ages }}</span>
+        </div>
+        {% if r.note %}<p class="rules-card__note">{{ r.note }}</p>{% endif %}
+        <ul class="rules-card__docs">
+          {% for doc in r.docs %}
+          <li><a href="{{ doc.url }}" target="_blank" rel="noopener"><span class="rules-card__pdf">PDF</span> {{ doc.title }} ↗</a></li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <p class="text-muted mt-9">Questions about a rule? Your division rep or coach is the best place to start, or <a href="/contact/">get help</a> finding the right person.</p>
+</div>

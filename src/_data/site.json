@@ -5,13 +5,11 @@
   "founded": 1974,
   "season": "Spring 2026",
   "registrationCloses": "February 28",
-  "fee": "$145 per player",
   "sportsConnectUrl": "https://login.stacksports.com/login?client_id=612b0399b1854a002e427f78&redirect_uri=https://core-api.bluesombrero.com/login/redirect/portal/7295&app_name=Pacific+Grove+Pony+Baseball&portalid=7295&instancekey=sports",
   "nav": [
     { "label": "Home", "href": "/" },
-    { "label": "Divisions", "href": "/divisions/" },
-    { "label": "Schedule", "href": "/schedule/" },
-    { "label": "Volunteer", "href": "/volunteer/" }
+    { "label": "Play", "href": "/play/", "section": ["/schedule/", "/divisions/", "/all-stars/", "/fields/", "/rules/"] },
+    { "label": "Help", "href": "/volunteer/", "section": ["/board/", "/contact/", "/policies/", "/privacy/"] }
   ],
   "baseballAgeCutoff": "April 30",
   "softballAgeCutoff": "September 1",
@@ -21,7 +19,7 @@
       "ages": "Ages 4–6 (Kindergarten and under)",
       "sport": "Baseball",
       "description": "Tee ball, played on a 50-foot base distance.",
-      "detail": ["No score kept", "No interleague play", "Practices once a week · games on Saturdays"]
+      "detail": ["No score kept", "All games played in PG — intraleague only, no interleague play", "Practices once a week · games on Saturdays"]
     },
     {
       "name": "8U - Pinto",
@@ -58,7 +56,7 @@
       "ages": "Ages 4–6 (Kindergarten and under)",
       "sport": "Softball",
       "description": "The softball equivalent of tee ball — players hit off a tee with a 10\" safety ball. Everybody bats and plays different positions.",
-      "detail": ["No score kept", "Some interleague play", "Practices one weekday a week · games on Saturdays"]
+      "detail": ["No score kept", "All games played in PG — intraleague only, no interleague play", "Practices one weekday a week · games on Saturdays"]
     },
     {
       "name": "8U - Pre-Rookies",

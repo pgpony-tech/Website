@@ -1,0 +1,129 @@
+---
+layout: layout.njk
+title: All-Stars
+permalink: /all-stars/
+description: "PG PONY baseball and softball All-Stars — how teams are picked, when tournaments happen, cost and time commitment."
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/section-heading.njk" import sectionHeading %}
+{% from "components/card.njk" import card %}
+{% from "components/button.njk" import button %}
+{% from "components/badge.njk" import badge %}
+
+{% set baseball = allStars.sports[0] %}
+{% set softball = allStars.sports[1] %}
+
+{% set faqs = [
+  { q: "What is All-Stars?", a: "Each All-Star division fields a competitive team of hand-picked players who represent Pacific Grove after the spring season. Baseball (Pinto, Mustang and Bronco) plays local invitationals in late May and June, then the PONY tournaments in July, and can run into August if the team keeps advancing. Softball (Pre-Rookies, Rookies and Minors) plays in and hosts invitational tournaments from late May into June, and the season ends there." },
+  { q: "When and where are the tournaments?", a: "Tournaments vary from year to year, but there's typically a local tournament over Memorial Day weekend, another the first weekend in June, and another over Father's Day weekend. Baseball teams then move on to the PONY tournaments in July." },
+  { q: "How many teams will there be?", a: "It depends on how many players sign up and how many coaches are available. In baseball we aim for " + baseball.teamTargets + "." },
+  { q: "How are players selected?", a: "Current division head coaches and the division's All-Star head coach pick the players. Signing up doesn't guarantee a spot, but you have to sign up to be considered." },
+  { q: "How do I sign up my child?", a: "Log in to your SportsConnect account and register your player for All-Star interest. The form asks you to list any conflicts during the All-Star season. <strong>Players who don't register won't be considered.</strong>" },
+  { q: "Is there a cost?", a: "Players who make a team, baseball or softball, pay an extra " + allStars.fee + " registration fee, which covers the PG All-Star uniform and tournament entry fees. If a baseball team advances to PONY tournaments outside the area, families pay their own travel costs. Scholarships are available — email <a href=\"mailto:" + site.email + "\">" + site.email + "</a>." },
+  { q: "What's the time commitment?", a: "Practices start in late April, 2–3 times a week depending on the coach. Weekday practices and games start at 4pm or later, and nearly every weekend from late May on is a tournament. Softball players need to be available through June. Baseball players need to be available for most of the summer, and <strong>must be available for the July PONY tournaments</strong>." },
+  { q: "Are parents expected to help?", a: "Yes. PG PONY hosts All-Star tournaments as fundraisers, and every All-Star family, baseball and softball, is required to volunteer at the tournaments we host (working around their own player's games)." },
+  { q: "How do I coach an All-Star team?", a: "All-Star coaches can come from our current coaching staff or from outside the league. Submit the <a href=\"" + allStars.coachInterestUrl + "\" target=\"_blank\" rel=\"noopener\">coaching interest form</a> by the interest deadline." }
+] %}
+
+<div class="page-header page-header--black">
+  <div class="page-header__watermark">
+    <img src="/assets/logos/symbol-color-light.png" alt="">
+  </div>
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Play", href: "/play/" }, { label: "All-Stars" }]) }}
+    <h1>All-Stars</h1>
+    <p>After the spring season, our baseball and softball divisions send All-Star teams to represent Pacific Grove in tournaments around the Monterey Peninsula, and for baseball, in the PONY tournaments that lead to the World Series.</p>
+    <div class="register-facts">
+      {{ badge(label="Baseball · Pinto, Mustang, Bronco", tone="gold") }}
+      {{ badge(label="Softball · Pre-Rookies, Rookies, Minors", tone="gold") }}
+      {{ badge(label=allStars.fee + " if selected", tone="inverse") }}
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-8);padding-bottom:var(--space-12);">
+  {% if allStars.status == "complete" %}
+  <div class="alert alert--info mb-9">
+    <div class="alert__body">
+      <span class="alert__title">{{ allStars.season }} season complete</span>
+      <p class="alert__message">{{ allStars.statusNote }}</p>
+    </div>
+  </div>
+  {% endif %}
+
+  {{ sectionHeading(eyebrow="Two programs", title="Baseball and softball All-Stars") }}
+  <div class="grid-2 mb-9">
+    {% for sport in allStars.sports %}
+    {% call card(accentBar=true, extraClass="allstar-program") %}
+    <span class="allstar-program__window">{{ sport.tournamentWindow }}</span>
+    <h3 class="allstar-program__name">{{ sport.name }}</h3>
+    <div class="allstar-program__divisions">
+      {% for d in sport.divisions %}{{ badge(label=d, tone="neutral", size="sm") }}{% endfor %}
+    </div>
+    <p style="margin:0;">{{ sport.summary }}</p>
+    {% endcall %}
+    {% endfor %}
+  </div>
+
+  <div class="with-sidebar with-sidebar--wide">
+    <div>
+      {{ sectionHeading(
+        eyebrow="How it works",
+        title="From sign-up to the last out",
+        description="The typical season, using " + allStars.season + " dates. Both sports follow the same sign-up and selection steps, and both start tournaments in late May."
+      ) }}
+      <ol class="allstar-timeline">
+        {% for step in allStars.timeline %}
+        <li class="allstar-timeline__step">
+          <span class="allstar-timeline__when">{{ step.when }}</span>
+          <h3 class="allstar-timeline__title">{{ step.title }}{% if step.sport %} {{ badge(label=step.sport, tone="outline", size="sm") }}{% endif %}</h3>
+          <p class="allstar-timeline__desc">{{ step.desc }}</p>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <aside class="sidebar">
+      <figure class="allstar-photo">
+        <img src="/assets/photos/allstars-pinstripes.jpg" alt="PG PONY All-Stars in pinstripes at a district tournament">
+      </figure>
+      {% call card(variant="sunken") %}
+      <h3 style="text-transform:uppercase;">Before you sign up</h3>
+      <ul class="included-list">
+        {% for sport in allStars.sports %}
+        <li><strong>{{ sport.name }}:</strong> {{ sport.availability }}</li>
+        {% endfor %}
+        <li>{{ allStars.fee }} fee if selected, plus travel if a baseball team advances</li>
+        <li>Baseball and softball families are required to volunteer at tournaments PG PONY hosts</li>
+      </ul>
+      {% endcall %}
+      {% call card(accentBar=true) %}
+      <h3 style="text-transform:uppercase;">2025 highlights</h3>
+      <p style="margin:0;">{{ allStars.highlight }}</p>
+      {% endcall %}
+    </aside>
+  </div>
+
+  <div class="mt-11">
+    {{ sectionHeading(eyebrow="Questions", title="All-Stars FAQ") }}
+    <div class="faq">
+      {% for item in faqs %}
+      <details class="faq__item">
+        <summary class="faq__q">{{ item.q }}</summary>
+        <p class="faq__a">{{ item.a | safe }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="mt-11">
+    {% call card(variant="brand") %}
+    <h3 style="text-transform:uppercase;color:var(--pg-gold);">Want your player considered?</h3>
+    <p style="margin:0 0 var(--space-4);">When sign-ups open, register your player's interest on SportsConnect. Interested in coaching? Use the coaching interest form.</p>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-5);">
+      {{ button(label="Log in to SportsConnect", href=site.sportsConnectUrl, variant="inverse", size="sm", external=true) }}
+      <a href="{{ allStars.coachInterestUrl }}" target="_blank" rel="noopener" style="color:#fff;font-weight:var(--weight-semibold);">Coaching interest form →</a>
+    </div>
+    {% endcall %}
+  </div>
+</div>

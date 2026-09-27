@@ -1,7 +1,7 @@
 {% macro divisionCard(division, href="/divisions/", sport="") %}
 <a class="division-card" href="{{ href }}">
   <div class="division-card__head">
-    <span class="division-card__name">{{ division.name }}</span>
+    <span class="division-card__name"><span aria-hidden="true">{{ division.sport | sportEmoji }}</span> {{ division.name }}</span>
     <span class="division-card__ages">{{ division.ages }}</span>
   </div>
   <div class="division-card__body">

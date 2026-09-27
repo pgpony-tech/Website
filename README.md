@@ -43,6 +43,8 @@ npm run build     # one-shot build to _site/
   routes, and `/media/*` (proxies images out of the `hero-images` R2 bucket)
 - `wrangler.jsonc` — Worker config: name, static assets directory, KV namespace binding
   (`SITE_CONFIG`), R2 bucket binding (`HERO_MEDIA`)
+- `worker/help-router.js` — `POST /api/help`, the "Get help" page (see "Get help router" below)
+- `src/help-context.11ty.js` — builds `/help-context.json`, what the help router knows about the league
 - `telegram-bot/` — a separate Telegram bot Worker (deployed independently, see its own README)
   for updating the same KV/R2 data by messaging Claude in plain English
 
@@ -199,6 +201,35 @@ kept dashboard-only rather than editable by an LLM.
 One current limitation: recurring events (an `RRULE` in the ICS feed) aren't expanded — only
 one-off events parse correctly. Fine for a "key dates" calendar of one-off deadlines/meetings/
 tournaments; if the calendar ever gains a genuinely recurring event, it may not show as expected.
+
+## Get help router
+
+The **Get help** page (`/contact/`) lets someone describe what they need in plain English. The
+Worker's `/api/help` route asks Claude (`claude-haiku-4-5`, the cheapest model) which board member(s) can
+help, and the page shows them with an email link that opens a draft containing the question.
+Nothing is emailed by the site itself.
+
+- **What Claude knows** comes from `/help-context.json`, built from the site's own data files
+  (pages, divisions, pricing, All-Stars), plus the **live board from KV**, so editing the board
+  in Cloudflare (or via the Telegram bot) updates who it routes to. Filled roles with an email
+  are the only people it can suggest.
+- **Guardrails:** every suggested email is checked against the board and every link against the
+  page list before it reaches the browser; anything else is dropped. With no valid pick, it
+  falls back to vicepresident@pgpony.org (as does the page if the request fails).
+- **Cost control:** questions are capped at 600 characters, and the `HELP_LIMITER` rate limit
+  in `wrangler.jsonc` allows 10 questions per minute per visitor. Each question costs well under
+  a cent.
+
+**Setup:** give the Worker an Anthropic API key (the Telegram bot's key works, or create one at
+console.anthropic.com):
+```
+npx wrangler secret put ANTHROPIC_API_KEY
+```
+For `wrangler dev`, add `ANTHROPIC_API_KEY=...` to `.dev.vars`. The plain `npm start` preview
+doesn't run the Worker, so there the page always shows the Vice President fallback.
+
+To steer the routing (e.g. "registration questions go to the Secretary"), edit `INSTRUCTIONS`
+in `worker/help-router.js`.
 
 ## Telegram bot
 
