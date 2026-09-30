@@ -1,8 +1,10 @@
 {% from "components/card.njk" import card %}
-{% macro personCard(role, name="", email="") %}
+{% macro personCard(role, name="", email="", coverer=null) %}
 {% call card(accentBar=true, extraClass="person-card") %}
 <span class="person-card__role">{{ role }}</span>
 <span class="person-card__name{% if not name %} person-card__name--vacant{% endif %}">{{ name or "Vacant" }}</span>
+{% if not name and coverer %}<span class="person-card__cover">Covered by {{ coverer.role }}{% if coverer.name %} ({{ coverer.name }}){% endif %}</span>{% endif %}
+{% set email = email or (coverer.email if (not name and coverer)) %}
 {% if email %}<a class="person-card__email" href="mailto:{{ email }}">{{ email }}</a>{% endif %}
 {% endcall %}
 {% endmacro %}

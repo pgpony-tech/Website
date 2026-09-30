@@ -15,16 +15,22 @@
     }
   }
 
-  function personCardHtml(person) {
+  function personCardHtml(person, coverer) {
     const name = person.name || "";
     const nameClass = name ? "person-card__name" : "person-card__name person-card__name--vacant";
-    const emailHtml = person.email
-      ? `<a class="person-card__email" href="mailto:${escapeHtml(person.email)}">${escapeHtml(person.email)}</a>`
+    const covering = !name && coverer;
+    const coverHtml = covering
+      ? `<span class="person-card__cover">Covered by ${escapeHtml(coverer.role)}${coverer.name ? ` (${escapeHtml(coverer.name)})` : ""}</span>`
+      : "";
+    const email = person.email || (covering ? coverer.email : "");
+    const emailHtml = email
+      ? `<a class="person-card__email" href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>`
       : "";
     return `
       <div class="card card--elevated card--accent-bar person-card">
         <span class="person-card__role">${escapeHtml(person.role)}</span>
         <span class="${nameClass}">${escapeHtml(name || "Vacant")}</span>
+        ${coverHtml}
         ${emailHtml}
       </div>`;
   }
@@ -201,7 +207,9 @@
     const el = document.getElementById("board-content");
     if (!el || !data) return;
 
-    const group = (people) => (people || []).map(personCardHtml).join("");
+    const everyone = ["executive", "general", "baseballReps", "softballReps"].flatMap((g) => data[g] || []);
+    const covererOf = (person) => (person.coveredBy ? everyone.find((p) => p.role === person.coveredBy) : null);
+    const group = (people) => (people || []).map((p) => personCardHtml(p, covererOf(p))).join("");
     const vacancy = data.vacancyContact || {};
 
     el.innerHTML = `

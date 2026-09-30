@@ -104,7 +104,7 @@ deploy involved.
 
 | KV key | Used on | Shape |
 |---|---|---|
-| `board` | Volunteer page | Same shape as `src/_data/board.json` (executive/general/rep lists) |
+| `board` | Volunteer page | Same shape as `src/_data/board.json` (executive/general/rep lists; a vacant role can set `coveredBy` to the role name of whoever covers it) |
 | `fields` | Schedule page | Same shape as `src/_data/fields.json` (array of field objects) |
 | `field-status` | Schedule page | `{ "tone": "success\|warning\|danger\|info", "title": "...", "message": "..." }` |
 | `sponsors` | Homepage | Same shape as `src/_data/sponsors.json` (array of `{name, url, logo?}`) |

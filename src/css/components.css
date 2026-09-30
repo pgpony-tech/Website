@@ -215,6 +215,8 @@ a.division-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 }
 .person-card__name{display:block;font-size:var(--text-md);font-weight:var(--weight-semibold);color:var(--text-heading);margin-bottom:var(--space-3)}
 .person-card__name--vacant{color:var(--text-faint);font-style:italic;font-weight:var(--weight-regular)}
+.person-card__name--vacant:has(+ .person-card__cover){margin-bottom:2px}
+.person-card__cover{display:block;font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-3)}
 .person-card__email{
   align-self:flex-start;font-size:var(--text-xs);font-weight:var(--weight-semibold);
   color:var(--pg-red);text-decoration:none;word-break:break-all;

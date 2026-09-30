@@ -13,7 +13,7 @@ const MAX_ACTIVE_HERO_SLIDES = 4;
 const MAX_REPLY_CHARS = 3500;
 
 const CONFIG_SCHEMA = {
-  board: `Object: { termLabel, votedIn, lastUpdated, vacancyContact: {name, email}, executive: [{role, name, email}], general: [...], baseballReps: [...], softballReps: [...] } — the volunteer page's board roster.`,
+  board: `Object: { termLabel, votedIn, lastUpdated, vacancyContact: {name, email}, executive: [{role, name, email, coveredBy?}], general: [...], baseballReps: [...], softballReps: [...] } — the volunteer page's board roster. coveredBy (optional, vacant roles only) is the exact role name of the member covering it.`,
   fields: `Array of { name, slug, description, gamesPlayed: {active, divisions: [string]}, practices: {active, divisions: [string]}, concessionStand, mapUrl } — the schedule page's field list.`,
   "field-status": `Object: { tone: "success"|"warning"|"danger"|"info", title, message } — the schedule page's field status banner.`,
   sponsors: `Array of { name, url, logo? } — the homepage sponsor grid.`,

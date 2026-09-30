@@ -34,22 +34,22 @@ description: "Pacific Grove PONY's all-volunteer Board of Directors — who they
 
     <h3 style="text-transform:uppercase;">Executive board</h3>
     <div class="grid-3 mb-9">
-      {% for person in board.executive %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
+      {% for person in board.executive %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
     </div>
 
     <h3 style="text-transform:uppercase;">General board</h3>
     <div class="grid-3 mb-9">
-      {% for person in board.general %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
+      {% for person in board.general %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
     </div>
 
     <h3 style="text-transform:uppercase;">Division representatives</h3>
     <span class="eyebrow">Baseball reps</span>
     <div class="grid-4 mb-6">
-      {% for person in board.baseballReps %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
+      {% for person in board.baseballReps %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
     </div>
     <span class="eyebrow">Softball reps</span>
     <div class="grid-4">
-      {% for person in board.softballReps %}{{ personCard(person.role, person.name, person.email) }}{% endfor %}
+      {% for person in board.softballReps %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
     </div>
     </div>
 

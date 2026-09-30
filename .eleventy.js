@@ -19,6 +19,14 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // The board member a vacant role's "coveredBy" names, looked up by role.
+  eleventyConfig.addFilter("coverer", (person, board) => {
+    if (!person.coveredBy) return null;
+    return ["executive", "general", "baseballReps", "softballReps"]
+      .flatMap((group) => board[group] || [])
+      .find((p) => p.role === person.coveredBy) || null;
+  });
+
   // Marks which sport a division belongs to on its red ribbon.
   eleventyConfig.addFilter("sportEmoji", (sport) => (sport === "Softball" ? "🥎" : "⚾"));
 

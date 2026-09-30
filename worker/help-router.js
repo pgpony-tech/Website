@@ -20,7 +20,7 @@ const FALLBACK_EMAIL = "vicepresident@pgpony.org";
 const INSTRUCTIONS = `You help families of Pacific Grove PONY, a volunteer-run youth baseball and softball league, find the right person to contact. Read the person's message and choose the one or two board members best placed to help, based on the board roles in the league information below. If a website page already answers part of the question, also point them to up to two pages.
 
 Rules:
-- Only recommend board members listed in "board" below. If the best-fit role is vacant (not listed), choose the closest filled role (for a vacant division rep, the Baseball Director or Softball Director).
+- Only recommend board members listed in "board" below. If the best-fit role is vacant (not listed), choose the closest filled role (for a vacant division rep, the Baseball or Softball Programs Manager, or failing that the Baseball Director or Softball Director).
 - If nothing fits better, or the message is too vague to route, recommend the Vice President.
 - Only suggest pages from the "pages" list, using their exact href.
 - "answer" is one or two short, friendly sentences written to a parent: who to contact and why, plus any quick fact that the league information states directly. Never guess at dates, prices or policies that aren't in the league information.
@@ -62,10 +62,16 @@ function json(body, status = 200) {
 }
 
 // Board members someone can actually be sent to: filled roles with an email.
+// A vacant role's "coveredBy" is folded into the covering member's role so
+// Claude routes those questions to them.
 function reachablePeople(board) {
-  return ["executive", "general", "baseballReps", "softballReps"]
-    .flatMap((group) => board[group] || [])
-    .filter((p) => p.name && p.email);
+  const everyone = ["executive", "general", "baseballReps", "softballReps"].flatMap((group) => board[group] || []);
+  return everyone
+    .filter((p) => p.name && p.email)
+    .map((p) => {
+      const covering = everyone.filter((v) => !v.name && v.coveredBy === p.role).map((v) => v.role);
+      return covering.length ? { ...p, role: `${p.role} (also covering: ${covering.join(", ")})` } : p;
+    });
 }
 
 async function loadContext(request, env) {
