@@ -208,6 +208,12 @@ a.division-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 /* PersonCard (board / contact directory) */
 /* ---------------------------------------------------------------- */
 .person-card{display:flex;flex-direction:column}
+.person-card__duties{
+  position:absolute;top:calc(var(--card-pad) - 2px);right:calc(var(--card-pad) - 6px);
+  display:inline-flex;padding:6px;border-radius:var(--radius-sm);color:var(--text-faint);transition:var(--transition-control);
+}
+.person-card__duties:hover{color:var(--pg-red);background:var(--surface-sunken)}
+.person-card__duties+.person-card__role{padding-right:28px}
 .person-card__role{
   display:block;font-family:var(--font-condensed);font-weight:var(--weight-bold);
   font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-caps);

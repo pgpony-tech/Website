@@ -1,6 +1,7 @@
 {% from "components/card.njk" import card %}
-{% macro personCard(role, name="", email="", coverer=null) %}
+{% macro personCard(role, name="", email="", coverer=null, dutyHref="") %}
 {% call card(accentBar=true, extraClass="person-card") %}
+{% if dutyHref %}<a class="person-card__duties" href="{{ dutyHref }}" aria-label="{{ role }} duties" title="Role duties"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></a>{% endif %}
 <span class="person-card__role">{{ role }}</span>
 <span class="person-card__name{% if not name %} person-card__name--vacant{% endif %}">{{ name or "Vacant" }}</span>
 {% if not name and coverer %}<span class="person-card__cover">Covered by {{ coverer.role }}{% if coverer.name %} ({{ coverer.name }}){% endif %}</span>{% endif %}

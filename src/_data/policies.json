@@ -4,7 +4,7 @@
       "title": "Governance",
       "items": [
         { "id": "bylaws", "title": "League Bylaws", "description": "The rules that govern how PG PONY is organized and run.", "url": null },
-        { "id": "board-duties", "title": "Board Duties", "description": "What each board position is responsible for.", "url": null }
+        { "id": "board-duties", "title": "Board Duties", "description": "What each board position is responsible for.", "url": "/board-roles/" }
       ]
     },
     {

@@ -9,7 +9,8 @@
   "nav": [
     { "label": "Home", "href": "/" },
     { "label": "Play", "href": "/play/", "section": ["/schedule/", "/divisions/", "/all-stars/", "/fields/", "/rules/"] },
-    { "label": "Help", "href": "/volunteer/", "section": ["/board/", "/contact/", "/policies/", "/privacy/"] }
+    { "label": "About", "href": "/about/", "section": ["/board/", "/board-roles/"] },
+    { "label": "Help", "href": "/volunteer/", "section": ["/contact/", "/policies/", "/privacy/"] }
   ],
   "baseballAgeCutoff": "April 30",
   "softballAgeCutoff": "September 1",

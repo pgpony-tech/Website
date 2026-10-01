@@ -15,7 +15,15 @@
     }
   }
 
-  function personCardHtml(person, coverer) {
+  // Same normalization as the dutyLinks filter in .eleventy.js.
+  function roleKey(role) {
+    return String(role).toLowerCase().replace(/&/g, "and").replace(/[\u2013\u2014]/g, "-")
+      .replace(/\s+\d+$/, "").replace(/s$/, "").replace(/\s+/g, " ").trim();
+  }
+
+  const DUTY_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>';
+
+  function personCardHtml(person, coverer, dutyId) {
     const name = person.name || "";
     const nameClass = name ? "person-card__name" : "person-card__name person-card__name--vacant";
     const covering = !name && coverer;
@@ -28,6 +36,7 @@
       : "";
     return `
       <div class="card card--elevated card--accent-bar person-card">
+        ${dutyId ? `<a class="person-card__duties" href="/board-roles/#${escapeHtml(dutyId)}" aria-label="${escapeHtml(person.role)} duties" title="Role duties">${DUTY_ICON}</a>` : ""}
         <span class="person-card__role">${escapeHtml(person.role)}</span>
         <span class="${nameClass}">${escapeHtml(name || "Vacant")}</span>
         ${coverHtml}
@@ -209,7 +218,12 @@
 
     const everyone = ["executive", "general", "baseballReps", "softballReps"].flatMap((g) => data[g] || []);
     const covererOf = (person) => (person.coveredBy ? everyone.find((p) => p.role === person.coveredBy) : null);
-    const group = (people) => (people || []).map((p) => personCardHtml(p, covererOf(p))).join("");
+    let dutyLinks = {};
+    try { dutyLinks = JSON.parse(el.dataset.dutyLinks || "{}"); } catch {}
+    // Division reps share one duties section; everyone else is looked up by title.
+    const group = (people, isRep) => (people || [])
+      .map((p) => personCardHtml(p, covererOf(p), dutyLinks[roleKey(isRep ? "Division Representatives" : p.role)]))
+      .join("");
     const vacancy = data.vacancyContact || {};
 
     el.innerHTML = `
@@ -236,9 +250,10 @@
 
       <h3 style="text-transform:uppercase;">Division representatives</h3>
       <span class="eyebrow">Baseball reps</span>
-      <div class="grid-4 mb-6">${group(data.baseballReps)}</div>
+      <div class="grid-4 mb-6">${group(data.baseballReps, true)}</div>
       <span class="eyebrow">Softball reps</span>
-      <div class="grid-4">${group(data.softballReps)}</div>`;
+      <div class="grid-4">${group(data.softballReps, true)}</div>`;
+    if (window.applyBoardFilter) window.applyBoardFilter();
   }
 
   function hydrateSponsors(data) {

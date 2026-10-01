@@ -1,0 +1,2315 @@
+{
+  "intro": [
+    "PG PONY is run by a board made up entirely of volunteers. This page describes what each board position is responsible for through the year so that current members can divide the work clearly, new members know what each position entails, and the community understands the board structure.",
+    "The PG PONY Board is made up of the following: twelve Executive Board seats, the General Board, and a Representative for each division. Other positions may be added or removed by a majority vote of the board."
+  ],
+  "meetings": [
+    "General Board meetings are typically held the second Tuesday of every month and are open to the public. Dates can vary, so check pgpony.com for the current schedule. Every board member is expected to attend, report on their area, and hand off records and account access to their successor at the end of their term.",
+    "The Executive Board meets as needed, in closed session."
+  ],
+  "boardsHeading": "Baseball Board and Softball Board",
+  "boardsIntro": "The Baseball Director and Softball Director each lead a team of board members who run their sport day to day. On this page, these teams are called the Baseball Board and the Softball Board.",
+  "sportBoards": [
+    {
+      "name": "Baseball Board",
+      "members": [
+        {
+          "role": "Baseball Director",
+          "lead": true
+        },
+        {
+          "role": "Baseball Operations Manager",
+          "lead": false
+        },
+        {
+          "role": "Baseball Programs Manager",
+          "lead": false
+        },
+        {
+          "role": "Equipment Manager – Baseball",
+          "lead": false
+        },
+        {
+          "role": "Pinto Representative",
+          "lead": false
+        },
+        {
+          "role": "Mustang Representative",
+          "lead": false
+        },
+        {
+          "role": "Bronco Representative",
+          "lead": false
+        },
+        {
+          "role": "Pony Representative",
+          "lead": false
+        }
+      ]
+    },
+    {
+      "name": "Softball Board",
+      "members": [
+        {
+          "role": "Softball Director",
+          "lead": true
+        },
+        {
+          "role": "Softball Operations Manager",
+          "lead": false
+        },
+        {
+          "role": "Softball Programs Manager",
+          "lead": false
+        },
+        {
+          "role": "Equipment Manager – Softball",
+          "lead": false
+        },
+        {
+          "role": "Sof-T-Ball Representative",
+          "lead": false
+        },
+        {
+          "role": "Pre-Rookie Representative",
+          "lead": false
+        },
+        {
+          "role": "Rookie Representative",
+          "lead": false
+        },
+        {
+          "role": "Minors Representative",
+          "lead": false
+        },
+        {
+          "role": "Majors Representative",
+          "lead": false
+        }
+      ]
+    }
+  ],
+  "toc": [
+    {
+      "num": "01",
+      "id": "role-01",
+      "title": "President",
+      "group": "Executive Board"
+    },
+    {
+      "num": "02",
+      "id": "role-02",
+      "title": "Vice President",
+      "group": "Executive Board"
+    },
+    {
+      "num": "03",
+      "id": "role-03",
+      "title": "Secretary",
+      "group": "Executive Board"
+    },
+    {
+      "num": "04",
+      "id": "role-04",
+      "title": "Treasurer",
+      "group": "Executive Board"
+    },
+    {
+      "num": "05",
+      "id": "role-05",
+      "title": "Baseball Director",
+      "group": "Executive Board"
+    },
+    {
+      "num": "06",
+      "id": "role-06",
+      "title": "Softball Director",
+      "group": "Executive Board"
+    },
+    {
+      "num": "07",
+      "id": "role-07",
+      "title": "Shetland Director",
+      "group": "Executive Board",
+      "aliases": [
+        "Shetland Commissioner"
+      ]
+    },
+    {
+      "num": "08",
+      "id": "role-08",
+      "title": "Communications Director",
+      "group": "Executive Board"
+    },
+    {
+      "num": "09",
+      "id": "role-09",
+      "title": "Field Director",
+      "group": "Executive Board"
+    },
+    {
+      "num": "10",
+      "id": "role-10",
+      "title": "Concessions Director",
+      "group": "Executive Board"
+    },
+    {
+      "num": "11",
+      "id": "role-11",
+      "title": "Sponsorship Director",
+      "group": "Executive Board"
+    },
+    {
+      "num": "12",
+      "id": "role-12",
+      "title": "Technology Director",
+      "group": "Executive Board"
+    },
+    {
+      "num": "13",
+      "id": "role-13",
+      "title": "Coach and Player Development",
+      "group": "General Board"
+    },
+    {
+      "num": "14",
+      "id": "role-14",
+      "title": "Baseball Operations Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "15",
+      "id": "role-15",
+      "title": "Baseball Programs Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "16",
+      "id": "role-16",
+      "title": "Equipment Manager – Baseball",
+      "group": "General Board"
+    },
+    {
+      "num": "17",
+      "id": "role-17",
+      "title": "Fall Baseball Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "18",
+      "id": "role-18",
+      "title": "Softball Operations Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "19",
+      "id": "role-19",
+      "title": "Softball Programs Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "20",
+      "id": "role-20",
+      "title": "Equipment Manager – Softball",
+      "group": "General Board"
+    },
+    {
+      "num": "21",
+      "id": "role-21",
+      "title": "Concessions Assistant Manager",
+      "group": "General Board",
+      "aliases": [
+        "Concessions Assistant Director"
+      ]
+    },
+    {
+      "num": "22",
+      "id": "role-22",
+      "title": "Concessions Inventory Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "23",
+      "id": "role-23",
+      "title": "Field Assistants",
+      "group": "General Board"
+    },
+    {
+      "num": "24",
+      "id": "role-24",
+      "title": "Social Media Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "25",
+      "id": "role-25",
+      "title": "Umpire Liaison",
+      "group": "General Board"
+    },
+    {
+      "num": "26",
+      "id": "role-26",
+      "title": "Uniform Manager",
+      "group": "General Board"
+    },
+    {
+      "num": "27",
+      "id": "role-27",
+      "title": "Utility Player",
+      "group": "General Board"
+    },
+    {
+      "num": "28",
+      "id": "role-28",
+      "title": "Webmaster",
+      "group": "General Board"
+    },
+    {
+      "num": "29",
+      "id": "role-29",
+      "title": "Division Representatives",
+      "group": "General Board"
+    }
+  ],
+  "roles": [
+    {
+      "id": "role-01",
+      "num": "01",
+      "group": "Executive Board",
+      "title": "President",
+      "emails": [
+        "president@pgpony.org"
+      ],
+      "summary": [
+        "The President leads the board, sets the agenda for the season, and is the league’s primary representative to PONY, the City of Pacific Grove, the school district, and the public. The President keeps every other role moving and steps in wherever a gap opens."
+      ],
+      "reportsTo": "The General Board and league membership",
+      "worksWith": "Every board member, PONY Region, City Recreation Director, PGUSD Facilities Director",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Leadership and meetings",
+          "items": [
+            "Oversee the operations of the PG PONY Board.",
+            "Preside over meetings of the Executive Board and General Board.",
+            "Set each meeting agenda with the Secretary and circulate it in advance.",
+            "Preside over the annual meeting in August, when the Board of Directors is voted on for the coming season.",
+            "Lead recruitment efforts for new board members, ensuring the PG PONY Board has a pipeline to account for the inevitable turnover as families age out of the program."
+          ]
+        },
+        {
+          "heading": "League and regional relations",
+          "items": [
+            "Attend meetings called by the Regional PONY representatives to obtain general information and updates to rules for regular and post seasons.",
+            "Share regional rule changes with the Baseball and Softball Directors and Division Representatives.",
+            "Maintain the league’s relationship with the City of Pacific Grove, Pacific Grove Unified School District, and community partners.",
+            "Be the face and voice of public relations and special events unless otherwise delegated."
+          ]
+        },
+        {
+          "heading": "Season operations",
+          "items": [
+            "Assist the Baseball Director and Softball Director with creating schedules for practices and games during regular and post seasons, when necessary.",
+            "Assist with Player Evaluation days.",
+            "Confirm that every manager, coach and board member has a current background check before the season starts."
+          ]
+        },
+        {
+          "heading": "Decisions and oversight",
+          "items": [
+            "Determine approval of scholarship requests and report them to the Treasurer. Handle each request quietly.",
+            "Oversee all disputes and be the final decision maker, if necessary, in dispute resolution.",
+            "Be prepared to step in and do any job and provide direction to any board member or volunteer.",
+            "Recruit and onboard new board members, and hand off records and passwords to a successor at the end of the term."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "August",
+          "what": "Annual meeting; seat the new board; start Fall Ball"
+        },
+        {
+          "when": "October",
+          "what": "Kick off budget process with Treasurer and Vice President, including registration pricing for Spring season"
+        },
+        {
+          "when": "January–February",
+          "what": "Player evaluations; manager approvals"
+        },
+        {
+          "when": "March",
+          "what": "Opening Day"
+        },
+        {
+          "when": "June–July",
+          "what": "All-star and post-season oversight"
+        }
+      ],
+      "hours": [
+        20,
+        40,
+        40,
+        40,
+        40,
+        20,
+        10,
+        20,
+        10,
+        20,
+        10,
+        10
+      ]
+    },
+    {
+      "id": "role-02",
+      "num": "02",
+      "group": "Executive Board",
+      "title": "Vice President",
+      "emails": [
+        "vicepresident@pgpony.org"
+      ],
+      "summary": [
+        "The Vice President runs the league’s community-facing events and seasonal logistics: Opening Day, photo day, sign-ups, community days, and parades. The Vice President also co-leads the budget process and serves as President in the President’s absence."
+      ],
+      "reportsTo": "President",
+      "worksWith": "President, Secretary, Treasurer, Technology, Communications",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Presiding in the President’s absence",
+          "items": [
+            "Chair board meetings and represent the league when the President is unavailable.",
+            "Stay current on open league business so the handoff is seamless."
+          ]
+        },
+        {
+          "heading": "Opening Day",
+          "items": [
+            "Lead coordination of all logistics, including but not limited to pancake breakfast, color guard, ceremonial first pitch, national anthem, signage, and master of ceremony.",
+            "Review previous years’ areas of improvement to ensure each year is better than the previous."
+          ]
+        },
+        {
+          "heading": "Photo Day",
+          "items": [
+            "Secure a photo vendor.",
+            "Set the date and schedule in conjunction with the photo vendor.",
+            "Coordinate photo day at the fields.",
+            "Deliver photos to Division Representatives for distribution to Managers.",
+            "Coordinate a make-up day and distribution of make-up photos.",
+            "Distribute sponsor plaques to Representatives to give to Managers for distribution to individual sponsors."
+          ]
+        },
+        {
+          "heading": "Budget",
+          "items": [
+            "Facilitate the budget process with the Treasurer each year in October.",
+            "Present the budget alongside the Treasurer at the November meeting."
+          ]
+        },
+        {
+          "heading": "Portable restrooms",
+          "items": [
+            "Contract portable restrooms with local vendor at all applicable sites (i.e. fields used by the league without a permanent restroom available).",
+            "Fit each unit with a combination lock and distribute combinations to Representatives to pass to Managers."
+          ]
+        },
+        {
+          "heading": "Sign-ups and community events",
+          "items": [
+            "Coordinate spring baseball and softball sign-ups with the Webmaster, starting in September.",
+            "Organize the clothing & equipment swap, when applicable.",
+            "Assist as parent liaison during spring player evaluations.",
+            "Assist the President and Communications Director with special events.",
+            "Coordinate the Good Old Days parade. Sign up around February and coordinate with lower division reps and coaches for day-of logistics."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "October",
+          "what": "Start budget with Treasurer"
+        },
+        {
+          "when": "November",
+          "what": "Present budget to board"
+        },
+        {
+          "when": "January",
+          "what": "Player evaluations; restrooms ordered"
+        },
+        {
+          "when": "Spring",
+          "what": "Opening Day; Photos; Good Old Days parade"
+        }
+      ],
+      "hours": [
+        15,
+        30,
+        30,
+        30,
+        30,
+        15,
+        5,
+        10,
+        10,
+        15,
+        10,
+        5
+      ]
+    },
+    {
+      "id": "role-03",
+      "num": "03",
+      "group": "Executive Board",
+      "title": "Secretary",
+      "emails": [
+        "secretary@pgpony.org"
+      ],
+      "summary": [
+        "The Secretary keeps the league’s official record. Minutes, correspondence, email lists and the archive of board decisions all run through this role, so any board member or parent can find out what was decided and when."
+      ],
+      "reportsTo": "President",
+      "worksWith": "President, Vice President, Treasurer, Technology",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Meetings and minutes",
+          "items": [
+            "Take minutes at every Executive, General and annual meeting, recording motions, votes and attendance.",
+            "Email draft minutes to the board at least one week before the next meeting for review, and make edits.",
+            "Confirm a quorum at the start of each meeting and record it in the minutes.",
+            "Prepare and post meeting agendas with the President, including public comment instructions and any virtual meeting link."
+          ]
+        },
+        {
+          "heading": "Records",
+          "items": [
+            "Facilitate posting of approved minutes and pertinent dates on the website with the Webmaster.",
+            "Keep the league’s permanent records: bylaws and amendments, policies, board rosters, and signed minutes.",
+            "Track motions that change policy and make sure the bylaws and addenda are updated to match.",
+            "Hand off all records and account access to the incoming Secretary."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "Monthly",
+          "what": "Minutes out one week before the monthly meeting"
+        },
+        {
+          "when": "August",
+          "what": "Record annual meeting and board election results"
+        },
+        {
+          "when": "September",
+          "what": "Refresh board and manager email lists"
+        }
+      ],
+      "hours": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        6,
+        4,
+        6,
+        6,
+        8,
+        8,
+        6
+      ]
+    },
+    {
+      "id": "role-04",
+      "num": "04",
+      "group": "Executive Board",
+      "title": "Treasurer",
+      "emails": [
+        "treasurer@pgpony.org"
+      ],
+      "summary": [
+        "The Treasurer manages the league’s money: paying bills, collecting what the league is owed, keeping the books, and filing taxes. The Treasurer gives the board a clear picture of where the league stands so it can make decisions about fees, fields and equipment."
+      ],
+      "reportsTo": "President and the General Board",
+      "worksWith": "President, Vice President, Sponsorship, Technology, Concessions",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Bills and accounts",
+          "items": [
+            "Pay bills in a timely manner.",
+            "Maintain the P.O. Box (P.O. Box 317, Pacific Grove, CA 93950) and collect mail.",
+            "Maintain accounts payable files, including insurance, due in January.",
+            "Send invoices to parties owing PG PONY, such as sponsors.",
+            "Process registration refunds according to the league refund policy."
+          ]
+        },
+        {
+          "heading": "Budget and reporting",
+          "items": [
+            "Propose the yearly budget with the President and Vice President. The budget is proposed at the November meeting and adopted by the December meeting.",
+            "Meet with the President monthly to review the state of the budget.",
+            "Present the state of the budget to the board every meeting (via email is adequate).",
+            "Prepare a monthly income statement and balance sheet.",
+            "Reconcile bank activity with the books every month.",
+            "Apply scholarships approved by the President to player accounts."
+          ]
+        },
+        {
+          "heading": "Compliance",
+          "items": [
+            "Prepare and file federal and state tax returns.",
+            "Keep the league’s raffle certificate current.",
+            "Confirm that purchases over $2,000 are preceded by at least two bids and a purchase order, per the bylaws.",
+            "Keep signers on the bank account current after each board election."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "Monthly",
+          "what": "Reconcile accounts; meet with President"
+        },
+        {
+          "when": "November–December",
+          "what": "Budget proposed, then adopted"
+        },
+        {
+          "when": "January",
+          "what": "Insurance payment due"
+        },
+        {
+          "when": "April",
+          "what": "Federal and state returns filed"
+        },
+        {
+          "when": "August",
+          "what": "Update bank signers after election"
+        }
+      ],
+      "hours": [
+        15,
+        20,
+        15,
+        15,
+        15,
+        15,
+        8,
+        8,
+        10,
+        10,
+        10,
+        15
+      ]
+    },
+    {
+      "id": "role-05",
+      "num": "05",
+      "group": "Executive Board",
+      "title": "Baseball Director",
+      "emails": [
+        "baseballdirector@pgpony.org"
+      ],
+      "summary": [
+        "The Baseball Director runs the baseball side of the league from fields to uniforms to managers. Division Representatives look to the Baseball Director for guidance on coaches, players, schedules and fields."
+      ],
+      "reportsTo": "President",
+      "worksWith": "Softball Director, baseball Division Representatives, Umpire Liaison, Equipment Manager – Baseball, Uniform Manager, Baseball Operations Manager, Field Director",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Fields and schedules",
+          "items": [
+            "Coordinate field availability with the City of Pacific Grove, Pacific Grove Unified School District and other organizations as needed.",
+            "Secure annual field permits by October 15 of the preceding year, when necessary.",
+            "Set practice times and availability with the Softball Director.",
+            "Maintain field scheduling software with necessary entities to ensure PG PONY has priority for using the fields during the defined dates and times."
+          ]
+        },
+        {
+          "heading": "Managers and Baseball Board",
+          "items": [
+            "Chair the manager/coach selection process. Submit proposed names to the board for approval no later than February 1.",
+            "Assist Division Representatives before, during and after the regular season.",
+            "Delegate and work alongside the Baseball Operations Manager and Baseball Programs Manager to ensure a cohesive Baseball Board."
+          ]
+        },
+        {
+          "heading": "Evaluations, drafts and inter-city play",
+          "items": [
+            "Coordinate and lead player evaluations no later than January 31.",
+            "Coordinate the annual Mustang, Bronco and Pony player drafts and chair the draft meetings. Ensure the draft process is thoroughly documented and followed for consistency and transparency.",
+            "Coordinate inter-city play with other communities with PONY’s help, when applicable. Serve on the inter-city rules committee, if applicable."
+          ]
+        },
+        {
+          "heading": "Budget",
+          "items": [
+            "Assist in creating the annual budget by providing guidance on year-over-year changes and new year goals."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "October 15",
+          "what": "Field permits secured, when necessary"
+        },
+        {
+          "when": "January",
+          "what": "Manager selection; Player evaluations"
+        },
+        {
+          "when": "Late January",
+          "what": "Board approves managers; Player drafts & team assignments"
+        },
+        {
+          "when": "February",
+          "what": "Finalize league schedule, including games and practices"
+        }
+      ],
+      "hours": [
+        30,
+        40,
+        40,
+        40,
+        40,
+        25,
+        10,
+        10,
+        15,
+        15,
+        15,
+        10
+      ]
+    },
+    {
+      "id": "role-06",
+      "num": "06",
+      "group": "Executive Board",
+      "title": "Softball Director",
+      "emails": [
+        "softballdirector@pgpony.org"
+      ],
+      "summary": [
+        "The Softball Director runs the softball side of the league, from manager selection through the all-star draft, and makes sure every softball manager starts the season with what they need."
+      ],
+      "reportsTo": "President",
+      "worksWith": "Baseball Director, softball Division Representatives, Uniform Manager, Equipment Manager – Softball, Umpire Liaison, Field Director",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Fields and schedules",
+          "items": [
+            "Coordinate field availability with the City of Pacific Grove, Pacific Grove Unified School District and other organizations as needed.",
+            "Maintain field scheduling software with necessary entities to ensure PG PONY has priority for using the fields during the defined dates and times.",
+            "Build practice field schedules with the Baseball Director.",
+            "Obtain blackout dates from school and city calendars for game schedules and provide those dates to CCS."
+          ]
+        },
+        {
+          "heading": "Managers and Softball Board",
+          "items": [
+            "Chair the manager/coach selection process. Submit proposed names to the board for approval no later than February 1.",
+            "Assist Division Representatives before, during and after the regular season.",
+            "Delegate and work alongside the Softball Operations Manager and Softball Programs Manager to ensure a cohesive Softball Board."
+          ]
+        },
+        {
+          "heading": "League and post-season",
+          "items": [
+            "Attend CCS board meetings.",
+            "Facilitate the softball all-star draft, including manager selection, tournament selection, and setting the all-star registration fee."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Managers selected; player evaluations"
+        },
+        {
+          "when": "Late January",
+          "what": "Board approves managers; Player drafts & team assignments"
+        },
+        {
+          "when": "February",
+          "what": "Finalize league schedule, including games and practices"
+        },
+        {
+          "when": "May",
+          "what": "All-star draft"
+        }
+      ],
+      "hours": [
+        30,
+        40,
+        40,
+        40,
+        40,
+        25,
+        10,
+        10,
+        15,
+        15,
+        15,
+        10
+      ]
+    },
+    {
+      "id": "role-07",
+      "num": "07",
+      "group": "Executive Board",
+      "title": "Shetland Director",
+      "emails": [
+        "shetland@pgpony.org"
+      ],
+      "summary": [
+        "The Shetland Director runs the league’s youngest baseball division. Shetland is most families’ first experience with PG PONY, so this role sets the tone: short, organized, fun practices and games where every child plays and learns the basics."
+      ],
+      "reportsTo": "Baseball Director",
+      "worksWith": "Equipment Manager – Baseball, Uniform Manager, Coach and Player Development",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Before the season",
+          "items": [
+            "Recruit and recommend Shetland managers and coaches for board approval.",
+            "Form balanced teams from registration; Shetland has no draft.",
+            "Hand managers their equipment bag, schedule, field combinations and the Shetland supplemental rules.",
+            "Hold a short orientation for managers and parents on format and expectations."
+          ]
+        },
+        {
+          "heading": "During the season",
+          "items": [
+            "Build the Shetland game and practice schedule with the Baseball Director and Field Director.",
+            "Be the first contact for Shetland parents and managers.",
+            "Visit games regularly and help new managers with game flow.",
+            "Report on the division at the monthly board meeting."
+          ]
+        },
+        {
+          "heading": "After the season",
+          "items": [
+            "Organize the end-of-season celebration or participation awards.",
+            "Collect equipment bags and return them to the Equipment Manager.",
+            "Recommend rule and format changes to the Rules and Regulations Committee."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Managers recruited; teams formed"
+        },
+        {
+          "when": "March",
+          "what": "Orientation; season starts"
+        },
+        {
+          "when": "June",
+          "what": "Wrap-up and equipment return"
+        }
+      ],
+      "hours": [
+        20,
+        40,
+        25,
+        25,
+        25,
+        10,
+        0,
+        0,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "role-08",
+      "num": "08",
+      "group": "Executive Board",
+      "title": "Communications Director",
+      "emails": [
+        "communications@pgpony.org"
+      ],
+      "summary": [
+        "The Communications Director tells families and the community what the league is doing. This role owns league announcements and oversees the Social Media Manager and Webmaster on content."
+      ],
+      "reportsTo": "President",
+      "worksWith": "Social Media Manager, Webmaster, Vice President, Sponsorship Director",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Family communications",
+          "items": [
+            "Write and send league announcements: registration, evaluations, Opening Day, all-stars and Fall Ball.",
+            "Keep a season communications calendar so families hear from the league on a steady schedule.",
+            "Review messages from other board members before they go to all families.",
+            "Set the dates and distribute a flyer to local schools.",
+            "Maintain the public league calendar."
+          ]
+        },
+        {
+          "heading": "Community and media",
+          "items": [
+            "Send notices to local media for Opening Day and all-star results.",
+            "Support the President and Vice President at the Pancake Breakfast, Good Old Days parade and other events."
+          ]
+        },
+        {
+          "heading": "Brand",
+          "items": [
+            "Keep league materials consistent with the PG PONY style guide: logos, colors and type.",
+            "Keep a shared folder of approved logos, photos and templates for board use.",
+            "Confirm photo permissions before images of players are posted."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "October",
+          "what": "Registration campaign"
+        },
+        {
+          "when": "March",
+          "what": "Opening Day"
+        },
+        {
+          "when": "June–July",
+          "what": "All-star coverage"
+        },
+        {
+          "when": "August",
+          "what": "Fall Ball announcement"
+        }
+      ],
+      "hours": [
+        15,
+        20,
+        15,
+        15,
+        15,
+        10,
+        5,
+        10,
+        10,
+        10,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "role-09",
+      "num": "09",
+      "group": "Executive Board",
+      "title": "Field Director",
+      "emails": [
+        "fielddirector@pgpony.org"
+      ],
+      "summary": [
+        "The Field Director keeps the league’s fields safe and ready to play: George Washington Park, Muni Ballpark and Arnett Park, plus school fields used for practice. The two Field Assistants support this role."
+      ],
+      "reportsTo": "President",
+      "worksWith": "Field Assistants, Baseball Director, Softball Director",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Planning",
+          "items": [
+            "Lead the field planning and improvements process to ensure improvements, maintenance and repairs occur at all fields.",
+            "Prioritize projects and make sure there is budget for them.",
+            "Coordinate work and permits with the City of Pacific Grove and PGUSD, when applicable."
+          ]
+        },
+        {
+          "heading": "Field prep day",
+          "items": [
+            "Plan field prep day: tasks, supplies and volunteer sign-ups.",
+            "Coordinate with the Communications, Baseball and Softball Directors for assignments and field coverage."
+          ]
+        },
+        {
+          "heading": "During the season",
+          "items": [
+            "Assign Field Assistants to weekly field checks and game-day prep.",
+            "Keep a supply of chalk, bases and infield mix.",
+            "Post field status and rain closures with the Webmaster.",
+            "Report safety hazards to the city or school and close fields when needed.",
+            "Manage keys and locks for fields and sheds."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "October",
+          "what": "Permit review with Directors"
+        },
+        {
+          "when": "November",
+          "what": "Project plan and budget"
+        },
+        {
+          "when": "January",
+          "what": "Field prep day"
+        },
+        {
+          "when": "March–June",
+          "what": "Weekly field checks"
+        }
+      ],
+      "hours": [
+        30,
+        30,
+        40,
+        40,
+        40,
+        25,
+        10,
+        15,
+        20,
+        20,
+        10,
+        5
+      ]
+    },
+    {
+      "id": "role-10",
+      "num": "10",
+      "group": "Executive Board",
+      "title": "Concessions Director",
+      "emails": [
+        "concessions@pgpony.org"
+      ],
+      "summary": [
+        "The Concessions Director runs the snack bar, one of the league’s main fundraisers and a gathering place on game days. The role covers menu, staffing, health rules and money handling."
+      ],
+      "reportsTo": "President",
+      "worksWith": "Concessions Assistant Manager, Concessions Inventory Manager, Treasurer",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Operations",
+          "items": [
+            "Set snack bar hours to match the game schedule at each field.",
+            "Set the menu and prices with the board each season.",
+            "Keep the snack bar compliant with county health permits and food handling rules.",
+            "Keep the snack bar clean, stocked and secure."
+          ]
+        },
+        {
+          "heading": "Volunteers",
+          "items": [
+            "Train shift volunteers on cash handling, food safety and closing procedures.",
+            "Create signage and tutorials to ensure all volunteers have the necessary information for a positive experience."
+          ]
+        },
+        {
+          "heading": "Money",
+          "items": [
+            "Set up cash and card payment procedures with the Treasurer.",
+            "Report sales and costs to the board each month.",
+            "Propose the concessions budget each fall."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "October",
+          "what": "Concessions budget proposed"
+        },
+        {
+          "when": "February",
+          "what": "Health permit; volunteer schedule"
+        },
+        {
+          "when": "March–June",
+          "what": "Weekly operation and reporting"
+        }
+      ],
+      "hours": [
+        10,
+        20,
+        30,
+        30,
+        30,
+        20,
+        5,
+        5,
+        10,
+        10,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "role-11",
+      "num": "11",
+      "group": "Executive Board",
+      "title": "Sponsorship Director",
+      "emails": [
+        "sponsorshipdirector@pgpony.org"
+      ],
+      "summary": [
+        "The Sponsorship Director builds and keeps the local business relationships that fund the league. Per the bylaws, sponsor money goes to the common treasury, not to an individual team, so every team benefits equally."
+      ],
+      "reportsTo": "President",
+      "worksWith": "Treasurer, President, Vice President, Uniform Manager, Webmaster",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Sponsor outreach",
+          "items": [
+            "Contact returning sponsors each fall to renew for the coming season.",
+            "Recruit new sponsors, with a focus on Pacific Grove and Monterey Peninsula businesses.",
+            "Set sponsorship levels and benefits with the board each year.",
+            "Answer sponsor questions sent to the sponsorship inbox."
+          ]
+        },
+        {
+          "heading": "Team assignment and recognition",
+          "items": [
+            "Assign sponsors to teams and give the list to the Uniform Manager before uniforms are ordered.",
+            "Collect sponsor logos in usable quality for uniforms, banners and the website.",
+            "Order sponsor plaques and give them to the Vice President for photo day distribution.",
+            "Keep the sponsor section of pgpony.com current with the Webmaster."
+          ]
+        },
+        {
+          "heading": "Money and records",
+          "items": [
+            "Send invoices through the Treasurer and track payments.",
+            "Keep a sponsor roster with contacts, level, amount paid and team.",
+            "Bring All-Star and Fall Ball team sponsorships to the board for acknowledgement, as the bylaws require.",
+            "Send thank-you letters with the Secretary at the end of the season."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "October–December",
+          "what": "Renewals and outreach"
+        },
+        {
+          "when": "January",
+          "what": "Sponsor list to Uniform Manager"
+        },
+        {
+          "when": "Spring",
+          "what": "Plaques to Vice President"
+        },
+        {
+          "when": "July",
+          "what": "Thank-you letters"
+        }
+      ],
+      "hours": [
+        20,
+        20,
+        15,
+        10,
+        10,
+        5,
+        5,
+        10,
+        15,
+        15,
+        15,
+        20
+      ]
+    },
+    {
+      "id": "role-12",
+      "num": "12",
+      "group": "Executive Board",
+      "title": "Technology Director",
+      "emails": [
+        "technology@pgpony.org"
+      ],
+      "summary": [
+        "The Technology Director runs the systems the league depends on: registration, league email, shared files and the website platform. The goal is that every account is owned by the league and survives board turnover."
+      ],
+      "reportsTo": "President",
+      "worksWith": "President, Vice President, Webmaster, Treasurer, Secretary, Communications Director",
+      "ifVacant": null,
+      "duties": [
+        {
+          "heading": "Registration and data",
+          "items": [
+            "Set up spring and Fall Ball registration with the Vice President and Fall Baseball Manager.",
+            "Load fees, divisions, league age rules and discounts.",
+            "Export registration and roster reports for Directors, Division Representatives and the Treasurer.",
+            "Process late/manual registration requests, when applicable.",
+            "Protect family data and limit access to those who need it.",
+            "Conduct annual audit of account access."
+          ]
+        },
+        {
+          "heading": "Accounts and email",
+          "items": [
+            "Manage league email addresses and Google Workspace for every board role.",
+            "Keep an inventory of league accounts and logins, shared with the President.",
+            "Set up and remove access when board members join or leave."
+          ]
+        },
+        {
+          "heading": "Tools",
+          "items": [
+            "Maintain shared drives, calendars and meeting tools.",
+            "Support the Webmaster on the website platform.",
+            "Help board members with the tools they use for their role."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "August",
+          "what": "Update accounts after election"
+        },
+        {
+          "when": "September",
+          "what": "Build spring registration"
+        },
+        {
+          "when": "October",
+          "what": "Registration opens"
+        },
+        {
+          "when": "January",
+          "what": "Provide registration reports; Process late registration, when applicable"
+        }
+      ],
+      "hours": [
+        20,
+        20,
+        15,
+        10,
+        10,
+        5,
+        5,
+        10,
+        10,
+        10,
+        15,
+        15
+      ]
+    },
+    {
+      "id": "role-13",
+      "num": "13",
+      "group": "General Board",
+      "title": "Coach and Player Development",
+      "emails": [
+        "development@pgpony.org"
+      ],
+      "summary": [
+        "Added to the board in 2023, this role helps volunteer coaches teach well and helps every player improve. The bylaws allow up to two Coach and Player Development Representatives."
+      ],
+      "reportsTo": "Baseball Director and Softball Director",
+      "worksWith": "Division Representatives, Shetland Director, Umpire Liaison",
+      "ifVacant": "Duties go to the Baseball Director",
+      "duties": [
+        {
+          "heading": "Coach development",
+          "items": [
+            "Plan and run pre-season coach clinics for each age group.",
+            "Build a practice-plan library that managers can use from the first week.",
+            "Pair new managers with experienced ones for their first season."
+          ]
+        },
+        {
+          "heading": "Player development",
+          "items": [
+            "Organize summer and fall skill clinics open to all players.",
+            "Help design player evaluation days with the Directors so evaluations are fair and consistent.",
+            "Teach pitch-count and rest rules to managers."
+          ]
+        },
+        {
+          "heading": "Culture",
+          "items": [
+            "Promote the league’s mission: skill and development come before winning.",
+            "Gather feedback from coaches and players after the season and report to the board."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Coach clinics"
+        },
+        {
+          "when": "February",
+          "what": "Player clinics; evaluation days"
+        },
+        {
+          "when": "June",
+          "what": "Coach and player feedback"
+        },
+        {
+          "when": "Summer and Fall",
+          "what": "Run player development clinics"
+        }
+      ],
+      "hours": [
+        15,
+        25,
+        20,
+        10,
+        10,
+        5,
+        0,
+        5,
+        10,
+        5,
+        5,
+        10
+      ]
+    },
+    {
+      "id": "role-14",
+      "num": "14",
+      "group": "General Board",
+      "title": "Baseball Operations Manager",
+      "emails": [
+        "baseballoperations@pgpony.org"
+      ],
+      "summary": [
+        "The Baseball Operations Manager takes day-to-day scheduling and game-day logistics off the Baseball Director’s plate, so the Director can focus on managers, drafts and inter-city play."
+      ],
+      "reportsTo": "Baseball Director",
+      "worksWith": "Field Director, Umpire Liaison, baseball Division Representatives",
+      "ifVacant": "Duties go to the Baseball Director",
+      "duties": [
+        {
+          "heading": "Schedules",
+          "items": [
+            "Build baseball practice and game schedules with the Baseball Director and Field Director.",
+            "Apply school and city blackout dates.",
+            "Reschedule rainouts and post changes with the Webmaster."
+          ]
+        },
+        {
+          "heading": "Game days",
+          "items": [
+            "Confirm fields, field prep, volunteers, umpires and scorekeepers for each game day.",
+            "Be the on-call contact for field or scheduling problems."
+          ]
+        },
+        {
+          "heading": "Records",
+          "items": [
+            "Track game results and standings where divisions keep them.",
+            "Report scheduling issues and recommendations at season end."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "February",
+          "what": "Schedules built"
+        },
+        {
+          "when": "March–June",
+          "what": "Weekly game-day coordination"
+        }
+      ],
+      "hours": [
+        20,
+        30,
+        30,
+        25,
+        25,
+        15,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "id": "role-15",
+      "num": "15",
+      "group": "General Board",
+      "title": "Baseball Programs Manager",
+      "emails": [
+        "baseballprograms@pgpony.org"
+      ],
+      "summary": [
+        "The Baseball Programs Manager runs the programs that sit around the regular baseball season, including player evaluations, drafts and all-stars, so the Baseball Director can focus on managers and the season as a whole."
+      ],
+      "reportsTo": "Baseball Director",
+      "worksWith": "Baseball Operations Manager, Coach and Player Development, baseball Division Representatives",
+      "ifVacant": "Duties go to the Baseball Director",
+      "duties": [
+        {
+          "heading": "Evaluations and drafts",
+          "items": [
+            "Organize player evaluation days with the Baseball Director: fields, stations, evaluators and sign-in.",
+            "Prepare evaluation results and rosters for the Mustang, Bronco and Pony drafts.",
+            "Keep the draft process documented and follow it each year for consistency and transparency."
+          ]
+        },
+        {
+          "heading": "All-stars and inter-city play",
+          "items": [
+            "Coordinate the baseball all-star program: tournament selection, manager selection support and registration.",
+            "Coordinate inter-city play logistics with other communities, when applicable."
+          ]
+        },
+        {
+          "heading": "Rules",
+          "items": [
+            "Keep baseball supplemental rules current and share them with Division Representatives before each season."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Player evaluations"
+        },
+        {
+          "when": "Late January",
+          "what": "Player drafts and team assignments"
+        },
+        {
+          "when": "May–July",
+          "what": "All-star program"
+        }
+      ],
+      "hours": [
+        20,
+        25,
+        15,
+        15,
+        20,
+        15,
+        15,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "role-16",
+      "num": "16",
+      "group": "General Board",
+      "title": "Equipment Manager – Baseball",
+      "emails": [
+        "baseballequipment@pgpony.org"
+      ],
+      "summary": [
+        "The baseball Equipment Manager owns the league’s baseball gear. Every team gets a safe, complete equipment bag at the start of the season, and every bag comes back at the end."
+      ],
+      "reportsTo": "Baseball Director",
+      "worksWith": "Baseball Board, Shetland Director, Treasurer",
+      "ifVacant": "Duties go to the Baseball Director",
+      "duties": [
+        {
+          "heading": "Inventory and purchasing",
+          "items": [
+            "Take a full inventory of bags, helmets, catcher’s gear, bats and balls after each season.",
+            "Replace damaged or out-of-date gear, especially helmets and catcher’s gear.",
+            "Get at least two bids for purchases over $2,000, per the bylaws, and submit purchase orders through the Treasurer."
+          ]
+        },
+        {
+          "heading": "Distribution",
+          "items": [
+            "Build one equipment bag per baseball team, sized for the division.",
+            "Hand bags to Division Representatives for managers before the first practice.",
+            "Keep extra balls and replacement gear available during the season.",
+            "Include the master key and shed combinations the Softball Director assigns."
+          ]
+        },
+        {
+          "heading": "Storage",
+          "items": [
+            "Keep the baseball equipment sheds organized and locked.",
+            "Collect bags at the end of the season and check them in."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Inventory review; order gear"
+        },
+        {
+          "when": "March",
+          "what": "Bags to teams"
+        },
+        {
+          "when": "June",
+          "what": "Collect and check in bags"
+        },
+        {
+          "when": "Fall",
+          "what": "Repeat spring procedures, when necessary"
+        }
+      ],
+      "hours": [
+        5,
+        20,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        10,
+        5,
+        5,
+        0
+      ]
+    },
+    {
+      "id": "role-17",
+      "num": "17",
+      "group": "General Board",
+      "title": "Fall Baseball Manager",
+      "emails": [
+        "fallbaseballdirector@pgpony.org"
+      ],
+      "summary": [
+        "The Fall Baseball Manager runs the league’s fall program, a shorter, lower-key season focused on development and extra playing time."
+      ],
+      "reportsTo": "Baseball Director",
+      "worksWith": "Technology Director, Field Director, Treasurer",
+      "ifVacant": "Duties go to the Baseball Director",
+      "duties": [
+        {
+          "heading": "Planning",
+          "items": [
+            "Run Fall Ball end-to-end: create the schedule, plan registration and update the board on progress.",
+            "Propose fees and a budget for board approval.",
+            "Secure fall field permits with the Field Director, if applicable."
+          ]
+        },
+        {
+          "heading": "Running the season",
+          "items": [
+            "Set up registration with the Technology Director.",
+            "Recruit managers and form teams.",
+            "Arrange inter-league games with nearby communities where available.",
+            "Coordinate uniforms or shirts with the Uniform Manager."
+          ]
+        },
+        {
+          "heading": "Wrap-up",
+          "items": [
+            "Collect equipment and report results, costs and feedback to the board."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "June",
+          "what": "Fall plan to board"
+        },
+        {
+          "when": "August",
+          "what": "Registration"
+        },
+        {
+          "when": "September–November",
+          "what": "Fall season"
+        }
+      ],
+      "hours": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        10,
+        20,
+        30,
+        30,
+        15,
+        5
+      ]
+    },
+    {
+      "id": "role-18",
+      "num": "18",
+      "group": "General Board",
+      "title": "Softball Operations Manager",
+      "emails": [
+        "softballoperations@pgpony.org"
+      ],
+      "summary": [
+        "The Softball Operations Manager takes day-to-day scheduling and game-day logistics off the Softball Director’s plate, so the Director can focus on managers, drafts and league play."
+      ],
+      "reportsTo": "Softball Director",
+      "worksWith": "Field Director, Umpire Liaison, softball Division Representatives",
+      "ifVacant": "Duties go to the Softball Director",
+      "duties": [
+        {
+          "heading": "Schedules",
+          "items": [
+            "Build softball practice and game schedules with the Softball Director and Field Director.",
+            "Apply school and city blackout dates.",
+            "Reschedule rainouts and post changes with the Webmaster."
+          ]
+        },
+        {
+          "heading": "Game days",
+          "items": [
+            "Confirm fields, field prep, volunteers, umpires and scorekeepers for each game day.",
+            "Be the on-call contact for field or scheduling problems."
+          ]
+        },
+        {
+          "heading": "Records",
+          "items": [
+            "Track game results and standings where divisions keep them.",
+            "Report scheduling issues and recommendations at season end."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "February",
+          "what": "Schedules built"
+        },
+        {
+          "when": "March–June",
+          "what": "Weekly game-day coordination"
+        }
+      ],
+      "hours": [
+        20,
+        30,
+        30,
+        25,
+        25,
+        15,
+        5,
+        5,
+        10,
+        10,
+        10,
+        10
+      ]
+    },
+    {
+      "id": "role-19",
+      "num": "19",
+      "group": "General Board",
+      "title": "Softball Programs Manager",
+      "emails": [
+        "softballprograms@pgpony.org"
+      ],
+      "summary": [
+        "The Softball Programs Manager runs the programs that sit around the regular softball season, including player evaluations, drafts and all-stars, so the Softball Director can focus on managers and the season as a whole."
+      ],
+      "reportsTo": "Softball Director",
+      "worksWith": "Softball Operations Manager, Coach and Player Development, softball Division Representatives",
+      "ifVacant": "Duties go to the Softball Director",
+      "duties": [
+        {
+          "heading": "Evaluations and drafts",
+          "items": [
+            "Organize player evaluation days with the Softball Director: fields, stations, evaluators and sign-in.",
+            "Prepare evaluation results and rosters for the softball drafts.",
+            "Keep the draft process documented and follow it each year for consistency and transparency."
+          ]
+        },
+        {
+          "heading": "All-stars",
+          "items": [
+            "Support the Softball Director with the all-star draft, manager selection, tournament selection and registration."
+          ]
+        },
+        {
+          "heading": "Rules",
+          "items": [
+            "Keep softball supplemental rules current and share them with Division Representatives before each season."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Player evaluations"
+        },
+        {
+          "when": "Late January",
+          "what": "Player drafts and team assignments"
+        },
+        {
+          "when": "May–July",
+          "what": "All-star program"
+        }
+      ],
+      "hours": [
+        20,
+        25,
+        15,
+        15,
+        20,
+        25,
+        15,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "role-20",
+      "num": "20",
+      "group": "General Board",
+      "title": "Equipment Manager – Softball",
+      "emails": [
+        "softballequipment@pgpony.org"
+      ],
+      "summary": [
+        "The softball Equipment Manager owns the league’s softball gear and makes sure every team is equipped safely."
+      ],
+      "reportsTo": "Softball Director",
+      "worksWith": "Softball Board, Treasurer",
+      "ifVacant": "Duties go to the Softball Director",
+      "duties": [
+        {
+          "heading": "Inventory and purchasing",
+          "items": [
+            "Take a full inventory of bags, helmets with face guards, catcher’s gear, bats and balls after each season.",
+            "Replace damaged or out-of-date gear.",
+            "Get at least two bids for purchases over $2,000, per the bylaws, and submit purchase orders through the Treasurer."
+          ]
+        },
+        {
+          "heading": "Distribution",
+          "items": [
+            "Build one equipment bag per softball team, sized for the division.",
+            "Include the master key and shed combinations the Softball Director assigns.",
+            "Hand bags to Division Representatives before the first practice."
+          ]
+        },
+        {
+          "heading": "Storage",
+          "items": [
+            "Keep the softball sheds organized and locked.",
+            "Collect bags at the end of the season and check them in."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Inventory review; order gear"
+        },
+        {
+          "when": "March",
+          "what": "Bags to teams"
+        },
+        {
+          "when": "June",
+          "what": "Collect and check in bags"
+        },
+        {
+          "when": "Fall",
+          "what": "Repeat spring procedures, when necessary"
+        }
+      ],
+      "hours": [
+        5,
+        20,
+        25,
+        10,
+        10,
+        10,
+        5,
+        5,
+        10,
+        5,
+        5,
+        0
+      ]
+    },
+    {
+      "id": "role-21",
+      "num": "21",
+      "group": "General Board",
+      "title": "Concessions Assistant Manager",
+      "emails": [
+        "concessions2@pgpony.org"
+      ],
+      "summary": [
+        "The Concessions Assistant Manager shares the running of the snack bar with the Concessions Director and runs it in the Director’s absence."
+      ],
+      "reportsTo": "Concessions Director",
+      "worksWith": "Concessions Inventory Manager, Division Representatives",
+      "ifVacant": "Duties go to the Concessions Director",
+      "duties": [
+        {
+          "heading": "Game days",
+          "items": [
+            "Open and close the snack bar on assigned days.",
+            "Check in shift volunteers and train new ones.",
+            "Order for and stock concession stands to ensure game days have adequate supplies."
+          ]
+        },
+        {
+          "heading": "Volunteers",
+          "items": [
+            "Assist with volunteer training.",
+            "Fill in for missing volunteer shifts, when feasible and available."
+          ]
+        },
+        {
+          "heading": "Support",
+          "items": [
+            "Keep food safety and cleaning checklists current.",
+            "Step in for the Concessions Director at meetings and events as needed.",
+            "Manage and monitor Square item library."
+          ]
+        },
+        {
+          "heading": "Off-Season",
+          "items": [
+            "Assist with off-season events such as high school, all-star and community tournaments."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "February",
+          "what": "Initial concession stand stock"
+        },
+        {
+          "when": "March–June",
+          "what": "Game-day operation"
+        }
+      ],
+      "hours": [
+        5,
+        10,
+        20,
+        25,
+        25,
+        15,
+        0,
+        0,
+        5,
+        5,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "role-22",
+      "num": "22",
+      "group": "General Board",
+      "title": "Concessions Inventory Manager",
+      "emails": [],
+      "summary": [],
+      "reportsTo": "Concessions Director",
+      "worksWith": "Concessions Assistant Manager, Treasurer",
+      "ifVacant": "Duties go to the Concessions Director",
+      "duties": [
+        {
+          "heading": "Inventory",
+          "items": [
+            "Count stock weekly during the season.",
+            "Rotate stock and track expiration dates.",
+            "Run reports of what sells at each field, and validate against physical stock."
+          ]
+        },
+        {
+          "heading": "Purchasing",
+          "items": [
+            "Order or buy supplies within the approved budget.",
+            "Submit receipts to the Treasurer promptly.",
+            "Compare vendor prices at least once a season."
+          ]
+        },
+        {
+          "heading": "Season close",
+          "items": [
+            "Take a final inventory and store or donate leftover stock.",
+            "Recommend menu and quantity changes for next season."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "February",
+          "what": "Opening inventory and first order"
+        },
+        {
+          "when": "March–June",
+          "what": "Weekly counts"
+        },
+        {
+          "when": "June",
+          "what": "Final inventory"
+        }
+      ],
+      "hours": [
+        2,
+        8,
+        15,
+        20,
+        20,
+        12,
+        2,
+        0,
+        5,
+        5,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "role-23",
+      "num": "23",
+      "group": "General Board",
+      "title": "Field Assistants",
+      "emails": [
+        "fieldassistant1@pgpony.org",
+        "fieldassistant2@pgpony.org"
+      ],
+      "summary": [
+        "Two Field Assistants support the Field Director with hands-on field work through the season. This page covers both seats."
+      ],
+      "reportsTo": "Field Director",
+      "worksWith": "Baseball Board, Softball Board",
+      "ifVacant": "Duties go to the Field Director",
+      "duties": [
+        {
+          "heading": "Field prep",
+          "items": [
+            "Help lead field prep day crews and train volunteers for pre and post-game preparations.",
+            "Drag, line and prep fields for game days as assigned."
+          ]
+        },
+        {
+          "heading": "Maintenance",
+          "items": [
+            "Do weekly field walk-throughs and report hazards to the Field Director.",
+            "Make small repairs to fences, bases, mounds and batting cages.",
+            "Restock chalk and field supplies."
+          ]
+        },
+        {
+          "heading": "Coverage",
+          "items": [
+            "Cover rain checks and field closures when the Field Director is unavailable."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "February",
+          "what": "Field prep day"
+        },
+        {
+          "when": "March–June",
+          "what": "Weekly field work"
+        }
+      ],
+      "hours": [
+        0,
+        10,
+        25,
+        30,
+        30,
+        15,
+        5,
+        5,
+        10,
+        10,
+        5,
+        0
+      ]
+    },
+    {
+      "id": "role-24",
+      "num": "24",
+      "group": "General Board",
+      "title": "Social Media Manager",
+      "emails": [
+        "socialmedia@pgpony.org"
+      ],
+      "summary": [
+        "The Social Media Manager runs the league’s social accounts under the direction of the Communications Director."
+      ],
+      "reportsTo": "Communications Director",
+      "worksWith": "Webmaster, Sponsorship Director, Baseball Board, Softball Board",
+      "ifVacant": "Duties go to the Communications Director",
+      "duties": [
+        {
+          "heading": "Posting",
+          "items": [
+            "Post key dates, reminders and results through the season, about weekly.",
+            "Share game-day photos, with permission from families.",
+            "Thank sponsors on social channels."
+          ]
+        },
+        {
+          "heading": "Standards",
+          "items": [
+            "Follow the brand style guide and the league’s plain, friendly voice.",
+            "Never post a player’s full name with a photo without permission.",
+            "Moderate comments and pass concerns to the Communications Director."
+          ]
+        },
+        {
+          "heading": "Access",
+          "items": [
+            "Keep account logins with the Technology Director."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "December",
+          "what": "Registration posts"
+        },
+        {
+          "when": "March–July",
+          "what": "Weekly posts"
+        }
+      ],
+      "hours": [
+        8,
+        12,
+        12,
+        12,
+        12,
+        8,
+        4,
+        6,
+        8,
+        8,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "role-25",
+      "num": "25",
+      "group": "General Board",
+      "title": "Umpire Liaison",
+      "emails": [],
+      "summary": [
+        "The Umpire Liaison recruits, schedules and supports umpires for the upper divisions. The bylaws treat this seat as preferred but not required."
+      ],
+      "reportsTo": "Baseball Director and Softball Director",
+      "worksWith": "Baseball Board, Softball Board, Treasurer",
+      "ifVacant": "Duties go to the President",
+      "duties": [
+        {
+          "heading": "Scheduling and pay",
+          "items": [
+            "Select the organization(s) for umpire fulfillment.",
+            "Audit umpire trainings.",
+            "Ensure all upper division games have an umpire assigned, with all playoff games having two umpires.",
+            "Keep an assignment record and send it to the Treasurer for umpire payment."
+          ]
+        },
+        {
+          "heading": "Support on the field",
+          "items": [
+            "Be the board contact for umpire concerns and incident reports.",
+            "Enforce the Zero Tolerance Policy that protects umpires, and refer violations to the board."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Finalize umpire approach"
+        },
+        {
+          "when": "March–June",
+          "what": "Weekly assignments"
+        },
+        {
+          "when": "July",
+          "what": "Season report"
+        }
+      ],
+      "hours": [
+        5,
+        15,
+        25,
+        25,
+        25,
+        15,
+        5,
+        5,
+        10,
+        10,
+        5,
+        0
+      ]
+    },
+    {
+      "id": "role-26",
+      "num": "26",
+      "group": "General Board",
+      "title": "Uniform Manager",
+      "emails": [
+        "uniforms@pgpony.org"
+      ],
+      "summary": [
+        "The Uniform Manager handles ordering and distributing uniforms for baseball and softball, working from the specifications the Directors set."
+      ],
+      "reportsTo": "Baseball Director and Softball Director",
+      "worksWith": "Sponsorship Director, Treasurer",
+      "ifVacant": "Duties go to the Vice President",
+      "duties": [
+        {
+          "heading": "Ordering",
+          "items": [
+            "Review proposals and select uniform vendor.",
+            "Collect sizes, numbers and cap or visor choices from each team.",
+            "Get the sponsor list from the Sponsorship Director before ordering.",
+            "Place orders so uniforms arrive seven days before Opening Day."
+          ]
+        },
+        {
+          "heading": "Distribution",
+          "items": [
+            "Sort uniforms by team and hand them to Division Representatives.",
+            "Handle exchanges and reorders."
+          ]
+        },
+        {
+          "heading": "Records",
+          "items": [
+            "Keep order records and size data for next season."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January",
+          "what": "Sizes and orders by end of month"
+        },
+        {
+          "when": "7 days before Opening Day",
+          "what": "Uniforms delivered"
+        }
+      ],
+      "hours": [
+        5,
+        20,
+        20,
+        5,
+        5,
+        0,
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "role-27",
+      "num": "27",
+      "group": "General Board",
+      "title": "Utility Player",
+      "emails": [],
+      "summary": [
+        "The Utility Player is a floating board seat that fills in wherever the league needs help. It is a good first seat for a new board member learning how the league runs."
+      ],
+      "reportsTo": "President",
+      "worksWith": "Any board member",
+      "ifVacant": "Duties go to the President",
+      "duties": [
+        {
+          "heading": "Duties",
+          "items": [
+            "Cover vacant or short-handed roles as the President assigns.",
+            "Staff events such as evaluations, photo day and Opening Day.",
+            "Take on one-time projects the board approves.",
+            "Attend monthly meetings and report on assigned work."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "Year-round",
+          "what": "As assigned"
+        }
+      ],
+      "hours": [
+        5,
+        10,
+        15,
+        15,
+        15,
+        10,
+        5,
+        5,
+        10,
+        10,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "role-28",
+      "num": "28",
+      "group": "General Board",
+      "title": "Webmaster",
+      "emails": [
+        "webmaster@pgpony.org"
+      ],
+      "summary": [
+        "The Webmaster keeps pgpony.com accurate. Parents rely on the site for dates, field status, policies and board contacts, so it must stay current."
+      ],
+      "reportsTo": "Technology Director",
+      "worksWith": "Secretary, Communications Director, Sponsorship Director, Field Director",
+      "ifVacant": "Duties go to the Technology Director",
+      "duties": [
+        {
+          "heading": "Content",
+          "items": [
+            "Post approved minutes and dates from the Secretary.",
+            "Keep board contacts, bylaws, policies and committee pages current.",
+            "Update field status for George Washington Park, Muni Ballpark and Arnett Park.",
+            "Keep the sponsor section current with the Sponsorship Director."
+          ]
+        },
+        {
+          "heading": "Registration",
+          "items": [
+            "Publish registration pages and dates the Technology Director sets up."
+          ]
+        },
+        {
+          "heading": "Upkeep",
+          "items": [
+            "Remove outdated pages and fix broken links each season."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "August",
+          "what": "Update board contacts"
+        },
+        {
+          "when": "October",
+          "what": "Registration pages live"
+        },
+        {
+          "when": "Monthly",
+          "what": "Post minutes, meeting dates, and any other relevant information"
+        }
+      ],
+      "hours": [
+        10,
+        15,
+        10,
+        8,
+        8,
+        6,
+        4,
+        6,
+        8,
+        8,
+        8,
+        10
+      ]
+    },
+    {
+      "id": "role-29",
+      "num": "29",
+      "group": "General Board",
+      "title": "Division Representatives",
+      "emails": [
+        "pintorep@pgpony.org",
+        "mustangrep@pgpony.org",
+        "broncorep@pgpony.org",
+        "ponyrep@pgpony.org",
+        "sof-t-ball@pgpony.org",
+        "prerookiesrep@pgpony.org",
+        "rookiesrep@pgpony.org",
+        "minorsrep@pgpony.org",
+        "majorsrep@pgpony.org"
+      ],
+      "summary": [
+        "Each division has one Representative. The Representative is the link between the board and the managers and families in that division."
+      ],
+      "reportsTo": "Baseball Director or Softball Director",
+      "worksWith": "Managers in the division, Equipment Managers, Umpire Liaison",
+      "ifVacant": "Duties go to the Baseball Director (baseball divisions) and Softball Director (softball divisions)",
+      "duties": [
+        {
+          "heading": "Before the season",
+          "items": [
+            "Help recruit managers and coaches.",
+            "Help run player evaluations and the draft or team placement.",
+            "Hand out equipment bags, keys, combinations, schedules and supplemental rules to managers.",
+            "Hold a short pre-season meeting on rules, the Zero Tolerance Policy and the Child Safety Policy."
+          ]
+        },
+        {
+          "heading": "During the season",
+          "items": [
+            "Be the first contact for managers and parents in the division.",
+            "Deliver photos and sponsor plaques from the Vice President to managers.",
+            "Track rainouts and make-up games.",
+            "Attend the monthly board meeting and report on the division."
+          ]
+        },
+        {
+          "heading": "After the season",
+          "items": [
+            "Help organize all-star selection.",
+            "Collect equipment bags and return them to the Equipment Manager.",
+            "Gather manager feedback for the Rules and Regulations Committee."
+          ]
+        }
+      ],
+      "keyDates": [
+        {
+          "when": "January–February",
+          "what": "Evaluations, draft, manager kits"
+        },
+        {
+          "when": "March–May",
+          "what": "Season contact"
+        },
+        {
+          "when": "June",
+          "what": "Collect equipment; feedback"
+        }
+      ],
+      "hours": [
+        5,
+        15,
+        25,
+        25,
+        25,
+        10,
+        0,
+        0,
+        5,
+        5,
+        0,
+        0
+      ]
+    }
+  ]
+}

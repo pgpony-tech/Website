@@ -1,0 +1,97 @@
+---
+layout: layout.njk
+title: Board Roles
+permalink: /board-roles/
+description: "What each Pacific Grove PONY board position is responsible for through the year, from the Executive Board to the Division Representatives."
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/section-heading.njk" import sectionHeading %}
+{% from "components/card.njk" import card %}
+{% from "components/badge.njk" import badge %}
+{% set months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] %}
+{% set written = boardRoles.roles | roleIds %}
+
+<div class="page-header page-header--black">
+  <div class="page-header__watermark">
+    <img src="/assets/logos/symbol-color-light.png" alt="">
+  </div>
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "About", href: "/about/" }, { label: "Board Roles" }]) }}
+    <h1>Board position duties and responsibilities</h1>
+    {% for p in boardRoles.intro %}<p>{{ p }}</p>{% endfor %}
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
+  <div id="main-top"></div>
+  {{ sectionHeading(eyebrow="Jump to a role", title="Board positions") }}
+  <div class="grid-2 mb-9">
+    {% for groupName in ["Executive Board", "General Board"] %}
+    {% call card(accentBar=true) %}
+    <span class="eyebrow">{{ groupName }}</span>
+    <ol class="duty-toc">
+      {% for t in boardRoles.toc %}{% if t.group == groupName %}
+      <li><span class="duty-toc__num">{{ t.num }}</span>{% if t.id in written %}<a href="#{{ t.id }}">{{ t.title }}</a>{% else %}<span class="duty-toc__pending">{{ t.title }}</span>{% endif %}</li>
+      {% endif %}{% endfor %}
+    </ol>
+    {% endcall %}
+    {% endfor %}
+  </div>
+
+  {{ sectionHeading(eyebrow="Who runs each sport", title=boardRoles.boardsHeading, description=boardRoles.boardsIntro) }}
+  <div class="grid-2 mb-6">
+    {% for b in boardRoles.sportBoards %}
+    {% call card(variant="flat") %}
+    <span class="eyebrow">{{ b.name }}</span>
+    <ul class="sport-board">
+      {% for m in b.members %}<li>{{ m.role }}{% if m.lead %} {{ badge("Lead", tone="gold", size="sm") }}{% endif %}</li>{% endfor %}
+    </ul>
+    {% endcall %}
+    {% endfor %}
+  </div>
+  <div class="alert alert--info mb-9">
+    <div class="alert__body">
+      <span class="alert__title">Board meetings</span>
+      {% for p in boardRoles.meetings %}<p class="alert__message">{{ p }}</p>{% endfor %}
+    </div>
+  </div>
+
+  {% for r in boardRoles.roles %}
+  <section class="duty" id="{{ r.id }}">
+    <span class="duty__kicker">{{ r.num }} · {{ r.group }}</span>
+    <h2 class="duty__title">{{ r.title }}</h2>
+    {% if r.emails.length %}<p class="duty__emails">{% for e in r.emails %}<a href="mailto:{{ e }}">{{ e }}</a>{% endfor %}</p>{% endif %}
+    {% for p in r.summary %}<p class="duty__summary">{{ p | safe }}</p>{% endfor %}
+
+    <dl class="duty__meta">
+      <div><dt>Reports to</dt><dd>{{ r.reportsTo }}</dd></div>
+      <div><dt>Works with</dt><dd>{{ r.worksWith }}</dd></div>
+      {% if r.ifVacant %}<div class="duty__meta-vacant"><dt>If vacant</dt><dd>{{ r.ifVacant }}</dd></div>{% endif %}
+    </dl>
+
+    <div class="duty__groups">
+      {% for g in r.duties %}
+      <div class="duty__group">
+        <h3>{{ g.heading }}</h3>
+        <ul>{% for item in g.items %}<li>{{ item | safe }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if r.keyDates.length %}
+    <span class="duty__label">Key dates</span>
+    <table class="duty__dates">
+      <tbody>{% for k in r.keyDates %}<tr><th scope="row">{{ k.when }}</th><td>{{ k.what | safe }}</td></tr>{% endfor %}</tbody>
+    </table>
+    {% endif %}
+
+    {% if r.hours.length %}
+    <span class="duty__label">Estimated time commitment · hours per month</span>
+    <ol class="duty__hours">
+      {% for h in r.hours %}<li><span>{{ months[loop.index0] }}</span><strong>{{ h }}</strong></li>{% endfor %}
+    </ol>
+    {% endif %}
+    <a class="duty__top" href="#main-top">Back to all roles ↑</a>
+  </section>
+  {% endfor %}
+</div>

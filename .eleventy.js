@@ -27,6 +27,26 @@ module.exports = function (eleventyConfig) {
       .find((p) => p.role === person.coveredBy) || null;
   });
 
+  // Board role -> anchor on /board-roles/ for that role's duties. Keys are
+  // normalized titles (and aliases) so "Coach & Player Development" or
+  // "Field Assistant 1" still match; src/js/live-data.js normalizes the same way.
+  const roleKey = (s) => String(s).toLowerCase().replace(/&/g, "and").replace(/[\u2013\u2014]/g, "-").replace(/\s+\d+$/, "").replace(/s$/, "").replace(/\s+/g, " ").trim();
+  eleventyConfig.addFilter("dutyLinks", (boardRoles) => {
+    const written = new Set(boardRoles.roles.map((r) => r.id));
+    const links = {};
+    for (const t of boardRoles.toc) {
+      if (!written.has(t.id)) continue;
+      for (const title of [t.title, ...(t.aliases || [])]) links[roleKey(title)] = t.id;
+    }
+    return links;
+  });
+  eleventyConfig.addFilter("roleIds", (roles) => roles.map((r) => r.id));
+  // Division reps share one duties section; everyone else is looked up by title.
+  eleventyConfig.addFilter("dutyHref", (role, links, isRep) => {
+    const id = links[roleKey(isRep ? "Division Representatives" : role)];
+    return id ? `/board-roles/#${id}` : "";
+  });
+
   // Marks which sport a division belongs to on its red ribbon.
   eleventyConfig.addFilter("sportEmoji", (sport) => (sport === "Softball" ? "🥎" : "⚾"));
 

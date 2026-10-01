@@ -1,0 +1,47 @@
+---
+layout: layout.njk
+title: About
+permalink: /about/
+description: "About Pacific Grove PONY — an all-volunteer youth baseball and softball league for ages 4–14, playing in Pacific Grove since 1974."
+---
+{% from "components/breadcrumbs.njk" import breadcrumbs %}
+{% from "components/section-heading.njk" import sectionHeading %}
+
+{% set sections = [
+  { title: "Board Roles", href: "/board-roles/", photo: "team-baseball-medals.jpg", description: "What each board position is responsible for, from the executive board to the division reps." },
+  { title: "Board of Directors", href: "/board/", photo: "softball-team-jump.jpg", description: "Who holds each board role this season, and how to reach them." }
+] %}
+
+<div class="page-header page-header--black">
+  <div class="page-header__watermark">
+    <img src="/assets/logos/symbol-color-light.png" alt="">
+  </div>
+  <div class="page-header__inner">
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "About" }]) }}
+    <h1>Pacific Grove's ballpark since {{ site.founded }}</h1>
+    <p>Pacific Grove PONY has been the town's youth baseball and softball league for over 50 years: from a first swing off the tee to a last season in the Pony and Majors divisions.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
+  <div class="about-intro">
+    {{ sectionHeading(eyebrow="Who we are", title="Baseball and softball for every kid") }}
+    <p>Since {{ site.founded }}, Pacific Grove PONY has given local kids ages 4–14 a place to learn the game, from tee ball and Sof-T-Ball for our youngest players to 14U Pony baseball and Majors softball. Every skill level is welcome, and every player gets a spot on a team.</p>
+    <p>We're part of PONY Baseball and Softball, and we play our home games on fields here in Pacific Grove. After the spring season, our All-Star teams represent the town in tournaments around the Monterey Peninsula and beyond.</p>
+    <p>The league is run entirely by volunteers. Board members, coaches, team parents, scorekeepers and concessions crews are all parents and neighbors giving their time. Our mission is to instill in the youth of the community the ideals of good sportsmanship, honesty, loyalty, courage and respect for themselves and others. Winning games is secondary to improved skill and to the development of stronger and happier youth.</p>
+  </div>
+
+  <div class="grid-2 mt-9">
+    {% for s in sections %}
+    <a class="play-card" href="{{ s.href }}">
+      <img class="play-card__photo" src="/assets/photos/{{ s.photo }}" alt="" loading="lazy">
+      <div class="play-card__body">
+        <h2 class="play-card__title">{{ s.title }}</h2>
+        <p class="play-card__desc">{{ s.description }}</p>
+        <span class="play-card__cta">Go to {{ s.title }} →</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="play-more">Also in About: <a href="/policies/">League policies</a> · <a href="/coaching-philosophy/">Coaching philosophy</a></p>
+</div>

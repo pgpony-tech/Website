@@ -3,6 +3,8 @@ layout: layout.njk
 title: Board of Directors
 permalink: /board/
 description: "Pacific Grove PONY's all-volunteer Board of Directors — who they are and how to reach them."
+extraScripts:
+  - /js/board-filter.js
 ---
 {% from "components/breadcrumbs.njk" import breadcrumbs %}
 {% from "components/section-heading.njk" import sectionHeading %}
@@ -15,14 +17,29 @@ description: "Pacific Grove PONY's all-volunteer Board of Directors — who they
     <img src="/assets/logos/symbol-color-light.png" alt="">
   </div>
   <div class="page-header__inner">
-    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "Help", href: "/volunteer/" }, { label: "Board of Directors" }]) }}
+    {{ breadcrumbs([{ label: "Home", href: "/" }, { label: "About", href: "/about/" }, { label: "Board of Directors" }]) }}
     <h1>All Volunteer Board of Directors</h1>
     <p>Every board member is an unpaid volunteer. The board meets monthly to run the league: registration, fields, umpires, equipment, sponsors and everything in between.</p>
   </div>
 </div>
 
 <div class="container" style="padding-top:var(--space-10);padding-bottom:var(--space-12);">
-    <div id="board-content">
+    <div class="board-filter mb-9" role="search">
+      <div class="board-filter__search">
+        <label class="field__label" for="board-search">Search the board</label>
+        <input id="board-search" class="input" type="search" placeholder="Try “baseball”, a name or an email" autocomplete="off">
+      </div>
+      <div class="board-filter__view">
+        <span class="field__label" id="board-view-label">Show</span>
+        <div class="segmented" role="group" aria-labelledby="board-view-label">
+          <button type="button" class="segmented__btn is-active" data-board-view="all" aria-pressed="true">All roles</button>
+          <button type="button" class="segmented__btn" data-board-view="vacant" aria-pressed="false">Vacant only</button>
+        </div>
+      </div>
+      <p class="board-filter__count" id="board-filter-count" aria-live="polite"></p>
+    </div>
+    {% set dutyLinks = boardRoles | dutyLinks %}
+    <div id="board-content" data-duty-links="{{ dutyLinks | dump }}">
     {{ sectionHeading(eyebrow=board.termLabel, title="Who to contact", description=board.votedIn + " · Last updated " + board.lastUpdated) }}
 
     <div class="alert alert--info mb-9">
@@ -34,24 +51,25 @@ description: "Pacific Grove PONY's all-volunteer Board of Directors — who they
 
     <h3 style="text-transform:uppercase;">Executive board</h3>
     <div class="grid-3 mb-9">
-      {% for person in board.executive %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
+      {% for person in board.executive %}{{ personCard(person.role, person.name, person.email, person | coverer(board), person.role | dutyHref(dutyLinks, false)) }}{% endfor %}
     </div>
 
     <h3 style="text-transform:uppercase;">General board</h3>
     <div class="grid-3 mb-9">
-      {% for person in board.general %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
+      {% for person in board.general %}{{ personCard(person.role, person.name, person.email, person | coverer(board), person.role | dutyHref(dutyLinks, false)) }}{% endfor %}
     </div>
 
     <h3 style="text-transform:uppercase;">Division representatives</h3>
     <span class="eyebrow">Baseball reps</span>
     <div class="grid-4 mb-6">
-      {% for person in board.baseballReps %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
+      {% for person in board.baseballReps %}{{ personCard(person.role, person.name, person.email, person | coverer(board), person.role | dutyHref(dutyLinks, true)) }}{% endfor %}
     </div>
     <span class="eyebrow">Softball reps</span>
     <div class="grid-4">
-      {% for person in board.softballReps %}{{ personCard(person.role, person.name, person.email, person | coverer(board)) }}{% endfor %}
+      {% for person in board.softballReps %}{{ personCard(person.role, person.name, person.email, person | coverer(board), person.role | dutyHref(dutyLinks, true)) }}{% endfor %}
     </div>
     </div>
+    <p class="text-muted" id="board-empty" hidden>No board roles match. Try a different search, or switch to All roles.</p>
 
   <div class="grid-2 mt-11">
     {% call card(accentBar=true) %}
@@ -62,7 +80,7 @@ description: "Pacific Grove PONY's all-volunteer Board of Directors — who they
     {% call card(accentBar=true) %}
     <h3 style="text-transform:uppercase;">Board Duties</h3>
     <p style="margin:0 0 var(--space-4);">What each board position is responsible for.</p>
-    {{ button(label="League policies", href="/policies/#board-duties", variant="secondary", size="sm") }}
+    {{ button(label="Board roles", href="/board-roles/", variant="secondary", size="sm") }}
     {% endcall %}
   </div>
 

@@ -22,6 +22,8 @@ module.exports = class {
         { title: "Schedule", href: "/schedule/", about: "Field status (rainouts/closures), key dates calendar, game schedules and scores on GameChanger" },
         { title: "Fields", href: "/fields/", about: "Field locations, which divisions use each field, concession stands, Google Maps directions" },
         { title: "All-Stars", href: "/all-stars/", about: "All-Star teams: sign-up, selection, cost, time commitment, tournaments" },
+        { title: "About", href: "/about/", about: "Introduction to PG PONY: history since 1974, baseball and softball for ages 4–14, all-volunteer league, mission" },
+        { title: "Board roles", href: "/board-roles/", about: "What each board position is responsible for" },
         { title: "Volunteer", href: "/volunteer/", about: "Volunteer roles: coaches, team parents, scorekeepers, concessions, field prep, board members; coaching philosophy" },
         { title: "Board of Directors", href: "/board/", about: "Every board member's role and email address" },
         { title: "Coaching philosophy", href: "/coaching-philosophy/", about: "What the league expects of coaches" },

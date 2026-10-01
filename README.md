@@ -33,6 +33,9 @@ npm run build     # one-shot build to _site/
   **seed/fallback** copies of data that's actually live-edited in Cloudflare KV (see below).
   What's committed here is what renders before the client-side fetch resolves (or if it fails),
   so it's worth keeping roughly in sync, but it's not the source of truth once the site is live.
+- `src/_data/boardRoles.json` — board position duties for `/board-roles/`, converted from the
+  "PG PONY Board Duties" Claude Design document. Build-time only (not in KV). Board page cards
+  link to each role's section by title; `toc[].aliases` covers roster titles that differ.
 - `src/css/` — design tokens ported from the league's design system, then base/component/
   layout/page styles
 - `src/js/` — mobile nav toggle, tab switching, the schedule's division filter, and
